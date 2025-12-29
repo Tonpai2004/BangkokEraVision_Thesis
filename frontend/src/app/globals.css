@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-cream: #F0EAD6;
+  --text-dark: #2C2C2C;
+  --accent-red: #D84335;
+  --accent-gold: #E3C565;
+}
+
+body {
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  font-family: var(--font-courier), monospace;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.05' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+h1, h2, h3, .serif-font {
+  font-family: var(--font-playfair), serif;
+}
+
+/* --- เพิ่มใหม่ตรงนี้ครับ (Custom Utility) --- */
+.text-shadow-retro {
+  text-shadow: 2px 2px 0px var(--accent-gold);
+}
+
+.dashed-box-container {
+  position: relative;
+  padding: 2rem;
+  background-color: transparent;
+}
+
+.dashed-box-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='0' ry='0' stroke='%232C2C2C' stroke-width='2' stroke-dasharray='10%2c 10' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  pointer-events: none;
+}
+
+.thin-line {
+  border: none;
+  border-top: 2px solid #2C2C2C;
+  margin: 0.5rem 0;
+  opacity: 0.8;
+}
+
+.thai-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 2.5rem 0;
+  color: #2C2C2C;
+}
+.thai-divider::before,
+.thai-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 3px solid #2C2C2C;
+  border-top: 1px solid #2C2C2C;
+  height: 4px;
+}
+.thai-divider span {
+  margin: 0 1.5rem;
+  font-size: 2.5rem;
+  line-height: 0;
+  font-family: var(--font-playfair), serif;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-cream); }
+::-webkit-scrollbar-thumb { background: var(--text-dark); }
