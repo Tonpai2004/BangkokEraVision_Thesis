@@ -11,7 +11,7 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)  # อนุญาตให้ Frontend (Next.js) เรียกใช้งาน API ได้
 
-# --- 2. Historical Data Configuration ---
+# --- 2. Historical Data Configuration (Bangkok EraVision 1960s) ---
 
 LOCATION_INFO = {
     "อนุสาวรีย์ประชาธิปไตย": {
@@ -47,6 +47,8 @@ LOCATION_INFO = {
         "desc_60s": "วังหน้าในบรรยากาศร่มรื่นด้วยต้นไม้ใหญ่หนาทึบ อาคารเก่าแก่สีขาวหม่นดูขลังและเงียบสงบ"
     }
 }
+
+# --- 3. The Master Prompt Database (Strict 1960s Context) ---
 
 LOCATION_PROMPTS = {
     "Democracy Monument": """
@@ -102,7 +104,7 @@ LOCATION_PROMPTS = {
         **CONCEPT (The Rice Market):**
         - **Activity:** A quiet wholesale trade street. **NO TOURISTS**.
         - **Buildings:** Old wooden row houses (2 stories). Folding wooden doors (Baan Fiam).
-        - **Props:** Piles of **Hemp Rice Sacks** (Gunny sacks) stacked in front of shops. Ancient weighing scales.
+        - **Props:** Piles of **Hemp Rice Sacks** (Gunny sacks) stacked in front of shops. White rice dust on the floor.
         - **Lighting:** Natural daylight or dim tungsten street lamps.
         - **Vibe:** Domestic, slow-paced, dusty.
     """,
@@ -136,7 +138,7 @@ LOCATION_PROMPTS = {
     """
 }
 
-# --- 3. Helper Functions ---
+# --- 4. Helper Functions ---
 
 def get_client():
     api_key = os.getenv("GEMINI_API_KEY")
@@ -145,6 +147,9 @@ def get_client():
     return genai.Client(api_key=api_key)
 
 def step1_analyze(client, img_bytes):
+    """
+    วิเคราะห์โครงสร้างภาพเพื่อรักษา Perspective ให้แม่นยำ
+    """
     prompt = """
     Analyze the image structure for a historical transformation.
     1. Identify the rigid architectural lines (building edges, horizons).
@@ -163,6 +168,8 @@ def step1_analyze(client, img_bytes):
 
 def step2_generate(client, structure_desc, location_key, original_img_bytes):
     specific_prompt = LOCATION_PROMPTS.get(location_key, "")
+    
+    # Master Instruction: ผสานภาพจริงกับบริบทปี 60s
     final_prompt = f"""
     {specific_prompt}
     
@@ -180,6 +187,7 @@ def step2_generate(client, structure_desc, location_key, original_img_bytes):
     - Modern clothing, Smartphones, Tourists with backpacks.
     - Saturation too high, HDR effects.
     """
+    
     try:
         response = client.models.generate_content(
             model="nano-banana-pro-preview", # หรือ imagen-3.0-generate-001 ตามที่คุณมีสิทธิ์
@@ -192,15 +200,17 @@ def step2_generate(client, structure_desc, location_key, original_img_bytes):
                 temperature=0.25
             )
         )
+        
         for part in response.candidates[0].content.parts:
             if part.inline_data:
                 return part.inline_data.data
         return None
+
     except Exception as e:
         print(f"Generation Error: {e}")
         return None
 
-# --- 4. Routes ---
+# --- 5. Routes ---
 @app.route('/process', methods=['POST'])
 def process_image():
     try:
