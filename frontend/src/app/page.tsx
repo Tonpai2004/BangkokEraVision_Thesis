@@ -36,16 +36,16 @@ export default function Home() {
   };
 
   return (
-    <main className="w-full max-w-3xl px-6 pb-20 mx-auto">
+    <main className="w-full px-10 pb-20 mx-auto">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="mb-12">
-        <h1 className="bg-dark text-background p-3 text-center text-xl md:text-2xl font-bold tracking-[0.2em] mb-8 font-mono shadow-[6px_6px_0px_#D4B666]">
+      <section className="mt-0 mb-0 md:mt-10 md:mb-7">
+        <h1 className="bg-dark text-background p-3 text-center text-xl md:text-5xl text-white font-bold tracking-[0.2em] mb-8 py-8 font-mono">
           WHAT IS BANGKOK ERAVISION?
         </h1>
-        <div className="flex flex-col md:flex-row gap-8 items-start">
-           <div className="w-full md:w-[260px] h-[260px] bg-gold shrink-0 border-[3px] border-dark flex items-center justify-center relative shadow-md">
+        <div className="flex flex-col md:flex-row gap-8 items-start mt-10">
+           <div className="w-full md:w-[670px] md:h-[490px] bg-gold shrink-0 border-[3px] border-dark flex items-center justify-center relative shadow-md">
               <span className="opacity-30 text-5xl font-serif font-bold rotate-[-15deg]">1960s</span>
            </div>
            
@@ -91,7 +91,7 @@ export default function Home() {
       )}
 
       {/* Ornament Divider */}
-      <div className="flex items-center justify-center my-12 px-4 opacity-80">
+      <div className="flex items-center justify-center mb-12">
         <div className="h-[2px] bg-dark flex-1"></div>
         <span className="mx-6 text-3xl font-serif">⚜</span>
         <div className="h-[2px] bg-dark flex-1"></div>

@@ -97,32 +97,32 @@ export default function UploadSection({ onAnalysisResult }: UploadSectionProps) 
 
   return (
     <>
-      <form onSubmit={handleGenerate} className="w-full max-w-2xl mx-auto mt-8">
+      <form onSubmit={handleGenerate} className="w-full mx-auto mt-8">
         
         {/* กรอบเส้นประ */}
         <div className="dashed-box-container">
             {/* Location Select */}
-            <div className="flex justify-between items-end py-2 font-bold text-xl md:text-2xl serif-font">
+            <div className="flex justify-between items-end py-2 font-bold text-xl md:text-2xl serif-font border-b-2 border-dark">
             <label htmlFor="location-select" className="whitespace-nowrap mr-4">Choose a location</label>
-            <div className="relative w-full flex-1 border-b-2 border-dark">
+            <div className="relative w-full flex-1">
                 <select 
                     id="location-select"
                     value={selectedLocation} 
                     onChange={(e) => setSelectedLocation(e.target.value)}
-                    className="w-full bg-transparent border-none outline-none text-right font-serif font-bold cursor-pointer appearance-none pr-8 pb-1 truncate text-dark"
+                    className="w-full bg-transparent border-none outline-none text-right font-serif font-bold cursor-pointer appearance-none pr-8 truncate text-dark"
                     required
                 >
                     <option value="" disabled></option>
                     {LOCATIONS.map(loc => <option key={loc} value={loc}>{loc}</option>)}
                 </select>
-                <span className="absolute right-0 bottom-2 pointer-events-none text-sm">▼</span>
+                <span className="absolute right-0 bottom-2 pointer-events-none text-sm ">▼</span>
             </div>
             </div>
             
-            <div className="h-6"></div> {/* Spacer */}
+            <div className="h-1"></div> {/* Spacer */}
 
             {/* File Upload Header */}
-            <div className="flex justify-between items-end py-2 font-bold text-xl md:text-2xl serif-font border-b-2 border-dark relative">
+            <div className="flex justify-between items-end pb-2 font-bold text-xl md:text-2xl mb-3 serif-font border-b-2 border-dark relative">
                 <label htmlFor="file-upload" className="flex-1">Upload your Photo</label>
                 
                 <button 
@@ -141,8 +141,7 @@ export default function UploadSection({ onAnalysisResult }: UploadSectionProps) 
 
             {/* Drop Zone / Preview */}
             <div 
-                // แก้ไขบรรทัดนี้: เปลี่ยนจาก border-transparent เป็น border-dashed border-gray-400
-                className="min-h-[250px] flex justify-center items-center cursor-pointer hover:bg-[#EAE7DB] transition-colors border-2 border-dashed border-gray-400 hover:border-dark p-4"
+                className="min-h-[250px] flex justify-center items-center cursor-pointer transition-colors border-2 border-transparent p-4"
                 onClick={() => fileInputRef.current?.click()}
                 role="button"
                 tabIndex={0}
@@ -151,7 +150,7 @@ export default function UploadSection({ onAnalysisResult }: UploadSectionProps) 
                 {preview ? (
                     <img src={preview} alt="Preview" className="max-h-[300px] w-auto object-contain border-2 border-dark shadow-md" />
                 ) : (
-                    <div className="flex flex-col items-center opacity-50">
+                    <div className="flex flex-col items-center opacity-50 hover:opacity-80 transition-opacity">
                         <span className="text-6xl mb-2">⬆</span>
                         <span className="text-sm font-mono">Click or Drag photo here</span>
                     </div>
@@ -163,7 +162,7 @@ export default function UploadSection({ onAnalysisResult }: UploadSectionProps) 
         <button 
             type="submit" 
             disabled={verifying || generating}
-            className="w-full mt-8 bg-accent hover:bg-accent-hover text-white py-4 text-2xl md:text-3xl serif-font transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-[4px_4px_0px_#2C2C2C] active:translate-y-[2px] active:shadow-[2px_2px_0px_#2C2C2C]"
+            className="w-full mt-8 bg-dark text-white text-bold py-4 text-2xl md:text-3xl serif-font transition-colors disabled:opacity-50 disabled:cursor-not-allowed active:translate-y-[2px] active:shadow-[2px_2px_0px_#2C2C2C]"
         >
             {verifying ? "VERIFYING..." : generating ? "GENERATING..." : "GENERATE"}
         </button>

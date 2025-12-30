@@ -33,7 +33,7 @@ export default function RootLayout({
     <html lang="en" className={`${courier.variable} ${playfair.variable}`}>
       <body className="min-h-screen flex flex-col items-center antialiased overflow-x-hidden">
         {/* Container หลักเพื่อคุมความกว้างให้เหมือน Design */}
-        <div className="w-full max-w-[800px] flex flex-col items-center">
+        <div className="w-full max-w-[1440px] flex flex-col items-center">
           {children}
         </div>
       </body>

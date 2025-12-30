@@ -72,6 +72,11 @@ h1, h2, h3, .serif-font {
   font-family: var(--font-playfair), serif;
 }
 
+.whatis{
+  font-size: 3rem !important;
+  color: white !important;;
+}
+
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg-cream); }
 ::-webkit-scrollbar-thumb { background: var(--text-dark); }
