@@ -1,11 +1,21 @@
+"use client"; // <--- เพิ่ม
+
 import Navbar from "@/components/Navbar";
+import { useState } from "react"; // <--- เพิ่ม
 
 export default function MapPage() {
+  // 1. เพิ่ม State
+  const [language, setLanguage] = useState<'TH' | 'ENG'>('ENG');
+
   return (
-    <main className="w-full max-w-4xl px-6 pb-20">
-      <Navbar />
+    <main className="w-full max-w-4xl px-6 pb-20 mx-auto">
+      {/* 2. ส่ง Props ให้ Navbar */}
+      <Navbar 
+        language={language} 
+        onLanguageChange={setLanguage} 
+      />
       
-      <h1 className="text-center text-4xl md:text-5xl serif-font font-bold mb-10 italic">
+      <h1 className="text-center text-4xl md:text-5xl serif-font font-bold mb-10 mt-10 italic">
         Historical Map
       </h1>
 

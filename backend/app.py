@@ -7,7 +7,7 @@ from google import genai
 from google.genai import types
 from flask_cors import CORS
 
-# Import Classifier ที่คุณสร้างไว้
+# Import Classifier ที่คุณสร้างไว้ (จาก Code 1)
 from classifier import classify_image
 
 # --- 1. Setup ---
@@ -18,6 +18,7 @@ CORS(app)  # อนุญาตให้ Frontend (Next.js) เรียกใ�
 # --- 2. Historical Data Configuration ---
 
 # Mapping ชื่อไทย (จาก Frontend) -> ชื่ออังกฤษ (สำหรับ Classifier)
+# (ส่วนนี้คงไว้จาก Code 1 เพื่อให้ระบบ Verify ทำงานได้)
 LOCATION_MAPPING_TH_TO_EN = {
     "อนุสาวรีย์ประชาธิปไตย": "Ratchadamnoen Avenue – Democracy Monument",
     "ศาลาเฉลิมกรุง": "Sala Chalermkrung Royal Theatre",
@@ -29,126 +30,154 @@ LOCATION_MAPPING_TH_TO_EN = {
     "พิพิธภัณฑสถานแห่งชาติ": "National Museum Bangkok"
 }
 
+# ข้อมูลคำบรรยายภาษาไทย (อัปเดตจาก Code 2)
 LOCATION_INFO = {
     "อนุสาวรีย์ประชาธิปไตย": {
         "prompt_key": "Democracy Monument",
-        "desc_60s": "อนุสาวรีย์ปูนปั้นสีครีมด้าน พานรัฐธรรมนูญสีดำรมดำ ตั้งตระหง่านกลางถนนราชดำเนินที่ไร้สะพานลอย"
+        "desc_60s": "ตัวอนุสาวรีย์สีครีมปูนชัดเจน พานรัฐธรรมนูญสีโลหะรมดำ ประตูสีแดงชาด อาคารราชดำเนินสีส้มอิฐ ถนนกว้างไร้เส้นจราจร"
     },
     "ศาลาเฉลิมกรุง": {
         "prompt_key": "Sala Chalermkrung",
-        "desc_60s": "โรงมหรสพหลวงยุคโก๋หลังวัง หน้าโรงติดตั้งคัตเอาท์ยักษ์เรื่อง 'บางกอกทวิกาล' โดยฝีมือช่างวาดสีน้ำมันชั้นครู"
+        "desc_60s": "โรงมหรสพหลวงยุคโก๋หลังวัง อาคารสีขาวครีมที่มีคราบฝน โดดเด่นด้วย 'คัตเอาท์ยักษ์วาดมือ' เรื่อง 'บางกอกทวิกาล' หน้าโรง พร้อมดารานำชายสองสไตล์ บรรยากาศรอบข้างคึกคักด้วยวัยรุ่นยุค 60s รถแท็กซี่เฟียต และรถรางวิ่งผ่านหน้าโรง"
     },
     "เสาชิงช้า & วัดสุทัศน์": {
         "prompt_key": "Giant Swing",
-        "desc_60s": "เสาชิงช้าไม้สักตั้งอยู่บนพื้นถนนยางมะตอย รถยนต์สามารถขับลอดผ่านขาเสาได้ ไม่มีเกาะกลางกั้น"
+        "desc_60s": "เสาชิงช้ามีฐานปูนชัดเจน รถวิ่งอ้อมฐานห้ามลอดผ่าน ไม่มีรถราง ถนนลูกรัง วัดสุทัศน์ดูเก่าแก่ตามกาลเวลา"
     },
     "เยาวราช": {
         "prompt_key": "Yaowarat",
-        "desc_60s": "ย่านการค้าชาวจีนที่คึกคักด้วยรถรางและป้ายร้านค้าไม้แกะสลัก ผสมผสานกับแสงไฟนีออนดัดยุคแรก"
+        "desc_60s": "รถรางโปร่งแบบเปิดข้างวิ่งชิดขอบทาง ป้ายร้านค้าแนบตึกไม่ยื่นรกตา ตึกแถวเก่าแก่ บรรยากาศการค้าขายแบบดั้งเดิม"
     },
     "ถนนข้าวสาร": {
         "prompt_key": "Khaosan Road",
-        "desc_60s": "ตรอกค้าขายข้าวสารที่เงียบสงบ เต็มไปด้วยห้องแถวไม้และกระสอบข้าวเปลือก ยามค่ำคืนมีเพียงแสงไฟสลัว"
+        "desc_60s": "ชุมชนบางลำพูย่านค้าข้าวสาร ห้องแถวไม้ประตูบานเฟี้ยม มีกระสอบข้าววางหน้าร้าน บรรยากาศเงียบสงบแบบย่านพักอาศัย ไม่ใช่ย่านท่องเที่ยว"
     },
     "ป้อมพระสุเมรุ": {
         "prompt_key": "Phra Sumen Fort",
-        "desc_60s": "ป้อมปราการเก่าแก่ริมน้ำที่ถูกรายล้อมด้วยชุมชนบ้านไม้และเพิงสังกะสีอย่างชิดใกล้ สะท้อนวิถีชีวิตดั้งเดิม"
+        "desc_60s": "ป้อมสีขาวขุ่นทรุดโทรมมีคราบตะไคร่ บ้านเรือนไม้สังกะสีสร้างเบียดเสียดติดตัวป้อม ไม่เห็นมุมคลองมากนัก ไม่มีสวนสาธารณะ"
     },
     "สนามหลวง": {
         "prompt_key": "Sanam Luang",
-        "desc_60s": "ตลาดนัดวันหยุดสุดสัปดาห์ที่ใหญ่ที่สุด แหล่งรวมแผงหนังสือเก่าและสินค้าเบ็ดเตล็ดบนลานดินกว้าง"
+        "desc_60s": "ตลาดนัดสนามหลวง พื้นดินแดงปนหญ้าแห้ง ร่มผ้าใบสีขาวสลับแดง/น้ำเงิน รถเข็นขายน้ำอ้อยสีฟ้า ว่าวไทยลอยเต็มฟ้า ฉากหลังวัดพระแก้ว"
     },
     "พิพิธภัณฑสถานแห่งชาติ": {
         "prompt_key": "National Museum",
-        "desc_60s": "วังหน้าในบรรยากาศร่มรื่นด้วยต้นไม้ใหญ่หนาทึบ อาคารเก่าแก่สีขาวหม่นดูขลังและเงียบสงบ"
+        "desc_60s": "อาคารทรงไทยสีขาวหมองมีคราบตะไคร่ดำ สภาพรกรั้วด้วยต้นไม้ใหญ่เหมือนวัดป่า ถนนหน้าพระธาตุลาดยางเงียบสงบ รั้วเหล็กดัดหัวลูกศร"
     }
 }
 
+# --- The Master Prompt Database (Strict Historical Accuracy & Structure Lock) ---
+# (อัปเดตจาก Code 2 เป๊ะทุกตัวอักษร)
 LOCATION_PROMPTS = {
     "Democracy Monument": """
-        **TASK:** Photorealistic transformation to 1964 Bangkok.
-        **STRUCTURE LOCK:** Keep original perspective and monument geometry rigid.
-        **VISUAL ELEMENTS:**
-        - **Monument:** The wings are **MATTE CEMENT/STUCCO** (Creamy Grey), showing water stains and weathering. **ABSOLUTELY NO GOLD PAINT**. The central tray is **Dark Bronze/Black**.
-        - **Environment:** Wide asphalt avenue with **NO flyovers** and **NO modern streetlights**.
-        - **Background:** Art Deco shophouses with **faded pastel paint** (Old Rose, Pale Green). Large Mahogany trees lining the road.
-        - **Traffic:** Vintage 1960s Mercedes Fintail, Morris Minor, and "Nai Lert" white buses.
-        - **Atmosphere:** Hot tropical daylight, high contrast shadows.
-    """,
+          **TASK:** Photorealistic Reconstruction of 1960s Democracy Monument.
+          **STRUCTURAL LOCK:** Maintain the original perspective and monument geometry 100%.
+
+          **VISUAL ELEMENTS:**
+          - **Main Concrete Structure:** The four wing structures and the central turret column are **Matte Cement / Off-White Cream color**. **DO NOT** make the concrete wings look black, smoked, or dirty.
+          - **The Pedestal Tray (Phan):** **ONLY** the central tray carrying the constitution at the very top is **Dark Black Oxidized Metal / Bronze**.
+          - **The Doors:** The specific doors at the base of the central turret are **Red Ochre / Deep Red**.
+          - **Sculptures:** The bas-relief sculptures at the base of the wings are **Cement Color** (same as the wings).
+          - **Surroundings:** Flanking buildings along Ratchadamnoen Avenue are **Terracotta Brick Orange / Burnt Orange**.
+          - **Street:** Wide asphalt, coarse texture. **NO traffic lines**. 
+          - **Vehicles:** **White 'Nai Lert' Buses** (Rounded body). Vintage cars.
+          - **Atmosphere:** Bright daylight, clear visibility, historical film grain.
+      """,
+
     "Sala Chalermkrung": """
-        **TASK:** Photorealistic transformation to 1967 (Bangkok EraVision Project).
-        **CRITICAL STRUCTURE LOCK (DO NOT CHANGE):**
-        1. **The Roof Sign:** The wire-frame metal structure reading "ศาลาเฉลิมกรุง" on the roof MUST remain **skeletal, transparent, and identical** to the original image. DO NOT turn it into a solid box or change its text.
-        2. **Building Shape:** Keep the original architectural lines perfectly.
-        **THE MOVIE BILLBOARD (Hand-Painted Style):**
-        - Overlay the front entrance with a massive **Hand-Painted Movie Poster** (Oil on Plywood texture).
-        - **Title:** Thai Text "**บางกอกทวิกาล**" (Vintage Font).
-        - **Visuals:**
-            - **Actor 1 (Nattapat):** A slim, handsome gentleman in a sharp 60s suit, slicked-back hair.
-            - **Actor 2 (M.R. Madam Pong):** A smart, handsome man in a suit wearing **vintage eyeglasses**, looking cool.
-            - **Director Credit:** "Tor-Tum".
-        **CONTEXT CLEANUP:**
-        - **Surroundings:** Remove clutter. The area around the theatre is clean concrete pavement.
-        - **Vibe:** "Old Hollywood of Asia". 
-        - **Crowd:** Teenagers in 60s fashion (Elvis style) gathering in front.
+        **TASK:** Create a photorealistic color photograph of Sala Chalermkrung Theatre in Bangkok, circa 1967.
+        **STRUCTURE LOCK (CRITICAL):** - **KEEP THE ROOF SIGN:** The wire-frame metal structure reading "ศาลาเฉลิมกรุง" on the roof MUST remain structurally identical to the input image. Do not change its shape.
+        - **Modify Facade Only:** Apply the vintage aesthetic to the building walls and street level.
+        
+        **THE MOVIE POSTER INJECTION (MANDATORY):**
+        - **Action:** Overlay a massive, hand-painted oil cut-out billboard on the front facade (covering the entrance area).
+        - **Poster Content:** A Thai movie titled "**บางกอกทวิกาล**" (Bangkok EraVision).
+        - **Visuals on Poster:**
+            1. Actor 1: A **MUSCULAR, bulky man** in a suit wearing **GLASSES** (M.R. Mod-Or-Por style).
+            2. Actor 2: A **SLIM, handsome man** in a suit with **Middle-part hair** (Nattapat style).
+            3. Director credit: "Tor-Tum".
+        - **Style:** 1960s Thai Cinema Art, vivid colors, dramatic brush strokes.
+
+        **1960s STREET LEVEL:**
+        - **Building:** Weathered Creamy White concrete walls with rain stains.
+        - **Traffic:** **TRAM TRACKS** on the road. A Yellow/Red Tram passing by. Vintage Taxis (Fiat/Austin).
+        - **Crowd:** Teenagers in 60s fashion (Elvis hair, high buns).
+        
+        **NEGATIVE PROMPT:** LED displays, Modern glass doors, BTS, Modern cars.
     """,
+
     "Giant Swing": """
-        **TASK:** Photorealistic transformation to 1965.
-        **STRUCTURE LOCK:** Keep perspective.
-        **KEY HISTORICAL FACTS:**
-        - **The Base:** The Giant Swing's red teak pillars stand **DIRECTLY ON THE ROAD SURFACE**.
-        - **Traffic Flow:** Cars and Tuk-Tuks are driving **THROUGH/UNDER** the pillars.
-        - **Ground:** **NO grass island**, NO oval curb barrier. Just asphalt road.
-        - **Background:** Wat Suthat walls are weathered white (not bright). 
-        - **Corner:** A vintage "Shell" gas station with round pumps (if visible in angle).
+        **TASK:** Photorealistic Reconstruction of The Giant Swing (1965).
+        **STRUCTURAL LOCK:** Keep the exact perspective.
+
+        **VISUAL ELEMENTS:**
+        - **The Swing Structure:** - **Vibrant Red Teak Logs**. 
+            - **CRITICAL:** The swing sits on a **Raised Stone Plinth/Base**. 
+            - **CRITICAL:** **NO VEHICLES driving underneath the swing**. Traffic goes AROUND the base.
+        - **Traffic:** - **REMOVE TRAMS**. No trams visible in this scene. 
+            - Few vintage cars driving around the perimeter.
+        - **Context:** - Wat Suthat in the background must look **aged, weathered, and historically accurate** (not pristine/renovated).
+            - Surrounding area is residential wooden houses, unpaved or rough asphalt roads.
     """,
+
     "Yaowarat": """
-        **TASK:** Photorealistic transformation to 1968 Chinatown.
-        **STRUCTURE LOCK:** Maintain building perspective.
-        **AESTHETIC (Realism over Fantasy):**
-        - **Tone:** Desaturated film look, not cyberpunk. It looks like a busy commercial district in the 60s.
-        - **Signage:** Vertical signs in Chinese/Thai. Material is **Wood and Painted Metal**. A few **Analog Neon Tubes** (Red/Green) are visible but dim/dusty.
-        - **Traffic:** A **Yellow & Red TRAM** running on tracks in the middle of the road.
-        - **Vehicles:** 1950s Chevrolets, Samlors (Tricycles), and hand-pushed carts.
-        - **Buildings:** Shophouse facades are stained with smoke and age.
+        **TASK:** Photorealistic Reconstruction of Yaowarat Road (1968).
+        **CONTEXT:** Chinatown.
+
+        **VISUAL ELEMENTS:**
+        - **Signage:** - Signs are **NOT projecting/jutting out far** into the street. 
+            - Most signs are hung **flat against the building facades** or cloth banners.
+            - Less density of neon than modern times.
+        - **Architecture:** - Old shophouses, aged concrete, not the modern renovated look.
+        - **Transport - TRAM:** - **Tram runs CLOSE TO THE CURB/SIDE**, NOT in the middle.
+            - **Tram Type:** **Open-sided carriage** (airy, bench seating), NOT an enclosed solid train.
+        - **Atmosphere:** Hazy, dusty, busy market but less chaotic overhead than today.
     """,
+
     "Khaosan Road": """
-        **TASK:** Photorealistic transformation to 1962.
-        **STRUCTURE LOCK:** Narrow street perspective.
-        **CONCEPT (The Rice Market):**
-        - **Activity:** A quiet wholesale trade street. **NO TOURISTS**.
-        - **Buildings:** Old wooden row houses (2 stories). Folding wooden doors (Baan Fiam).
-        - **Props:** Piles of **Hemp Rice Sacks** (Gunny sacks) stacked in front of shops. Ancient weighing scales.
-        - **Lighting:** Natural daylight or dim tungsten street lamps.
-        - **Vibe:** Domestic, slow-paced, dusty.
+        **TASK:** Photorealistic Reconstruction of Bang Lamphu / Khaosan Road (1962).
+        **CONTEXT:** A quiet **Rice Trading Residential Community**. NOT a tourist street.
+
+        **VISUAL ELEMENTS:**
+        - **Architecture:** **Wooden Row Houses** (2 stories) mixed with concrete shophouses.
+        - **Storefronts:** **"Baan Fiam"** (Accordion wooden plank doors).
+        - **Props:** Piles of **Hemp Rice Sacks** stacked in front. White rice dust on the ground. Large glass jars with biscuits.
+        - **Signage:** Local Thai signs (e.g., "S. Thammapakdi"). **NO English bars/hostel signs.**
+        - **Activity:** Children playing with bicycle tires. Quiet, domestic vibe.
     """,
+
     "Phra Sumen Fort": """
-        **TASK:** Photorealistic transformation to 1960.
-        **STRUCTURE LOCK:** Fort geometry.
-        **ENVIRONMENT (The Lost Community):**
-        - **The Fort:** White plaster is **heavily weathered, cracked, and covered in black mold**. It looks abandoned.
-        - **The Slum:** A dense community of **wooden stilt houses and rusty zinc roofs** built **TIGHTLY AGAINST** the fort's walls. No green park lawns.
-        - **Foreground:** Muddy river bank, wild Lamphu trees, small wooden rowboats.
-        - **Atmosphere:** Gritty, lived-in, humid.
+        **TASK:** Photorealistic Reconstruction of Phra Sumen Fort (1960).
+        **CRITICAL:** **NO MODERN PARK. NO LAWN.**
+
+        **VISUAL ELEMENTS:**
+        - **The Fort:** - **Dilapidated and Weathered**. White plaster is heavily stained with **Green Moss and Black Algae**.
+            - Looks ancient and neglected.
+        - **Viewpoint:** - **Minimize the canal view**. Focus on the land side.
+        - **Surroundings:** - **Encroachment:** Ramshackle **wooden houses and community dwellings** are built TIGHTLY against the fort walls.
+            - Ground is **Mud and Dirt**.
     """,
+
     "Sanam Luang": """
-        **TASK:** Photorealistic transformation to 1968 (Sunday Market).
-        **STRUCTURE LOCK:** Palace background.
-        **MARKET DETAILS:**
-        - **Ground:** **Red Dirt and Dust** (Sanarm Chai). Very little grass.
-        - **Market:** Hundreds of **Canvas Parasols** (Striped Red/White/Blue) clustered together.
-        - **Goods:** Old books on mats, pets in wooden cages, amulets.
-        - **Sky:** Traditional Thai Kites (Chula & Pakpao) flying.
-        - **Vibe:** Bustling, hot, dusty, authentic flea market.
+        **TASK:** Photorealistic Reconstruction of Sanam Luang (Weekend Market 1968).
+
+        **VISUAL ELEMENTS:**
+        - **Ground:** **Red Dirt (Sanarm Chai)** mixed with dry patchy grass. Uneven surface.
+        - **Market:** Sea of **Striped Canvas Parasols** (Red/White/Blue).
+        - **Props:** **Light Blue Wooden Pushcarts** (Sugarcane). Cardboard boxes on the ground.
+        - **Sky:** **Thai Kites** (Snake, Chula, Pakpao) flying.
+        - **Backdrop:** Grand Palace (White walls, Gold spires).
     """,
+
     "National Museum": """
-        **TASK:** Photorealistic transformation to 1960.
-        **STRUCTURE LOCK:** Thai architecture.
-        **STYLE (The Forgotten Palace):**
-        - **Architecture:** The buildings look **ancient and weathered**. White walls are dull and stained.
-        - **Nature:** **Overgrown and Jungle-like**. Big trees with hanging roots casting deep shadows over the buildings.
-        - **Atmosphere:** Mystical, silent, isolated from the city.
-        - **Ground:** Fallen leaves, unpaved paths.
+        **TASK:** Photorealistic Reconstruction of National Museum (1960).
+
+        **VISUAL ELEMENTS:**
+        - **Atmosphere:** "Temple in the Forest". Quiet, overgrown, ancient.
+        - **Building:** Traditional Thai style. Walls are **Off-White with Heavy Black Mold**. Dark weathered roof tiles.
+        - **Landscape:** **Dense Trees** casting deep shadows.
+        - **Ground:** **Dirt paths/Gravel**. Unpaved.
+        - **Fence:** **Spearhead Iron Fence** (Black/Rusty).
     """
 }
 
@@ -161,15 +190,15 @@ def get_client():
     return genai.Client(api_key=api_key)
 
 def step1_analyze(client, img_bytes):
+    # อัปเดต Prompt Analyze จาก Code 2
     prompt = """
-    Analyze the image structure for a historical transformation.
-    1. Identify the rigid architectural lines (building edges, horizons).
-    2. Identify the perspective vanishing point.
-    3. Output a description that ensures the new image aligns PERFECTLY with these lines.
+    Analyze the precise geometry, camera angle, and structural layout of this image.
+    Identify the main building outlines, the vanishing point, and the horizon line.
+    We need to preserve this exact composition for a strict image-to-image transformation.
     """
     try:
         response = client.models.generate_content(
-            model="gemini-2.0-flash", 
+            model="gemini-2.0-flash",  # หรือ gemini-2.0-flash-exp ตามที่มี
             contents=[prompt, types.Part.from_bytes(data=img_bytes, mime_type="image/jpeg")]
         )
         return response.text
@@ -179,33 +208,33 @@ def step1_analyze(client, img_bytes):
 
 def step2_generate(client, structure_desc, location_key, original_img_bytes):
     specific_prompt = LOCATION_PROMPTS.get(location_key, "")
+    
+    # อัปเดต Final Prompt Logic จาก Code 2 (Kodachrome Era)
     final_prompt = f"""
     {specific_prompt}
     
-    **TECHNICAL GUIDE (REALISM):**
-    - **Reference:** {structure_desc}. The output MUST match the input image's camera angle and geometry exactly.
-    - **Visual Style:** **Vintage Color Photography (Kodachrome 64)**.
-    - **Texture:** Film grain, slightly washed-out blacks, high contrast (Tropical Sunlight).
-    - **Materials:** Real-world textures (cracked cement, rusted metal, wood grain). Avoid "AI smooth" or "plastic" looks.
-    
-    **STRICT NEGATIVE PROMPT (REMOVE):**
-    - Modern cars (Sedans after 1970), SUVs, Pickups.
-    - Air Conditioners (Compressors on walls).
-    - BTS Skytrain, MRT, Concrete Flyovers.
-    - LED Signs, Digital Billboards, 7-Eleven.
-    - Modern clothing, Smartphones, Tourists with backpacks.
-    - Saturation too high, HDR effects.
+    **GEOMETRY & COMPOSITION CONSTRAINT:**
+    - Reference Image Analysis: {structure_desc}
+    - **DO NOT** change the camera angle, lens distortion, or the position of main buildings.
+    - The output must layer perfectly over the original image geometry.
+
+    **VISUAL AESTHETICS (KODACHROME ERA):**
+    - **Film Stock:** Imitate **Kodachrome 64** or **Ektachrome** slide film.
+    - **Color Grading:** Warm, slightly yellow-red cast, rich greens, high contrast shadows (Tropical Hard Light).
+    - **Texture:** Add subtle **film grain**, slight softness (no digital sharpening).
+    - **Realism:** Avoid "AI smoothness" or "plastic skin". Surfaces should look dusty, weathered, and lived-in.
     """
+    
     try:
         response = client.models.generate_content(
-            model="nano-banana-pro-preview", # หรือ imagen-3.0-generate-001 ตามที่คุณมีสิทธิ์
+            model="nano-banana-pro-preview", 
             contents=[
                 final_prompt, 
                 types.Part.from_bytes(data=original_img_bytes, mime_type="image/jpeg")
             ],
             config=types.GenerateContentConfig(
                 response_modalities=["IMAGE"],
-                temperature=0.25
+                temperature=0.4 # อัปเดตเป็น 0.4 ตาม Code 2
             )
         )
         
@@ -268,7 +297,7 @@ def get_friendly_error_message(raw_reason, lang='TH'):
            "องค์ประกอบภาพยังไม่ชัดเจนหรือมีสิ่งรบกวน (กรุณาลองเปลี่ยนมุมภาพ)"
 
 # --- 4. Routes ---
-# Route 1: สำหรับ Verify อย่างเดียว (เร็ว)
+# Route 1: สำหรับ Verify อย่างเดียว (เร็ว) (คงเดิมจาก Code 1)
 @app.route('/verify', methods=['POST'])
 def verify_image_route():
     temp_path = None
@@ -279,7 +308,7 @@ def verify_image_route():
         file = request.files['image']
         location_th = request.form['location']
         
-        # 👇 รับค่าภาษาจาก Frontend (ถ้าไม่ส่งมา Default เป็น TH)
+        # รับค่าภาษาจาก Frontend (ถ้าไม่ส่งมา Default เป็น TH)
         lang = request.form.get('language', 'TH').upper() 
         
         if location_th not in LOCATION_INFO:
@@ -317,7 +346,7 @@ def verify_image_route():
              # ถ้าเป็น TH: แปลงเป็นชื่อไทย
              if lang == 'ENG':
                  detected_name = detected_place
-                 selected_name = LOCATION_MAPPING_TH_TO_EN.get(location_th, location_th) # พยายามหาชื่ออังกฤษของสิ่งที่เลือก
+                 selected_name = LOCATION_MAPPING_TH_TO_EN.get(location_th, location_th)
                  msg = f"AI detected: '{detected_name}'\nwhich does not match your selection ({selected_name})"
              else:
                  detected_name = LOCATION_MAPPING_EN_TO_TH.get(detected_place, detected_place)
@@ -340,7 +369,7 @@ def verify_image_route():
     finally:
         if temp_path and os.path.exists(temp_path): os.remove(temp_path)
 
-# Route 2: สำหรับ Generate อย่างเดียว (ช้า)
+# Route 2: สำหรับ Generate อย่างเดียว (ช้า) (คงเดิมจาก Code 1 แต่ Logic ภายในเรียกใช้ฟังก์ชันใหม่)
 @app.route('/generate', methods=['POST'])
 def generate_image_route():
     try:

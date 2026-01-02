@@ -1,11 +1,21 @@
+"use client"; // <--- เพิ่มบรรทัดนี้สำคัญมาก เพื่อให้ใช้ useState ได้
+
 import Navbar from "@/components/Navbar";
+import { useState } from "react"; // <--- เพิ่ม import
 
 export default function AboutPage() {
-  return (
-    <main className="w-full max-w-3xl px-6 pb-20">
-      <Navbar />
+  // 1. เพิ่ม State สำหรับจัดการภาษา
+  const [language, setLanguage] = useState<'TH' | 'ENG'>('ENG');
 
-      <div className="text-center mb-12">
+  return (
+    <main className="w-full max-w-3xl px-6 pb-20 mx-auto">
+      {/* 2. ส่งค่า language และฟังก์ชัน setLanguage เข้าไปใน Navbar */}
+      <Navbar 
+        language={language} 
+        onLanguageChange={setLanguage} 
+      />
+
+      <div className="text-center mb-12 mt-10">
         <h1 className="text-5xl md:text-7xl serif-font font-bold mb-6 italic tracking-tight text-dark">
           Bangkok<br/><span className="text-accent">EraVision</span>
         </h1>
@@ -23,7 +33,7 @@ export default function AboutPage() {
       </div>
 
       {/* Created By Section */}
-      <section className="mb-20">
+      <section className="mb-20 text-center">
         <h2 className="text-center text-3xl md:text-4xl serif-font font-bold mb-10 italic bg-paper inline-block px-4 py-2 border-2 border-dark shadow-[4px_4px_0px_#D4B666]">
           Created By
         </h2>
