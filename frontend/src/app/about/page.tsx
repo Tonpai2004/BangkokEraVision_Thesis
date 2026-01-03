@@ -26,44 +26,60 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="prose max-w-none font-mono mb-16 text-justify leading-relaxed">
-        <p>
-            Bangkok EraVision is a project dedicated to preserving and reimagining the architectural heritage of Bangkok during the 1960s. Using state-of-the-art Generative AI, we bridge the gap between the present and the past, allowing users to visualize history through their own lens.
-        </p>
-      </div>
+{/* Created By Section */}
+<section className="mb-20 text-center">
+  <h2 className="text-center text-3xl md:text-4xl serif-font font-bold mb-10 italic bg-paper inline-block px-4 py-2 border-2 border-dark shadow-[4px_4px_0px_#D4B666]">
+    Created By
+  </h2>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-10 px-4">
+    {/* Creator 1 */}
+    <div className="flex flex-col items-center group">
+      {/* --- แก้ไขส่วนนี้ --- */}
+      <img
+        src="/images/member1.png"
+        alt="Dr.Chalee Na Bangyai"
+        className="w-full aspect-square mb-4 object-cover border-[3px] border-dark shadow-[inset_0_0_0_4px_#FEF9C3,6px_6px_0px_#2C2C2C] group-hover:translate-y-[-5px] transition-transform"
+      />
+      {/* ---------------- */}
+      <p className="font-bold text-xl mt-2">Nattapat Chalee</p>
+      <p className="text-sm font-mono opacity-70">CMM65080500264</p>
+    </div>
+    {/* Creator 2 */}
+    <div className="flex flex-col items-center group">
+      {/* --- แก้ไขส่วนนี้ --- */}
+      <img
+        src="/images/member2.png"
+        alt="M.R.Mordorpor Pruekzaa"
+        className="w-full aspect-square mb-4 object-cover border-[3px] border-dark shadow-[inset_0_0_0_4px_#FEF9C3,6px_6px_0px_#2C2C2C] group-hover:translate-y-[-5px] transition-transform"
+      />
+      {/* ---------------- */}
+      <p className="font-bold text-xl mt-2">Madampong Prueksa</p>
+      <p className="text-sm font-mono opacity-70">
+        CMM65080500275
+      </p>
+    </div>
+  </div>
+</section>
 
-      {/* Created By Section */}
-      <section className="mb-20 text-center">
-        <h2 className="text-center text-3xl md:text-4xl serif-font font-bold mb-10 italic bg-paper inline-block px-4 py-2 border-2 border-dark shadow-[4px_4px_0px_#D4B666]">
-          Created By
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 px-4">
-            {/* Creator 1 */}
-            <div className="flex flex-col items-center group">
-                <div className="w-full aspect-square bg-gold mb-4 border-[3px] border-dark shadow-[6px_6px_0px_#2C2C2C] group-hover:translate-y-[-5px] transition-transform"></div>
-                <p className="font-bold text-xl mt-2">Your Name</p>
-                <p className="text-sm font-mono opacity-70">Full Stack Developer</p>
-            </div>
-            {/* Creator 2 */}
-            <div className="flex flex-col items-center group">
-                <div className="w-full aspect-square bg-gold mb-4 border-[3px] border-dark shadow-[6px_6px_0px_#2C2C2C] group-hover:translate-y-[-5px] transition-transform"></div>
-                <p className="font-bold text-xl mt-2">Co-Creator Name</p>
-                <p className="text-sm font-mono opacity-70">Prompt Engineer / Historian</p>
-            </div>
-        </div>
-      </section>
-
-      {/* Advisor Section */}
-      <section className="flex flex-col items-center">
-        <h2 className="text-center text-3xl md:text-4xl serif-font font-bold mb-10 italic bg-paper inline-block px-4 py-2 border-2 border-dark shadow-[4px_4px_0px_#D4B666]">
-          Advisor
-        </h2>
-        <div className="flex flex-col items-center w-full md:w-2/3 group">
-            <div className="w-full aspect-square bg-gold mb-4 border-[3px] border-dark shadow-[6px_6px_0px_#2C2C2C] group-hover:translate-y-[-5px] transition-transform"></div>
-            <p className="font-bold text-xl mt-2">Advisor Name</p>
-            <p className="text-sm font-mono opacity-70">University / Organization</p>
-        </div>
-      </section>
+{/* Advisor Section */}
+<section className="flex flex-col items-center">
+  <h2 className="text-center text-3xl md:text-4xl serif-font font-bold mb-10 italic bg-paper inline-block px-4 py-2 border-2 border-dark shadow-[4px_4px_0px_#D4B666]">
+    Advisor
+  </h2>
+  <div className="flex flex-col items-center w-full md:w-2/3 group">
+    {/* --- ส่วนที่แก้ไข --- */}
+    <img
+      src="/images/advisor.png"
+      alt="Nuttapong Prasertsang"
+      className="w-full aspect-square mb-4 object-cover border-[3px] border-dark shadow-[inset_0_0_0_4px_#FEF9C3,6px_6px_0px_#2C2C2C] group-hover:translate-y-[-5px] transition-transform"
+    />
+    {/* ----------------- */}
+    <p className="font-bold text-xl mt-2">
+      Nuttapong Prasertsang
+    </p>
+    <p className="text-sm font-mono opacity-70">Lecturer in CMM KMUTT</p>
+  </div>
+</section>
     </main>
   );
 }

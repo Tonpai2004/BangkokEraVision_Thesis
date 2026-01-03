@@ -21,20 +21,20 @@ const UI_TEXT = {
     dropzone_text: "คลิก หรือ ลากรูปมาวางที่นี่",
     btn_main: "เริ่มย้อนเวลา",
     btn_try_again: "ลองรูปอื่น",
-    btn_retry: "ลองใหม่อีกครั้ง", // ปุ่มสำหรับ Tech Error
+    btn_retry: "ลองใหม่อีกครั้ง",
     btn_download: "ดาวน์โหลดรูปภาพ",
     
     status_analyzing: "กำลังวิเคราะห์โครงสร้าง...",
     status_verify_pass: "ผ่านการตรวจสอบ",
     status_verify_fail: "การตรวจสอบไม่ผ่าน",
-    status_tech_error: "เกิดข้อผิดพลาดทางเทคนิค", // Header ใหม่
+    status_tech_error: "เกิดข้อผิดพลาดทางเทคนิค",
     
     status_reconstructing: "กำลังจำลองภาพอดีต...",
     sub_analyzing: "ตรวจสอบความถูกต้องทางประวัติศาสตร์",
     sub_reconstructing: "อยู่ระหว่างดำเนินการ...",
     auto_proceed: "กำลังเริ่มกระบวนการย้อนเวลา...",
     
-    error_desc_prefix: "ระบบขัดข้อง: " // คำนำหน้าเหตุผล
+    error_desc_prefix: "ระบบขัดข้อง: "
   },
   ENG: {
     label_location: "Choose a location",
@@ -48,7 +48,7 @@ const UI_TEXT = {
     status_analyzing: "ANALYZING SCENE",
     status_verify_pass: "VERIFICATION PASSED",
     status_verify_fail: "VERIFICATION REJECTED",
-    status_tech_error: "TECHNICAL ERROR", // Header ใหม่
+    status_tech_error: "TECHNICAL ERROR",
     
     status_reconstructing: "RECONSTRUCTING",
     sub_analyzing: "Verifying historical compatibility...",
@@ -96,7 +96,7 @@ export default function UploadSection({ currentLang }: UploadSectionProps) {
     e.preventDefault();
     if (!file || !selectedLocation) return alert(currentLang === 'ENG' ? "Please select location and image." : "กรุณาเลือกสถานที่และรูปภาพ");
 
-    // 1. สร้างตัวแปรมาคอยจำว่าตอนนี้อยู่ขั้นตอนไหน (สำคัญมาก)
+    // 1. สร้างตัวแปรมาคอยจำว่าตอนนี้อยู่ขั้นตอนไหน
     let currentStep = 'verifying'; 
 
     setStatus('verifying'); 
@@ -108,15 +108,14 @@ export default function UploadSection({ currentLang }: UploadSectionProps) {
 
     try {
       // ------------------------------------------------
-      // STEP 1: Verify
+      // STEP 1: Verify (เปลี่ยน URL เป็น 127.0.0.1)
       // ------------------------------------------------
-      const verifyRes = await fetch('http://localhost:5000/verify', {
+      const verifyRes = await fetch('http://127.0.0.1:5000/verify', {
         method: 'POST',
         body: formData,
       });
       const verifyData = await verifyRes.json();
 
-      // ถ้าไม่ผ่าน (API ตอบกลับมาดี แต่ผลคือ Rejected) -> อันนี้คือ User Error
       if (!verifyRes.ok || verifyData.status === 'rejected') {
         setFailReason(verifyData.details || verifyData.error || "Unknown Error");
         setStatus('verified_fail'); 
@@ -132,10 +131,9 @@ export default function UploadSection({ currentLang }: UploadSectionProps) {
       });
       setStatus('verified_pass');
 
-      // หน่วงเวลา 2 วิ
+      // หน่วงเวลา 2 วิ ให้ User ดีใจว่าผ่าน
       await new Promise(r => setTimeout(r, 2000));
 
-      // เปลี่ยนสถานะตัวแปร ว่าเราเข้าสู่โหมด Gen แล้วนะ
       currentStep = 'generating';
       setStatus('generating');
 
@@ -143,7 +141,8 @@ export default function UploadSection({ currentLang }: UploadSectionProps) {
       genFormData.append('image', file);
       genFormData.append('location', selectedLocation);
 
-      const genRes = await fetch('http://localhost:5000/generate', {
+      // (เปลี่ยน URL เป็น 127.0.0.1)
+      const genRes = await fetch('http://127.0.0.1:5000/generate', {
           method: 'POST',
           body: genFormData,
       });
@@ -157,19 +156,18 @@ export default function UploadSection({ currentLang }: UploadSectionProps) {
           });
           setStatus('finished');
       } else {
-          // ถ้า Backend ตอบกลับมาเป็น Error (เช่น API Key ผิด)
           throw new Error(genData.error || "Generation process failed");
       }
 
     } catch (err: any) {
-        console.error(err);
+        console.error("Fetch Error Details:", err); // เพิ่ม Log ให้ดูง่ายขึ้น
         setFailReason(err.message);
         
-        // เช็คตรงนี้: ถ้าพังตอนกำลัง Gen รูป ให้ถือเป็น Technical Error
         if (currentStep === 'generating') {
-            setStatus('error'); // เรียกหน้าจอสีเทา (System Failure)
+            setStatus('error'); 
         } else {
-            setStatus('verified_fail'); // เรียกหน้าจอสีแดง (Verification Failed)
+            // ถ้า Error ตั้งแต่ Verify (เช่น Failed to fetch) จะมาตกตรงนี้
+            setStatus('verified_fail'); 
         }
     }
   };
@@ -280,7 +278,7 @@ export default function UploadSection({ currentLang }: UploadSectionProps) {
                 </>
             )}
 
-            {/* 3. STATE: VERIFIED FAIL (User Error: รูปไม่ผ่าน) */}
+            {/* 3. STATE: VERIFIED FAIL (User Error) */}
             {status === 'verified_fail' && (
                 <div className="border-2 border-accent p-8 max-w-2xl bg-black">
                     <div className="text-6xl mb-4 text-accent">✕</div>
@@ -299,7 +297,7 @@ export default function UploadSection({ currentLang }: UploadSectionProps) {
                 </div>
             )}
 
-            {/* 4. STATE: TECHNICAL ERROR (System Error: ระบบพัง) */}
+            {/* 4. STATE: TECHNICAL ERROR (System Error) */}
             {status === 'error' && (
                 <div className="border-2 border-accent p-8 max-w-2xl bg-black shadow-[0_0_50px_rgba(255,255,255,0.1)]">
                     <div className="text-6xl mb-4 text-red-500">✕</div>
