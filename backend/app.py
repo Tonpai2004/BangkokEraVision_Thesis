@@ -16,7 +16,7 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)
 
-# --- 2. Historical Data Configuration (เหมือนเดิมเป๊ะ) ---
+# --- 2. Historical Data Configuration ---
 LOCATION_MAPPING_TH_TO_EN = {
     "อนุสาวรีย์ประชาธิปไตย": "Ratchadamnoen Avenue – Democracy Monument",
     "ศาลาเฉลิมกรุง": "Sala Chalermkrung Royal Theatre",
@@ -63,6 +63,7 @@ LOCATION_INFO = {
     }
 }
 
+# --- The Master Prompt Database (UPDATED PROMPTS) ---
 LOCATION_PROMPTS = {
     "Democracy Monument": """
           **TASK:** Photorealistic Reconstruction of 1960s Democracy Monument.
@@ -77,97 +78,126 @@ LOCATION_PROMPTS = {
           - **Vehicles:** **White 'Nai Lert' Buses** (Rounded body). Vintage cars.
           - **Atmosphere:** Bright daylight, clear visibility, historical film grain.
       """,
+
+    # 1. ศาลาเฉลิมกรุง: ลบตึกรอบข้าง เน้นโรงหนัง รักษาป้ายชื่อเดิม
     "Sala Chalermkrung": """
         **TASK:** Create a photorealistic color photograph of Sala Chalermkrung Theatre in Bangkok, circa 1967.
-        **STRUCTURE LOCK (CRITICAL):** - **KEEP THE ROOF SIGN:** The wire-frame metal structure reading "ศาลาเฉลิมกรุง" on the roof MUST remain structurally identical to the input image.
-        - **Focus on the Main Building:** The theater building itself is the primary focus.
-
-        **CLEAN SURROUNDINGS INSTRUCTION (CRITICAL):**
-        - **REMOVE ALL UTILITY POLES AND WIRES:** The sky and street view must be completely clear of electrical wires, cables, and poles.
-        - **MINIMIZE ADJACENT BUILDINGS:** The buildings immediately to the left and right of the theater should be less prominent, smaller, or partially obscured to emphasize the theater.
-        - **REDUCE NATURE:** Remove or significantly reduce large trees and foliage that block the view of the building. Keep greenery sparse.
         
-        **THE MOVIE POSTER INJECTION (MANDATORY - KEEP THIS):**
-        - **Action:** Overlay a massive, hand-painted oil cut-out billboard on the front facade (covering the entrance area).
-        - **Poster Content:** A Thai movie titled "**บางกอกทวิกาล**" (Bangkok EraVision).
-        - **Visuals on Poster:**
-            1. Actor 1: A **MUSCULAR, bulky man** in a suit wearing **GLASSES** (M.R. Mod-Or-Por style).
-            2. Actor 2: A **SLIM, handsome man** in a suit with **Middle-part hair** (Nattapat style).
-            3. Director credit: "Tor-Tum".
-        - **Style:** 1960s Thai Cinema Art, vivid colors, dramatic brush strokes.
+        **STRUCTURE LOCK (EXTREME PRIORITY):** - **THE ROOF SIGN:** The wire-frame metal structure reading "ศาลาเฉลิมกรุง" MUST remain 100% IDENTICAL to the input. DO NOT change, warp, or translate the text.
+        - **THEATER SHAPE:** Keep the original architectural form of the theater.
 
-        **1960s STREET LEVEL:**
-        - **Building Surface:** Weathered Creamy White concrete walls with rain stains.
-        - **Traffic:** Asphalt road. **NO TRAMS. NO TRAM TRACKS.** Only a few Vintage Taxis (Fiat/Austin) parked or slowly driving.
-        - **Crowd:** Teenagers in 60s fashion (Elvis hair, high buns) walking on the pavement.
-        
-        **NEGATIVE PROMPT:** LED displays, Modern glass doors, BTS, Modern cars, **Tram, Tram tracks, electrical wires, utility poles, dense trees, tall prominent surrounding buildings**.
+        **ISOLATION INSTRUCTION (CRITICAL):**
+        - **REMOVE SIDE BUILDINGS:** Any buildings visible to the immediate left or right of the theater must be removed, lowered significantly, or blurred out. The theater must be the undisputed dominant structure.
+        - **CLEAR SKY:** Remove all utility poles, electrical wires, and cables crossing the sky.
+        - **NO TALL NEIGHBORS:** Do not allow any modern skyscrapers or tall structures to peek from behind.
+
+        **THE MOVIE POSTER INJECTION:**
+        - **Action:** Overlay a massive, hand-painted oil cut-out billboard on the front facade.
+        - **Poster Content:** A Thai movie titled "**บางกอกทวิกาล**".
+        - **Visuals:** 1. Muscular man in suit with glasses. 2. Slim man with middle-part hair. 3. Text "Tor-Tum".
+        - **Style:** Hand-painted Thai cinema art.
+
+        **STREET CONTEXT:**
+        - **Road:** Asphalt road. **NO TRAMS. NO TRACKS.** - **Vehicles:** 2-3 Vintage Taxis (Fiat/Austin). 
+        - **Crowd:** Thai teenagers in 60s fashion walking.
     """,
+
+    # 2. เสาชิงช้า: ปรับบ้านเรือนรอบข้างเป็นวิถีชุมชน
     "Giant Swing": """
         **TASK:** Photorealistic Reconstruction of The Giant Swing (1965).
-        **STRUCTURAL LOCK:** Keep the exact perspective.
+        **STRUCTURAL LOCK:** Keep the exact perspective of the Swing and Wat Suthat.
+
         **VISUAL ELEMENTS:**
-        - **The Swing Structure:** - **Vibrant Red Teak Logs**. 
-            - **CRITICAL:** The swing sits on a **Raised Stone Plinth/Base**. 
-            - **CRITICAL:** **NO VEHICLES driving underneath the swing**. Traffic goes AROUND the base.
-        - **Traffic:** - **REMOVE TRAMS**. No trams visible in this scene. 
-            - Few vintage cars driving around the perimeter.
-        - **Context:** - Wat Suthat in the background must look **aged, weathered, and historically accurate** (not pristine/renovated).
-            - Surrounding area is residential wooden houses, unpaved or rough asphalt roads.
+        - **The Swing:** Vibrant Red Teak Logs on a **Raised Stone Plinth**.
+        - **Traffic Rule:** Traffic goes AROUND the plinth. **NO vehicles under the swing.**
+        - **Vehicles:** Vintage cars, Samlors (Three-wheeled bikes). **NO TRAMS.**
+
+        **SURROUNDING COMMUNITY (CONTEXT):**
+        - **Architecture:** The surrounding shop houses must be strictly **1960s Bangkok Style** (Sino-Portuguese shophouses mixed with wooden row houses). 
+        - **Condition:** Weathered, lived-in, earthy tones (cream, light yellow, wood). 
+        - **Roofing:** Clay tiles or rusted corrugated iron. 
+        - **Road:** Rough asphalt or paved stone, dusty.
     """,
+
+    # 3. เยาวราช: รถรางชิดขอบ ป้ายเขียนมือภาษาไทย ไม่ฉูดฉาด
     "Yaowarat": """
         **TASK:** Photorealistic Reconstruction of Yaowarat Road (1968).
-        **CONTEXT:** Chinatown.
+        
         **VISUAL ELEMENTS:**
-        - **Signage:** - Signs are **NOT projecting/jutting out far** into the street. 
-            - Most signs are hung **flat against the building facades** or cloth banners.
-            - Less density of neon than modern times.
-        - **Architecture:** - Old shophouses, aged concrete, not the modern renovated look.
-        - **Transport - TRAM:** - **Tram runs CLOSE TO THE CURB/SIDE**, NOT in the middle.
-            - **Tram Type:** **Open-sided carriage** (airy, bench seating), NOT an enclosed solid train.
-        - **Atmosphere:** Hazy, dusty, busy market but less chaotic overhead than today.
+        - **TRAM SYSTEM:** - **Position:** The Tram MUST run **CLOSE TO THE SIDEWALK/CURB**, NOT in the middle of the road.
+            - **Type:** Open-sided 1960s Bangkok Tram.
+        
+        **SIGNAGE & ATMOSPHERE (STRICT):**
+        - **Sign Style:** **Hand-painted wooden or metal signs**. Cloth banners hanging vertically.
+        - **Lighting:** **NO NEON GLOW.** NO LED. Muted colors (Red, Gold, Black).
+        - **Density:** Signs should not be overly dense or cluttered like modern times.
+        - **TEXT RULE:** All visible text must be **THAI SCRIPT** (ภาษาไทย) or Chinese characters. NO English.
+        
+        **ARCHITECTURE:**
+        - Old Sino-Thai shophouses. 2-3 stories high. 
+        - Weathered concrete.
+        - **Traffic:** Vintage trucks, rickshaws.
     """,
+
+    # 4. ข้าวสาร: ย่านค้าข้าว เงียบสงบ ไม่ใช่ถนนท่องเที่ยว
     "Khaosan Road": """
         **TASK:** Photorealistic Reconstruction of Bang Lamphu / Khaosan Road (1962).
-        **CONTEXT:** A quiet **Rice Trading Residential Community**. NOT a tourist street.
+        **CONTEXT:** A quiet **Rice Trading Residential Community**. 
+        **NEGATIVE PROMPT:** Tourist, Backpacker, Bar, Club, Beer, English Sign, Neon, Party.
+
         **VISUAL ELEMENTS:**
-        - **Architecture:** **Wooden Row Houses** (2 stories) mixed with concrete shophouses.
-        - **Storefronts:** **"Baan Fiam"** (Accordion wooden plank doors).
-        - **Props:** Piles of **Hemp Rice Sacks** stacked in front. White rice dust on the ground. Large glass jars with biscuits.
-        - **Signage:** Local Thai signs (e.g., "S. Thammapakdi"). **NO English bars/hostel signs.**
-        - **Activity:** Children playing with bicycle tires. Quiet, domestic vibe.
+        - **Architecture:** **Wooden Row Houses** (2 stories) with "Baan Fiam" (folding wooden doors). 
+        - **Trade:** Piles of **Hemp Rice Sacks** (White/Brown) stacked in front of shops. 
+        - **Ground:** Dusty street, traces of white rice dust. 
+        - **Signs:** Simple wooden signs in **THAI LANGUAGE** (e.g., "หจก. ข้าวสาร").
+        - **Vibe:** Domestic, quiet, bicycle tires, children playing, old men sitting.
     """,
+
+    # 5. ป้อมพระสุเมรุ: เก่า ทรุดโทรม เปลี่ยนสนามหญ้าเป็นคลอง/ดิน
     "Phra Sumen Fort": """
         **TASK:** Photorealistic Reconstruction of Phra Sumen Fort (1960).
-        **CRITICAL:** **NO MODERN PARK. NO LAWN.**
-        **VISUAL ELEMENTS:**
-        - **The Fort:** - **Dilapidated and Weathered**. White plaster is heavily stained with **Green Moss and Black Algae**.
-            - Looks ancient and neglected.
-        - **Viewpoint:** - **Minimize the canal view**. Focus on the land side.
-        - **Surroundings:** - **Encroachment:** Ramshackle **wooden houses and community dwellings** are built TIGHTLY against the fort walls.
-            - Ground is **Mud and Dirt**.
+        
+        **THE FORT CONDITION:**
+        - **Texture:** The white plaster must look **aged, stained with black mold, and green moss**. 
+        - **Structure:** The top battlements may look slightly crumbled or imperfect (not pristine renovation).
+
+        **SURROUNDINGS (CRITICAL REPLACEMENT):**
+        - **IF GRASS IS DETECTED:** Replace all green manicured lawns/parks with **DIRT GROUND** or **CANAL WATER**.
+        - **Road side:** Rough asphalt/dirt road.
+        - **Community:** Ramshackle wooden houses built close to the fort wall. Lived-in but not completely slum-like.
+        - **River side:** Muddy banks, traditional boats.
     """,
+
+    # 6. สนามหลวง: ตลาดไม่อัดแน่น ว่าวน้อยลง วังเก่า
     "Sanam Luang": """
         **TASK:** Photorealistic Reconstruction of Sanam Luang (Weekend Market 1968).
+
         **VISUAL ELEMENTS:**
-        - **Ground:** **Red Dirt (Sanarm Chai)** mixed with dry patchy grass. Uneven surface.
-        - **Market:** Sea of **Striped Canvas Parasols** (Red/White/Blue).
-        - **Props:** **Light Blue Wooden Pushcarts** (Sugarcane). Cardboard boxes on the ground.
-        - **Sky:** **Thai Kites** (Snake, Chula, Pakpao) flying.
-        - **Backdrop:** Grand Palace (White walls, Gold spires).
+        - **Market Layout:** Stalls are **spaced out**, not jammed together. 
+        - **Stall Type:** Simple canvas parasols (Red/White/Blue) and wooden tables.
+        - **Merchandise:** Old books, amulets, sugarcane juice, traditional food.
+        - **The Sky:** A **FEW** Thai Kites (Chula/Pakpao) flying (do not fill the whole sky).
+        - **Backdrop (Grand Palace):** The walls must look aged (Off-white/Yellowish), gold spires slightly dulled by time. **NO SCAFFOLDING.**
+        - **Ground:** Red dirt (Sanarm Chai) mixed with patches of dry grass.
     """,
+
+    # 7. พิพิธภัณฑ์: เน้นหน้าอาคาร ไม่โทรมเกินไป แต่เก่าสมจริง
     "National Museum": """
-        **TASK:** Photorealistic Reconstruction of National Museum (1960).
+        **TASK:** Photorealistic Reconstruction of National Museum Bangkok (1960).
+        
         **VISUAL ELEMENTS:**
-        - **Atmosphere:** "Temple in the Forest". Quiet, overgrown, ancient.
-        - **Building:** Traditional Thai style. Walls are **Off-White with Heavy Black Mold**. Dark weathered roof tiles.
-        - **Landscape:** **Dense Trees** casting deep shadows.
-        - **Ground:** **Dirt paths/Gravel**. Unpaved.
-        - **Fence:** **Spearhead Iron Fence** (Black/Rusty).
+        - **Viewpoint:** Focus on the **Front Facade** and the immediate courtyard.
+        - **Building Condition:** Dignified but aged. 
+            - Walls: Off-white with natural weathering/rain stains (not dirty, just old).
+            - Roof: Darkened tiles.
+        - **Context:** Large trees providing shade (Temple in forest vibe).
+        - **Ground:** Gravel paths, well-swept but unpaved.
+        - **Fence:** Black iron spearhead fence (slightly rusted).
+        - **Atmosphere:** Quiet, scholarly, ancient.
     """
 }
 
-# --- 3. Helper Functions (ที่มีการแก้ Retry Logic) ---
+# --- 3. Helper Functions (Retry Logic Included) ---
 
 def get_client():
     api_key = os.getenv("GEMINI_API_KEY")
@@ -182,7 +212,7 @@ def step1_analyze(client, img_bytes):
     We need to preserve this exact composition for a strict image-to-image transformation.
     """
     
-    # --- Retry Logic (พยายาม 3 ครั้ง) ---
+    # --- Retry Logic (3 Attempts) ---
     max_retries = 3
     for attempt in range(max_retries):
         try:
@@ -194,13 +224,11 @@ def step1_analyze(client, img_bytes):
             
         except Exception as e:
             error_msg = str(e)
-            # ถ้าเป็น error 429 หรือ 503 ให้รอแล้วลองใหม่
             if "429" in error_msg or "503" in error_msg:
-                wait_time = (2 ** attempt) + random.uniform(0, 1) # Exponential backoff: 1s, 2s, 4s...
+                wait_time = (2 ** attempt) + random.uniform(0, 1)
                 print(f"⚠️ Analysis Busy (Attempt {attempt+1}/{max_retries}): {error_msg} -> Waiting {wait_time:.1f}s")
                 time.sleep(wait_time)
             else:
-                # ถ้าเป็น error อื่นที่ไม่ใช่ server busy ให้ยอมแพ้เลย
                 print(f"Analysis Error: {e}")
                 break
     
@@ -224,7 +252,7 @@ def step2_generate(client, structure_desc, location_key, original_img_bytes):
     - **Realism:** Avoid "AI smoothness" or "plastic skin". Surfaces should look dusty, weathered, and lived-in.
     """
     
-    # --- Retry Logic (พยายาม 3 ครั้ง) ---
+    # --- Retry Logic (3 Attempts) ---
     max_retries = 3
     for attempt in range(max_retries):
         try:
@@ -244,7 +272,6 @@ def step2_generate(client, structure_desc, location_key, original_img_bytes):
                 if part.inline_data:
                     return part.inline_data.data
             
-            # ถ้า Gen ผ่านแต่ไม่มีรูป ให้ลองใหม่
             print(f"⚠️ Warning: Model returned no image (Attempt {attempt+1})")
             
         except Exception as e:
@@ -322,7 +349,6 @@ def generate_image_route():
             })
         else:
             print("❌ Generation Failed: No image returned (Exhausted retries).")
-            # ส่ง 503 กลับไปบอก Frontend ว่า Server ยังไม่ว่างจริงๆ
             return jsonify({'error': 'AI Model Overloaded. Please try again in 1 minute.'}), 503
             
     except Exception as e:
