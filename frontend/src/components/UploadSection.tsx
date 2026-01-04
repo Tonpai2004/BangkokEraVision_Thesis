@@ -208,14 +208,11 @@ export default function UploadSection({ currentLang }: UploadSectionProps) {
             {/* File Upload */}
             <div className="flex justify-between items-end pb-2 font-bold text-xl md:text-2xl mb-3 serif-font border-b-2 border-dark relative">
                 <label htmlFor="file-upload" className="flex-1">{text.label_upload}</label>
-                <button 
-                    type="button" 
-                    onClick={() => fileInputRef.current?.click()} 
-                    className="text-3xl hover:scale-110 transition-transform"
-                    title="Click to select image"
-                >
-                    📷
+
+                <button type="button" onClick={() => fileInputRef.current?.click()} className="text-3xl hover:scale-110 transition-transform" title="Click to select image">
+                    <img src="/svg/photo-camera.svg" alt="Camera Icon" className="w-8 h-8 md:w-10 md:h-10"/>
                 </button>
+
                 <input 
                     id="file-upload" type="file" ref={fileInputRef} onChange={handleFileChange} 
                     accept="image/*" className="hidden"
@@ -230,9 +227,11 @@ export default function UploadSection({ currentLang }: UploadSectionProps) {
                 {preview ? (
                     <img src={preview} alt="Preview" className="max-h-[300px] w-auto object-contain border-2 border-dark shadow-md" />
                 ) : (
-                    <div className="flex flex-col items-center opacity-50 hover:opacity-80 transition-opacity">
-                        <span className="text-6xl mb-2">⬆</span>
-                        <span className="text-sm font-mono">{text.dropzone_text}</span>
+                    <div className="flex flex-col items-center text-dark  hover:scale-105 transition-transform">
+                        <span className="text-6xl mb-1">
+                            <img src="/svg/upload-1.svg" alt="Upload Icon" className="w-10 h-10 md:w-20 md:h-20"/>
+                        </span>
+                        <span className="text-lg text-center font-mono">{text.dropzone_text}</span>
                     </div>
                 )}
             </div>
@@ -242,7 +241,7 @@ export default function UploadSection({ currentLang }: UploadSectionProps) {
         <button 
             type="submit" 
             disabled={status !== 'idle' && status !== 'verified_fail' && status !== 'finished'}
-            className="w-full mt-8 bg-dark text-white text-bold py-4 text-2xl md:text-3xl serif-font transition-colors disabled:opacity-50 disabled:cursor-not-allowed active:translate-y-[2px] active:shadow-[2px_2px_0px_#2C2C2C]"
+            className="w-full mt-8 bg-dark text-white text-bold py-4 text-2xl md:text-3xl serif-font transition-colors disabled:opacity-50 disabled:cursor-not-allowed active:translate-y-[2px] active:shadow-[2px_2px_0px_#2C2C2C] hover:scale-105 transition-transform"
         >
             {text.btn_main}
         </button>

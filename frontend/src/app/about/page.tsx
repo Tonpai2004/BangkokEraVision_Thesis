@@ -1,8 +1,16 @@
+"use client";
 import Navbar from "@/components/Navbar";
+import { useState } from "react";
 
 export default function AboutPage() {
+  const [language, setLanguage] = useState<'TH' | 'ENG'>('ENG');
+
+  const handleLanguageChange = (lang: 'TH' | 'ENG') => {
+    setLanguage(lang);
+  };
+
   return (
-    <main className="w-full max-w-3xl px-6 pb-20">
+    <main className="w-full px-6 pb-20 mx-auto">
       <Navbar />
 
       <div className="text-center mb-12">

@@ -5,6 +5,8 @@ import UploadSection from "@/components/UploadSection";
 import Link from "next/link";
 import { useState } from "react";
 
+import { useLanguage } from "@/context/LanguageContext";
+
 // 1. สร้างชุดคำแปลสำหรับหน้าหลัก
 const PAGE_TEXT = {
   TH: {
@@ -25,23 +27,12 @@ const PAGE_TEXT = {
 
 export default function Home() {
 
-  // 1. สร้าง State ภาษา (ค่าเริ่มต้น ENG)
-  const [language, setLanguage] = useState<'TH' | 'ENG'>('ENG');
-
-  // 2. ฟังก์ชันสลับภาษา
-  const handleLanguageChange = (lang: 'TH' | 'ENG') => {
-    setLanguage(lang);
-  };
-
-  // 3. ดึงคำศัพท์ตามภาษาปัจจุบันมาใช้
+  const { language } = useLanguage();
   const text = PAGE_TEXT[language];
 
   return (
     <main className="w-full px-6 pb-20 mx-auto">
-      <Navbar 
-        language={language} 
-        onLanguageChange={handleLanguageChange} 
-      />
+      <Navbar />
 
       {/* Hero Section */}
       <section className="mt-0 mb-0 md:mt-10 md:mb-7">

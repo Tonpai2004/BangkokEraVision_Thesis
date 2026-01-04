@@ -3,32 +3,25 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+// 👇 1. Import Hook
+import { useLanguage } from '@/context/LanguageContext';
 
-// 1. สร้างชุดคำแปลสำหรับเมนู
 const NAV_TEXT = {
-  TH: {
-    home: "หน้าหลัก",
-    map: "แผนที่",
-    about: "เกี่ยวกับเรา"
-  },
-  ENG: {
-    home: "Home",
-    map: "Map",
-    about: "About Us"
-  }
+  TH: { home: "หน้าหลัก", map: "แผนที่", about: "เกี่ยวกับเรา" },
+  ENG: { home: "Home", map: "Map", about: "About Us" }
 };
 
-interface NavbarProps {
-  language: 'TH' | 'ENG';
-  onLanguageChange: (lang: 'TH' | 'ENG') => void;
-}
+// ❌ ลบ Interface Props ทิ้งไปเลย ไม่ต้องใช้แล้ว
+// interface NavbarProps { ... }
 
-export default function Navbar({ language, onLanguageChange }: NavbarProps) {
+// 👇 2. ไม่ต้องรับ props อะไรแล้ว
+export default function Navbar() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
   
-  // 2. ดึงคำศัพท์ตามภาษาปัจจุบันมาใช้
+  // 👇 3. ดึงค่าภาษาและฟังก์ชันเปลี่ยนภาษาจาก Context โดยตรง
+  const { language, setLanguage } = useLanguage();
   const text = NAV_TEXT[language];
 
   const isActive = (path: string) => 
@@ -43,33 +36,24 @@ export default function Navbar({ language, onLanguageChange }: NavbarProps) {
   );
 
   const handleSelectLang = (lang: 'TH' | 'ENG') => {
-    onLanguageChange(lang);
+    setLanguage(lang); // ✅ ใช้ setLanguage จาก Context
     setIsLangDropdownOpen(false);
     setIsMobileMenuOpen(false);
   };
 
   return (
     <nav className="w-full text-dark font-serif md:mb-7 relative z-50">
+      {/* ... (ส่วนอื่นๆ ของ UI เหมือนเดิมเป๊ะ) ... */}
       
-      {/* --- DESKTOP --- */}
       <div className="hidden md:flex flex-col items-center w-full">
         <div className="py-8"><Logo /></div>
-
         <div className="w-full border-y-[2px] border-dark flex justify-between items-center px-3 py-3 relative">
           <div className="flex gap-12 font-bold italic text-xl tracking-wide">
-            {/* 3. ใช้ตัวแปร text แทนคำว่า Home, Map, About Us */}
-            <Link href="/" className={`${isActive('/')} hover:opacity-70 transition-opacity`}>
-              {text.home}
-            </Link>
-            <Link href="/map" className={`${isActive('/map')} hover:opacity-70 transition-opacity`}>
-              {text.map}
-            </Link>
-            <Link href="/about" className={`${isActive('/about')} hover:opacity-70 transition-opacity`}>
-              {text.about}
-            </Link>
+            <Link href="/" className={`${isActive('/')} hover:opacity-70 transition-opacity`}>{text.home}</Link>
+            <Link href="/map" className={`${isActive('/map')} hover:opacity-70 transition-opacity`}>{text.map}</Link>
+            <Link href="/about" className={`${isActive('/about')} hover:opacity-70 transition-opacity`}>{text.about}</Link>
           </div>
 
-          {/* Language Dropdown (Desktop) */}
           <div className="relative">
             <button 
               onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
@@ -80,25 +64,14 @@ export default function Navbar({ language, onLanguageChange }: NavbarProps) {
 
             {isLangDropdownOpen && (
               <div className="absolute right-0 top-full mt-2 w-24 bg-background border-[2px] border-dark shadow-[4px_4px_0px_rgba(0,0,0,1)] flex flex-col z-50">
-                <button 
-                  onClick={() => handleSelectLang('ENG')}
-                  className={`py-2 px-4 text-left hover:bg-gold hover:text-white transition-colors font-bold ${language === 'ENG' ? 'bg-gray-200' : ''}`}
-                >
-                  ENG
-                </button>
-                <button 
-                  onClick={() => handleSelectLang('TH')}
-                  className={`py-2 px-4 text-left hover:bg-gold hover:text-white transition-colors font-bold ${language === 'TH' ? 'bg-gray-200' : ''}`}
-                >
-                  TH
-                </button>
+                <button onClick={() => handleSelectLang('ENG')} className={`py-2 px-4 text-left hover:bg-gold hover:text-white transition-colors font-bold ${language === 'ENG' ? 'bg-gray-200' : ''}`}>ENG</button>
+                <button onClick={() => handleSelectLang('TH')} className={`py-2 px-4 text-left hover:bg-gold hover:text-white transition-colors font-bold ${language === 'TH' ? 'bg-gray-200' : ''}`}>TH</button>
               </div>
             )}
           </div>
         </div>
       </div>
 
-      {/* --- MOBILE --- */}
       <div className="md:hidden">
         <div className="flex justify-between items-center py-5 border-b-[2px] border-dark relative z-20 bg-background">
           <Logo />
@@ -109,34 +82,15 @@ export default function Navbar({ language, onLanguageChange }: NavbarProps) {
           </button>
         </div>
 
-        {/* Mobile Menu Dropdown */}
         <div className={`flex flex-col items-center gap-6 py-6 border-b-[2px] border-dark bg-background absolute w-full transition-all duration-300 ease-in-out origin-top z-10 ${isMobileMenuOpen ? 'opacity-100 top-full' : 'opacity-0 -top-[500px] pointer-events-none'}`}>
-            {/* 4. ใช้ตัวแปร text ใน Mobile Menu ด้วย */}
-            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className={`${isActive('/')} text-xl font-bold italic`}>
-              {text.home}
-            </Link>
-            <Link href="/map" onClick={() => setIsMobileMenuOpen(false)} className={`${isActive('/map')} text-xl font-bold italic`}>
-              {text.map}
-            </Link>
-            <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className={`${isActive('/about')} text-xl font-bold italic`}>
-              {text.about}
-            </Link>
+            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className={`${isActive('/')} text-xl font-bold italic`}>{text.home}</Link>
+            <Link href="/map" onClick={() => setIsMobileMenuOpen(false)} className={`${isActive('/map')} text-xl font-bold italic`}>{text.map}</Link>
+            <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className={`${isActive('/about')} text-xl font-bold italic`}>{text.about}</Link>
             
-            {/* Mobile Language Options */}
             <div className="pt-4 border-t border-gray-300 w-1/2 flex justify-center gap-6">
-                <button 
-                  onClick={() => handleSelectLang('ENG')}
-                  className={`font-bold text-lg ${language === 'ENG' ? 'underline decoration-gold decoration-4' : 'opacity-50'}`}
-                >
-                  ENG
-                </button>
+                <button onClick={() => handleSelectLang('ENG')} className={`font-bold text-lg ${language === 'ENG' ? 'underline decoration-gold decoration-4' : 'opacity-50'}`}>ENG</button>
                 <span className="text-gray-400">|</span>
-                <button 
-                   onClick={() => handleSelectLang('TH')}
-                   className={`font-bold text-lg ${language === 'TH' ? 'underline decoration-gold decoration-4' : 'opacity-50'}`}
-                >
-                  TH
-                </button>
+                <button onClick={() => handleSelectLang('TH')} className={`font-bold text-lg ${language === 'TH' ? 'underline decoration-gold decoration-4' : 'opacity-50'}`}>TH</button>
             </div>
         </div>
       </div>

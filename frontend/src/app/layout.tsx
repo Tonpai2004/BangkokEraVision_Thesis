@@ -4,6 +4,8 @@ import { Courier_Prime, Playfair_Display } from "next/font/google";
 // *** บรรทัดนี้สำคัญที่สุด! ห้ามลืม ***
 import "./globals.css"; 
 
+import { LanguageProvider } from "@/context/LanguageContext";
+
 // Setup Fonts
 const courier = Courier_Prime({ 
   weight: ['400', '700'], 
@@ -34,7 +36,9 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col items-center antialiased overflow-x-hidden">
         {/* Container หลักเพื่อคุมความกว้างให้เหมือน Design */}
         <div className="w-full max-w-[1440px] flex flex-col items-center">
-          {children}
+          <LanguageProvider>
+            {children}
+          </LanguageProvider>
         </div>
       </body>
     </html>
