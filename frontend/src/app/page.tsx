@@ -48,7 +48,6 @@ export default function Home() {
       ></div>
 
       <Navbar />
-
       {/* Hero Section */}
       <section className="mt-0 mb-0 md:mt-10 md:mb-7">
         <h1 className="bg-dark text-white font-prachachon p-3 mb-8 pt-4 pb-3 sm:pt-6 sm:pb-4 text-center break-word text-4xl sm:text-6xl md:text-7xl lg:text-8xl whitespace-pre-line tracking-[0.1em]">
