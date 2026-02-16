@@ -14,7 +14,7 @@ const PAGE_TEXT = {
         บางกอกทวิกาล <span className="whitespace-nowrap">คืออะไร?</span>
       </>
     ),
-    desc_prefix: "คือนวัตกรรมทางเทคโนโลยีถ่ายที่เชื่อมโยงคุณเข้ากับความงามสง่าของ \'พระนคร\' ในช่วงคริสต์ทศวรรษที่ 1960s อีกครั้ง เชิญสัมผัสประสบการณ์ย้อนเวลาด้วย",
+    desc_prefix: "คือนวัตกรรมทางเทคโนโลยีถ่ายที่เชื่อมโยงคุณเข้ากับความงามสง่าของ \'พระนคร\' ในช่วงพุทธศักราชที่ 2503 – 2512 อีกครั้ง เชิญสัมผัสประสบการณ์ย้อนเวลาด้วย",
     desc_highlight: "เทคโนโลยีปัญญาประดิษฐ์ผสานศาสตร์ศิลป์และประวัติศาสตร์",
     desc_suffix: "ที่จะเนรมิตภาพถ่ายปัจจุบันของคุณ ให้กลายเป็นภาพจำลองความทรงจำแสนคลาสสิก เปี่ยมด้วยเสน่ห์และกลิ่นอายที่แท้จริงของยุคสมัย ที่แม้จะย้อนกลับไปไม่ได้ แต่ก็ได้สัมผัสประสบการณ์แห่งกาลเวลาจากเทคโนโลยีของเรา",
     link_dev: "คณะผู้รังสรรค์ผลงาน →"
@@ -38,9 +38,9 @@ export default function Home() {
     <main className="w-full px-6 pb-20 mx-auto">
       {/* --- Background Texture Layer --- */}
       <div 
-        className="fixed inset-0 -z-10 pointer-events-none opacity-[0.4]"
+        className="fixed inset-0 -z-10 pointer-events-none opacity-[0.2]"
         style={{ 
-          backgroundImage: "url('/images/grunge-paper-background.jpg')", 
+          backgroundImage: "url('/images/grunge-paper-background3.png')", 
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center'
@@ -73,10 +73,10 @@ export default function Home() {
 
           {/* กล่องข้อความ */}
           <div className="w-full md:flex-1 flex flex-col justify-between">
-            <p className="font-pimdeed text-3xl lg:text-4xl whitespace-pre-line leading-normal text-justify">
+            <p className="font-pimdeed text-3xl lg:text-4xl whitespace-pre-line leading-normal text-left md:text-justify">
               <strong className="font-pimdeed italic">{text.brand_name}</strong> {text.desc_prefix} '{text.desc_highlight}' {text.desc_suffix}
             </p>
-            <Link href="/about" className="self-center md:self-start font-pimdeed font-bold text-3xl lg:text-4xl underline decoration-2 underline-offset-4 hover:opacity-80 transition-colors mt-6 mb-6 md:mb-0">
+            <Link href="/about" className="self-start font-pimdeed font-bold text-3xl lg:text-4xl underline decoration-2 underline-offset-4 hover:opacity-80 transition-colors mt-6 mb-6 md:mb-0">
               {text.link_dev}
             </Link>
           </div>
