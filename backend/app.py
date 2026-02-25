@@ -107,36 +107,64 @@ LOCATION_INFO = {
 # --- THE MASTER PROMPT DATABASE (V.17 - FLAWLESS & HISTORICAL) ---
 LOCATION_PROMPTS = {
     # 🏛️ อนุสาวรีย์ประชาธิปไตย: ปืนใหญ่ 75 กระบอก (ฝังดินรอบนอก) + รถวิ่งวนซ้าย (ไทยขับชิดซ้าย)
-    "Democracy Monument": """
-          **TASK:** Create a **HYPER-REALISTIC** photograph of Democracy Monument (Bangkok 1960s) with **PRECISE HISTORICAL COLORS**.
+    # "Democracy Monument": """
+    #       **TASK:** Create a **HYPER-REALISTIC** photograph of Democracy Monument (Bangkok 1960s) with **PRECISE HISTORICAL COLORS**.
 
-          **📸 1. ABSOLUTE PERSPECTIVE LOCK (NON-NEGOTIABLE):**
-          - **MASTER BLUEPRINT:** The uploaded image is the rigid geometric skeleton. You MUST map the 1960s textures directly onto the *exact* shapes and outlines of the current structure.
-          - **NO DEVIATION:** **DO NOT ROTATE. DO NOT ZOOM. DO NOT SHIFT VIEW.** The geometry must align perfectly with the input image.
+    #       **📸 1. ABSOLUTE PERSPECTIVE LOCK (NON-NEGOTIABLE):**
+    #       - **MASTER BLUEPRINT:** The uploaded image is the rigid geometric skeleton. You MUST map the 1960s textures directly onto the *exact* shapes and outlines of the current structure.
+    #       - **NO DEVIATION:** **DO NOT ROTATE. DO NOT ZOOM. DO NOT SHIFT VIEW.** The geometry must align perfectly with the input image.
 
-          **🎨 2. HISTORICAL COLOR PALETTE (STRICT ACCURACY):**
-          - **CONSTITUTION TRAY (PHAN):** The tray holding the constitution on the very top is **METALLIC BLACK / DARK BRONZE**.  It is **NOT** gold change the color of it to black**.
-          - **TURRET DOORS:** The small doors embedded at the base of the central turret are **VIBRANT THAI RED (See-Daeng-Chad)**.
-          - **WINGS & BODY:** The 4 wings and central tower are **WEATHERED CREAM / OFF-WHITE STUCCO**. They look aged and textured, not bright clean white.
-          - **BASE:** The circular base is **Bare Grey Concrete** with **Black Iron Chains** looping around the perimeter (NO Cannons).
+    #       **🎨 2. HISTORICAL COLOR PALETTE (STRICT ACCURACY):**
+    #       - **CONSTITUTION TRAY (PHAN):** The tray holding the constitution on the very top is **METALLIC BLACK / DARK BRONZE**.  It is **NOT** gold change the color of it to black**.
+    #       - **TURRET DOORS:** The small doors embedded at the base of the central turret are **VIBRANT THAI RED (See-Daeng-Chad)**.
+    #       - **WINGS & BODY:** The 4 wings and central tower are **WEATHERED CREAM / OFF-WHITE STUCCO**. They look aged and textured, not bright clean white.
+    #       - **BASE:** The circular base is **Bare Grey Concrete** with **Black Iron Chains** looping around the perimeter (NO Cannons).
 
-          **🔄 2. SURGICAL DELETION (DELETE FIRST):**
-          - **MODERN PURGE:** Identify every modern building, skyscraper, and high-rise visible in [IMAGE 1].
-          - **ERASE TO BLANK:** You MUST **Surgically DELETE** these structures. Treat their current space as **EMPTY AIR or BLANK SKY** before proceeding.
-          - **NO RESIDUE:** Do not leave any modern window frames, AC units, or glass silhouettes behind.
+    #       **🔄 2. SURGICAL DELETION (DELETE FIRST):**
+    #       - **MODERN PURGE:** Identify every modern building, skyscraper, and high-rise visible in [IMAGE 1].
+    #       - **ERASE TO BLANK:** You MUST **Surgically DELETE** these structures. Treat their current space as **EMPTY AIR or BLANK SKY** before proceeding.
+    #       - **NO RESIDUE:** Do not leave any modern window frames, AC units, or glass silhouettes behind.
 
-          **🏘️ 3. SURROUNDINGS & CONTEXT (ADAPT WHAT IS SEEN):**
-          - **VISIBILITY RULE (CRITICAL):** Erase the buildings, road medians, and pavement *actually visible* in the frame. **DO NOT invent new structures or background elements that are not currently there.**
-          - **Rounabout Detection:** Identify the building inside the roundabout area. Transform it into **1960s Ratchadamnoen 1-Story Low-rise commercial rows**.
-          - **BUILDING TRANSFORMATION:** Identify modern building facades in the background/foreground. Transform their surfaces into **1960s Thai Art Deco/Early Modernist building** (weathered stucco, Art Deco influence). Apply the **Aged Terracotta/Brick Orange** color palette.
-          - **MEDIANS & HARDSCAPE:** If road medians, footpaths, or curbs are visible in the input, change modern concrete to **aged, weathered stone or simple concrete curbs** appropriate for the era.
-          - **CLEAN UP:** Erase modern air conditioners, large billboards, and LED signs from the visible buildings.
+    #       **🏘️ 3. SURROUNDINGS & CONTEXT (ADAPT WHAT IS SEEN):**
+    #       - **VISIBILITY RULE (CRITICAL):** Erase the buildings, road medians, and pavement *actually visible* in the frame. **DO NOT invent new structures or background elements that are not currently there.**
+    #       - **Rounabout Detection:** Identify the building inside the roundabout area. Transform it into **1960s Ratchadamnoen 1-Story Low-rise commercial rows**.
+    #       - **BUILDING TRANSFORMATION:** Identify modern building facades in the background/foreground. Transform their surfaces into **1960s Thai Art Deco/Early Modernist building** (weathered stucco, Art Deco influence). Apply the **Aged Terracotta/Brick Orange** color palette.
+    #       - **MEDIANS & HARDSCAPE:** If road medians, footpaths, or curbs are visible in the input, change modern concrete to **aged, weathered stone or simple concrete curbs** appropriate for the era.
+    #       - **CLEAN UP:** Erase modern air conditioners, large billboards, and LED signs from the visible buildings.
 
-          **🛣️ 4. GRAND OPEN AVENUE (ZERO VEHICLES):**
-          - **TRAFFIC REMOVAL (CRITICAL):** The wide avenue has No lane markings. No Zebra crossings. No modern road signs. and only has a few vintage cars (1960s models) driving around roundabout.
-          **⛔ NEGATIVE PROMPT:** gold constitution, white doors, modern cars, traffic, skyscrapers, flowers on monument, cannons, fantasy elements, distortion, modern signs, air conditioners, glass buildings.
-      """,
+    #       **🛣️ 4. GRAND OPEN AVENUE (ZERO VEHICLES):**
+    #       - **TRAFFIC REMOVAL (CRITICAL):** The wide avenue has No lane markings. No Zebra crossings. No modern road signs. and only has a few vintage cars (1960s models) driving around roundabout.
+    #       **⛔ NEGATIVE PROMPT:** gold constitution, white doors, modern cars, traffic, skyscrapers, flowers on monument, cannons, fantasy elements, distortion, modern signs, air conditioners, glass buildings.
+    #   """,
       
+    "Democracy Monument": """
+        TASK: Create a HYPER-REALISTIC photograph of the Democracy Monument area in Bangkok, circa 1960s. The image must look like authentic vintage film photography.
+
+        1. ABSOLUTE PERSPECTIVE LOCK (CRITICAL):
+        - Use the uploaded image as a rigid geometric skeleton for the main monument's shape. 
+        - DO NOT rotate, zoom, or shift the camera angle. The alignment must be perfect.
+
+        2. THE MONUMENT (HISTORICAL COLORS & TEXTURE):
+        - CONSTITUTION TRAY (TOP): Dark bronze or aged black metallic finish. (Absolutely NO gold).
+        - TURRET DOORS: Vibrant Thai Red (See-Daeng-Chad) lacquer finish.
+        - WINGS & BODY: Weathered, stained cream or off-white stucco. Show visible age, humidity stains, and subtle dirt streaks. 
+        - BASE: Rough, aged grey concrete with heavy black iron chains looping around.
+
+        3. ARCHITECTURAL OVERHAUL (THE 1960s RATCHADAMNOEN LOOK):
+        - SKYLINE PURGE: STRICT HEIGHT LIMIT. Delete all modern high-rises, skyscrapers and building. 
+        - No building in the background can be taller than 3-4 stories. The horizon must be open sky.
+        - SHOPHOUSES: Replace all modern buildings with **1960s Thai Art Deco Building but the building inside monument roundabout will turn into 1-2 stories shophouse rows**.
+        - ART DECO DETAILS: Include rounded building corners, vertical decorative concrete fins (fins), recessed balconies, and geometric window grilles.
+        - COLORS: Use a palette of **Aged Terracotta/Brick Orange**. Paint must look sun-faded and slightly peeled.
+
+        4. STREET & ATMOSPHERE:
+        - THE ROAD: Wide, worn asphalt avenue with NO lane markings and NO zebra crossings.
+        - VINTAGE TRAFFIC: Only a few 1950s-1960s vintage cars (e.g., Opel Kadett (1300cc), Toyota KE10, or Mercedes-Benz W110) driving around the roundabout and cars turn in the same way.
+        - ENVIRONMENT: Remove all modern signage, LED screens, billboards, and air conditioning units.
+
+        NEGATIVE PROMPT: 
+        gold constitution, white doors, modern skyscrapers, glass towers, high-rise buildings, modern cars, heavy traffic, modern road signs, zebra crossings, air conditioners, satellite dishes, clean pristine buildings, 3d render look, digital painting style, unrealistic lighting.
+    """,
 
     "Sala Chalermkrung": """
         **TASK:** Create a **PHOTOREALISTIC COLOR PHOTOGRAPH** of Sala Chalermkrung Theatre (1967).
@@ -221,44 +249,62 @@ LOCATION_PROMPTS = {
         **TASK:** Create a **PHOTOREALISTIC COLOR PHOTOGRAPH** of Yaowarat Road (1968).
         **LOCK:** Maintain exact building geometry and camera height of [IMAGE 1].
 
-        **📸 1. THE "FROZEN TRIPOD" RULE & PIXEL-PERFECT PERSPECTIVE LOCK (NON-NEGOTIABLE):**
-        - **THE INPUT IS THE ONLY REALITY:** Treat the uploaded image as the absolute geometric truth. Imagine your camera is physically **NAILED TO THE EXACT SPOT** where the original photo was taken.
-        - **ZERO MOVEMENT POLICY (CRITICAL):**
-            - **NO SHIFTING:** Do not move the camera left, right, up, or down by even a millimeter.
-            - **NO ROTATION:** Do not tilt the camera, do not pan, do not change the angle.
-            - **NO MIRRORING/FLIPPING:** Absolutely DO NOT flip or mirror the perspective horizontally or vertically. The left side of the street MUST remain the left side.
-        - **LENS & OPTICAL LOCK:** You MUST use the **EXACT same lens focal length, distortion, and field of view (FOV)** as the input. Do not widen the shot to show more, do not zoom in to show less. The view through the lens must perfectly overlay the original.
-        - **HORIZON & EYE-LEVEL RIGIDITY:** The horizon line and the viewer's eye level are frozen in place. They must match the source image's coordinates precisely on the pixel grid.
+        **📸 1. SPATIAL SCALING & ROAD DOMINANCE (FIXING NARROWNESS):**
+        - **ROAD WIDTH INTEGRITY:** Identify the road edges in [IMAGE 1]. You MUST maintain the **EXACT distance** between the left and right building facades. Do NOT encroach the shophouses into the asphalt area.
+        - **ASPHALT SCALE:** The road surface must occupy the same pixel percentage as the original. Maintain a wide, expansive asphalt view to prevent the scene from looking cramped.
+        - **FROZEN TRIPOD:** No shifting, rotating, or zooming. The perspective must perfectly overlay [IMAGE 1].
 
-        **🏘️ 2. ARCHITECTURAL TRANSFORMATION (CRITICAL):**
-        - **REPLACE ALL MODERN BUILDINGS:** Turn all glass/modern concrete structures into **2-4 story Chinese-Colonial shophouses with slight soot and humidity streaks**.
-        - **TEXTURE:** Walls must be off-white or faded grey with heavy **soot stains and humidity streaks**.
-        - **WINDOWS & DOORS:** Use dark **Wooden Folding Doors (Ban-Fiam)** on the ground floor and **Wooden Louvered Shutters** on upper floors.
-        - **STRUCTURAL INTEGRITY:** Do not change the spacing or distance between existing buildings. Do not add new buildings in empty spaces.
+        **🏘️ 2. ARCHITECTURAL FACADES:**
+        - **REPLACE ALL MODERN BUILDINGS:** 2-4 story Chinese-Colonial shophouses.
+        - **TEXTURE:** Weathered off-white/faded grey stucco with heavy soot and rain stains (Krap-fon).
+        - **GROUND FLOOR:** Dark **Wooden Folding Doors (Ban-Fiam)**. Ensure the "sidewalk" area is clear and distinct from the road.
 
-        - **UTILITY POLES (NEW):** Add vintage **weathered concrete utility poles** along the sidewalks **ONLY**. Include a **realistic tangle of black electrical wires** stretching between buildings.
+        **🔤 3. SIGNAGE HIERARCHY & TYPOGRAPHY (FIXING FONT BALANCE):**
+        - **TIER 1 (OVERSIZED VERTICAL SIGNS):** Populate the scene with **Large, Massive Vertical Signs** that hang perpendicular to the buildings. These signs should span 1-2 stories in height.
+        - **FONT WEIGHT:** Use **Extra Bold, Thick Strokes** for all Thai and Chinese characters. No thin or delicate fonts.
+        - **LEGIBILITY:** Foreground signs like "**ห้างทอง**", "**ร้านยา**", "**โรงแรม**", "**ร้านทอง**", "**ภัตตาคาร**" must be large and prominent.
+        - **TIER 2 (STOREFRONT BANNERS):** Horizontal signs above the ground floor doors should be bold and use high-contrast colors (Red/Gold, Yellow/Black).
+        - **PATINA:** Signs must look hand-painted with visible aging and weathering. Avoid "perfect" digital-looking text.
 
-
-        **🔤 3. SIGNAGE ARTISTRY (THE "IMPRESSIONIST" RULE):**
-        - **FOREGROUND LEGIBILITY:** Use clear, bold Thai script for foreground signs like: "**ห้างทอง**", "**ร้านยา**", "**โรงแรม**", "**อาหาร**", "**บริษัท**", "**โรงรับจำนำ**".
-        - **BACKGROUND CHARACTER ISOLATION:** For distant signs, do NOT attempt full sentences. Instead, render **SINGLE, BOLD, HIGH-CONTRAST Chinese characters** (e.g., "**金**", "**福**", "**大**", "**吉**") or very short Thai words (e.g., "**ยา**", "**ทอง**").
-        - **COLOR CONTRAST:** Use strictly high-contrast combinations for distant signs: **Bright Red backgrounds with Gold text** or **Yellow backgrounds with Black text**. This prevents AI from blurring the characters into the background.
-        - **PATINA:** Signs must look aged with **peeling paint, sun-faded colors, and rust stains** on the metal brackets.
-
-
-        **🚋 4. TRAM & ROAD:**
-        - **TEXTURE:** The asphalt road must look **used and worn**.
+        **🚋 4. TRAM & ROAD PHYSICS:**
+        - **SINGLE TRACK:** A single weathered tram track on the right side.
+        - **YELLOW/RED TRAM:** A wooden open-sided tram that is scaled correctly to the street width.
         - **Trash & Debris:** Add small bits of scattered litter (paper scraps, leaves) and dust along the curb edges and road for realism.
-        - **TRACK & TRAM:** Single track on the right with a weathered Yellow/Red wooden tram.
-        
-        **🚦 5. ATMOSPHERE:**
-        - **VEHICLE:** NO motorized tuk-tuks, NO cars. Only pedal samlors.
-        - **CROWD:** Lively pedestrians in 1960s fashion.
-        - **HIGH DENSITY:** Fill the sidewalks and street edges with a **thick crowd of pedestrians** in 1960s Thai-Chinese fashion (white shirts, slacks, traditional dresses). make some of them look like they are shopping, walking, chatting, or carrying goods. and make the crowd look dense and busy. make some of them walk on the road but not crossing the road.
-        - **STREET LIFE:** Include a few mobile street vendors with shoulder poles (Mae-Ka-Hab-Ray) weaving through the crowd.
+        - **SURFACE:** Used, worn asphalt with realistic debris and dust near the curbs.
 
-        **⛔ NEGATIVE PROMPT:** MODERN ARCHITECTURE, aluminum facade, glass curtain wall, motorized tuk-tuks, taxi cars, traffic jams, modern skyscrapers, glass windows, LED signs, neon glow, plastic banners, air conditioners, traffic lights, modern street lamps, tourists, banks, modern building, double tracks, **changing perspective, zooming, shifting angle, Dutch angle, tilted camera, reorienting street, straightening road, mirroring image, flipping perspective, changing lens**.
+        **🚦 5. ATMOSPHERE & CROWD:**
+        - **VEHICLE:** NO cars or tuk-tuks. Only **Pedal Samlors** (Rickshaws).
+        - **URBAN DENSITY:** A thick, lively crowd in 1960s Thai-Chinese fashion. Pedestrians should be concentrated on the sidewalks and road edges, keeping the center of the road mostly clear to emphasize its width.
+        - **STREET LIFE:** Mobile hawkers (Mae-Ka-Hab-Ray) weaving through the crowd.
+
+        **⛔ NEGATIVE PROMPT:** **narrow street**, **cramped perspective**, **tiny signs**, thin fonts, floating text, modern skyscrapers, glass facades, cars, motorized vehicles, LED signs, neon glow, plastic banners, air conditioners, changing lens, zooming.
     """,
+
+    # "Khaosan Road": """
+    #     **TASK:** Create a **PHOTOREALISTIC COLOR PHOTOGRAPH** of Bang Lamphu / Khaosan Road (1962).
+
+    #     **🔒 PERSPECTIVE LOCK (CRITICAL):**
+    #     - **Blueprint:** Use the Uploaded Image as the **LAYOUT REFERENCE** for street path and alignment.
+
+    #     **🏘️ ARCHITECTURAL HEIGHT RESTRICTION (STRICT):**
+    #     - **2-STORY LIMIT:** Force ALL buildings in the scene to be **LOW-RISE (Maximum 2 stories)**.
+    #     - **REMOVE MODERN VERTICALITY:** If the input image contains tall hotels, skyscrapers, or modern concrete towers in the background, **DELETE THEM** or **REDUCE** them into sky/clouds. Do not allow any modern high-rises to peek through.
+    #     - **UNIFORM STYLE:** Every building structure must be transformed into **Wooden Row Houses (Yellow wood / Green frames)**. No modern concrete styles allowed.
+
+    #     **🚫 STRICT 1960s TIME-CAPSULE RULE:**
+    #     - **NO MODERN ELEMENTS:** Absolutely NO air conditioners, NO satellite dishes, NO 7-Eleven signs, NO plastic chairs, NO electrical tangles.
+    #     - **AUTHENTIC HISTORY:** The scene must strictly follow the oral history of the area: a quiet residential rice-trading community, NOT a tourist hub.
+
+    #     **🚶 PEOPLE & TRAFFIC (QUIET COMMUNITY):**
+    #     - **ZERO VEHICLES:** The narrow street is **COMPLETELY EMPTY OF CARS**, tuk-tuks, and samlors. It is a walking street for locals only.
+    #     - **Locals Only:** Authentic Thai residents (tan skin, black hair) in 1960s attire.
+    #     - **Activity:** Neighbors chatting in front of houses. **NO BACKPACKERS. NO TOURISTS.**
+
+    #     **🍚 PROPS:**
+    #     - Rice sacks (White/Hemp) stacked neatly in front of **ONLY 2-3 houses**.
+
+    #     **⛔ NEGATIVE PROMPT:** **skyscrapers**, **high-rise buildings**, **modern hotels**, **tall concrete towers**, cars, vehicles, motorcycles, backpackers, foreigners, tourists, hostels, bars, neon lights, 7-Eleven.
+    # """,
 
     "Khaosan Road": """
         **TASK:** Create a **PHOTOREALISTIC COLOR PHOTOGRAPH** of Bang Lamphu / Khaosan Road (1962).
@@ -266,24 +312,31 @@ LOCATION_PROMPTS = {
         **🔒 PERSPECTIVE LOCK (CRITICAL):**
         - **Blueprint:** Use the Uploaded Image as the **LAYOUT REFERENCE** for street path and alignment.
 
-        **🏘️ ARCHITECTURAL HEIGHT RESTRICTION (STRICT):**
-        - **2-STORY LIMIT:** Force ALL buildings in the scene to be **LOW-RISE (Maximum 2 stories)**.
-        - **REMOVE MODERN VERTICALITY:** If the input image contains tall hotels, skyscrapers, or modern concrete towers in the background, **DELETE THEM** or **REDUCE** them into sky/clouds. Do not allow any modern high-rises to peek through.
-        - **UNIFORM STYLE:** Every building structure must be transformed into **Wooden Row Houses (Yellow wood / Green frames)**. No modern concrete styles allowed.
+        **🏘️ HYBRID URBAN DENSITY (BALANCING ROWS & GAPS):**
+        - **2-STORY LIMIT:** All structures are 1-2 stories max.
+        - **INTERMITTENT ROWS:** Instead of one infinite row, create **CLUSTERS of 3-4 connected wooden shophouses** that share common walls.
+        - **URBAN GAPS:** Between these clusters, insert **narrow gaps (1-2 meters)** or small wooden alleyway entrances. Do NOT make them wide open yards.
+        - **STANDALONE INTEGRATION:** Occasionally place a single standalone masonry or wooden house between the clusters to break the repetition.
+        - **VARYING FACADES:** Even within a cluster, each unit must have slightly different window styles or paint weathering (e.g., one unit has louvered shutters, the next has open frames).
+        - **STREET PROXIMITY:** Ensure buildings sit relatively close to the road to maintain an **"Urban Residential"** feel. Avoid large front yards or long fences that look rural.
 
         **🚫 STRICT 1960s TIME-CAPSULE RULE:**
-        - **NO MODERN ELEMENTS:** Absolutely NO air conditioners, NO satellite dishes, NO 7-Eleven signs, NO plastic chairs, NO electrical tangles.
-        - **AUTHENTIC HISTORY:** The scene must strictly follow the oral history of the area: a quiet residential rice-trading community, NOT a tourist hub.
+        - **NO MODERN ELEMENTS:** Absolutely NO air conditioners, NO satellite dishes, NO 7-Eleven signs, NO plastic chairs.
+        - **AUTHENTIC HISTORY:** A quiet but established residential rice-trading community.
 
         **🚶 PEOPLE & TRAFFIC (QUIET COMMUNITY):**
-        - **ZERO VEHICLES:** The narrow street is **COMPLETELY EMPTY OF CARS**, tuk-tuks, and samlors. It is a walking street for locals only.
-        - **Locals Only:** Authentic Thai residents (tan skin, black hair) in 1960s attire.
-        - **Activity:** Neighbors chatting in front of houses. **NO BACKPACKERS. NO TOURISTS.**
+        - **ZERO VEHICLES:** The narrow street is empty of cars.
+        - **Locals Only:** Authentic Thai residents in 1960s attire some may look casual and some may look more relaxed than others.
+        - **Activity:** Neighbors gathered near house entrances or sitting on porch steps.
 
         **🍚 PROPS:**
-        - Rice sacks (White/Hemp) stacked neatly in front of **ONLY 2-3 houses**.
+        - **RICE TRADING HUB:** Increase the density of rice sacks and wooden crates. They should look like they are part of the daily commerce, stacked near the "connected shophouse" sections.
+        - ** Grain of rice on the ground, small bits of straw, and dust to enhance the realism of the trading environment.**
+        - ** Other than rice sacks there can be some small market props like wooden carts, baskets, and simple hand tools for handling rice.**
 
-        **⛔ NEGATIVE PROMPT:** **skyscrapers**, **high-rise buildings**, **modern hotels**, **tall concrete towers**, cars, vehicles, motorcycles, backpackers, foreigners, tourists, hostels, bars, neon lights, 7-Eleven.
+        ** Road surface: Worn asphalt with scattered debris and dust near the curbs. **
+
+        **⛔ NEGATIVE PROMPT:** **rural village look**, **wide open yards**, **distant isolated houses**, **suburban fences**, skyscrapers, modern hotels, cars, backpackers, tourists, uniform row houses, identical buildings.
     """,
 
     "Phra Sumen Fort": """
@@ -708,7 +761,7 @@ def generate_video_runway(image_bytes, location_key):
         """
 
         location_prompts = {
-            "Democracy Monument": "Static tripod shot, filmed in HIGH-FRAMERATE SLOW MOTION (smooth, dreamy, absolutely NO timelapse). **CRITICAL: The Democracy Monument is an IMMOVABLE CONCRETE OBJECT. It must remain STONE-STILL and RIGID.** Zero warping. **ABSOLUTE PROHIBITION ON ADDITIONS:** It is STRICTLY FORBIDDEN to spawn, generate, or add cars, buses, people, or debris. The road must remain completely DESERTED. **NO VEHICLES ALLOWED.** **PRESERVE BLACK BORDERS/BARS:** If the input has black space, KEEP IT EXACTLY AS IS. Do not fill, inpaint, or crop. Motion is limited strictly to lazy, slow-drifting clouds and heat haze only.",
+            "Democracy Monument": "Static tripod shot, No Zoom out, filmed in HIGH-FRAMERATE SLOW MOTION (smooth, dreamy, absolutely NO timelapse). **CRITICAL: The Democracy Monument is an IMMOVABLE CONCRETE OBJECT. It must remain STONE-STILL and RIGID.** Zero warping. **ABSOLUTE PROHIBITION ON ADDITIONS:** It is STRICTLY FORBIDDEN to spawn, generate, or add cars, buses, people, or debris. The road must remain completely DESERTED. **NO VEHICLES ALLOWED.** **PRESERVE BLACK BORDERS/BARS:** If the input has black space, KEEP IT EXACTLY AS IS. Do not fill, inpaint, or crop. Motion is limited strictly to lazy, slow-drifting clouds and heat haze only.",
             "Giant Swing": "Static tripod shot. Red pillars and all surrounding buildings MUST REMAIN PERFECTLY RIGID and STILL. DO NOT ADD any vehicles or new objects. People walk slowly and naturally, realistically. Gentle leaf rustle and atmospheric haze. No strange deformations or glitches.",
             "Yaowarat": "Heat haze shimmering slightly above the asphalt. Subtle flickering of sunlight reflecting off aged glass windows. No movement of vehicles or people at all.",
             "Khaosan Road": "Calm and still residential atmosphere.",
