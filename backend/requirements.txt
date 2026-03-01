@@ -1,5 +1,14 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+numpy<2.0.0
+torch==2.4.1+cpu
+torchvision==0.19.1+cpu
 flask
 flask-cors
 python-dotenv
 google-genai
-google-cloud-aiplatform
+google-cloud-vision
+sentence-transformers
+scipy
+pillow
+requests
+gunicorn

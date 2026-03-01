@@ -165,33 +165,35 @@ LOCATION_PROMPTS = {
         NEGATIVE PROMPT: 
         gold constitution, white doors, modern skyscrapers, glass towers, high-rise buildings, modern cars, heavy traffic, modern road signs, zebra crossings, air conditioners, satellite dishes, clean pristine buildings, 3d render look, digital painting style, unrealistic lighting.
     """,
-
+    
     "Sala Chalermkrung": """
-        **TASK:** Create a **PHOTOREALISTIC COLOR PHOTOGRAPH** of Sala Chalermkrung Theatre (1967).
-        
-        **📸 1. PERSPECTIVE & SKYLINE LOCK:**
-        - **BLUEPRINT:** Maintain the exact camera angle of [IMAGE 1].
-        - **SKYLINE PURGE (CRITICAL):** Identify all high-rise buildings, skyscrapers, and modern concrete towers and houses or big houses in the background of [IMAGE 1] that place on the right side of Sala Chalerm Krung. You MUST **DELETE and ERASE** them and replace with 1960s building style or sky.
-        - **REPLACE BACKGROUND:** Replace the modern skyline and adjacent building like houses with a **clear, open tropical sky**. The theater must be the tallest, most prominent structure in the scene.
-        
-        **🚫 2. MODERN REMOVAL:**
-        - **ERASE INFRASTRUCTURE:** Remove all modern traffic lights, LED street lamps, concrete utility poles, and tangled black cables.
-        - **BRANDING:** Delete all modern bank logos like SCB, Kasikorn, Krungthep-Bank, ATM signs, and digital billboards.
-        
-        **🎭 3. THE MOVIE POSTER:**
-        - **Visual:** Large hand-painted cutout poster. Two men back-to-back. One in a sharp **black suit** (half-Chinese), one in a white shirt. Both look like 1960s gentlemen. Cover the front of the theater area.
-        - **Text:** Title "**บางกอกทวิกาล**". Starring "**มาดามพงษ์ และ ณัฐภัทร**".
-        - **Style:** Matte finish, hand-painted look. No neon glow or digital effects.
-        - **Remove ads:** Delete any modern ads, posters, banners or Thai banks logos around the theater entrance.
-        
-        **🚶 4. PEDESTRIAN CONTEXT:**
-        - **STREET:** Wide asphalt avenue, **COMPLETELY EMPTY OF CARS** no lane marking, zebra crossing or modern lane markings.
-        - **CROWD:** A few crowd of Thai locals in 1960s fashion (white shirts, skirts, slacks) walking and gathered for a premiere.
-        
-        **🎨 5. STYLE:**
-        - **Look:** 1960s Kodachrome film with warm natural light and soft grain.
+        **TASK:** TRANSFORM [IMAGE 1] into a hyper-photorealistic color photograph of Sala Chalermkrung Theatre, circa 1967. The result must strictly incorporate historical and aesthetic constraints, matching the atmosphere and architectural context of the provided sequence of period `reference_images`.
 
-        **NEGATIVE PROMPT:** home, houses, skyscrapers, high-rise buildings, modern towers, glass facades, urban sprawl, cars, traffic, street lights, electric wires.
+        **🔒 1. ABSOLUTE SIGNAGE & FAÇADE NON-TRANSFORM LOCK (CRITICAL):**
+        - The large "SALA CHALERMKRUNG" sign (Thai and English) at the top of the building is under an **absolute non-transform lock**; its font, geometry, form, and placement must remain IDENTICAL to Input Image 1. It must not be transformed, re-textured, or changed *in any way* regarding its sign elements.
+        - Maintain Input Image 1's rigid geometric blueprint of the building structure and columns without altering their fundamental shapes or architectural form. No Dilapidation Control: The main building structure must appear maintained and structural correct for a busy theatre of its period, not crumbling, dilapidated, or overly weathered. Look well-kept, reflecting its royal connection.
+
+        **🎭 2. MAJOR FACADE OVERHAUL (THE WINDOW POSTERS - CRITICAL CHANGE):**
+        - **IDENTIFY GLASS/WINDOWS:** Locate the modern glass window lines and partitions on the ground and middle floors flanking the central entrance area on all three angled aspects (center, left, and right sides of the main structure).
+        - **THE COVER-UP:** Install massive, single, horizontal rectangular hand-painted movie poster panels across the *entire width of these three angled aspekts*. These posters MUST completely obscure and cover the window lines and modern glass. No windows or glass should be visible on these levels.
+        - **POSTER DETAILS (MUST INCLUDE):** The Thai title "**บางกอกทวิกาล**". Art visual: Two gentlemen back-to-back, one in a white shirt with glasses, the other without glasses. The art style must be vintage Thai hand-painted, not digital.
+        - **NO EXCESSIVE PLASTERING:** Strictly ban the plastering of posters on solid stucco walls, pillars, or sides of the building outside this specific obscured window area. Solid walls must remain plain and clean, except for this specific obscured window section.
+
+        **🏘️ 3. CLEANING & REVOLVING SURROUNDINGS (PERIOD SHOPHOUSES REFERENCE):**
+        - **MODERN REMOVAL:** Surgically DELETE all modern additions seen in Input Image 1, including modern street lamps, flags, modern awnings, modern branding signs, LED screens, and clutter.
+        - **GROUND FLOOR RIGHT CORNER:** Specifically remove the restaurant/shop area seen on the ground floor right corner of Input Image 1. Transform it into a simple, plain, aged stucco wall with a quiet, closed-off pattern, matching the quiet commercial row context of period reference images.
+        - **BACKGROUND BUILDINGS (คูหาอาคารปูน):** Replace the modern skyline/background with 2-3 story period-accurate Thai masonry commercial shophouses (คูหาอาคารปูน), referencing the provided `reference_images` for appropriate architectural style, materials, and street context. Forbid wooden houses. The side buildings must reflect authentic 1960s commercial masonry design.
+
+        **🚫 4. LOGO & BRAND ERASURE (100%):**
+        - Erase *every* modern bank logo, ATM sign, telecommunication brand, or commercial branding text detected in [IMAGE 1] from walls, poles, or surrounding buildings. Complete erasure.
+
+        **🚗 5. PEOPLE & TRAFFIC BAN:**
+        - **TRAFFIC:** The wide worn asphalt road is majetically EMPTY. No cars, no buses, no motorcycles, no tuk-tuks. Reveal the clean road surface.
+        - **CROWD:** Minimize the crowd. Include only a very small, sparse group of Thai pedestrians in natural 1960s fashion near the entrance, looking realistic.
+
+        **🎨 6. FILM STYLE:** Kodak Kodachrome film (1967), natural light, soft film grain, high historical fidelity.
+
+        **NEGATIVE PROMPT:** modern cars, traffic, tuk-tuks, motorcycles, modern bank logos, cell phone ads, modern screens, modern lamps, flags on building, visible angled glass windows, modern metal frames flanking facade flank, dilapidated building form, crumbling walls, structural transformation of columns, excessive poster plastering, posters on solid walls, uncovered facade levels, modern surroundings, high-rise buildings in background, wooden shacks, dense crowds.
     """,
 
     "Giant Swing": """
