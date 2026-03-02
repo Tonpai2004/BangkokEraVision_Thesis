@@ -167,34 +167,41 @@ LOCATION_PROMPTS = {
     """,
     
     "Sala Chalermkrung": """
-        **TASK:** TRANSFORM [IMAGE 1] into a hyper-photorealistic color photograph of Sala Chalermkrung Theatre, circa 1967. The result must strictly incorporate historical and aesthetic constraints, matching the atmosphere and architectural context of the provided sequence of period `reference_images`.
+        **TASK:** TRANSFORM [IMAGE 1] into a hyper-photorealistic color photograph of Sala Chalermkrung Theatre, circa 1967. The result must strictly incorporate historical and aesthetic constraints, matching the atmosphere and architectural context of the provided sequence of period `reference_images`.
 
-        **🔒 1. ABSOLUTE SIGNAGE & FAÇADE NON-TRANSFORM LOCK (CRITICAL):**
-        - The large "SALA CHALERMKRUNG" sign (Thai and English) at the top of the building is under an **absolute non-transform lock**; its font, geometry, form, and placement must remain IDENTICAL to Input Image 1. It must not be transformed, re-textured, or changed *in any way* regarding its sign elements.
-        - Maintain Input Image 1's rigid geometric blueprint of the building structure and columns without altering their fundamental shapes or architectural form. No Dilapidation Control: The main building structure must appear maintained and structural correct for a busy theatre of its period, not crumbling, dilapidated, or overly weathered. Look well-kept, reflecting its royal connection.
+        **🔒 1. ABSOLUTE SIGNAGE & FAÇADE NON-TRANSFORM LOCK (CRITICAL):**
+        - The large "SALA CHALERMKRUNG" sign (Thai and English) at the top of the building is under an **absolute non-transform lock**; its font, geometry, form, and placement must remain IDENTICAL to Input Image 1. It must not be transformed, re-textured, or changed *in any way* regarding its sign elements.
+        - Maintain Input Image 1's rigid geometric blueprint of the building structure and columns without altering their fundamental shapes or architectural form.
+        - No Dilapidation Control: The main building structure must appear maintained and structurally correct for a busy theatre of its period, not crumbling, dilapidated, or overly weathered. Look well-kept, reflecting its royal connection.
 
-        **🎭 2. MAJOR FACADE OVERHAUL (THE WINDOW POSTERS - CRITICAL CHANGE):**
-        - **IDENTIFY GLASS/WINDOWS:** Locate the modern glass window lines and partitions on the ground and middle floors flanking the central entrance area on all three angled aspects (center, left, and right sides of the main structure).
-        - **THE COVER-UP:** Install massive, single, horizontal rectangular hand-painted movie poster panels across the *entire width of these three angled aspekts*. These posters MUST completely obscure and cover the window lines and modern glass. No windows or glass should be visible on these levels.
-        - **POSTER DETAILS (MUST INCLUDE):** The Thai title "**บางกอกทวิกาล**". Art visual: Two gentlemen back-to-back, one in a white shirt with glasses, the other without glasses. The art style must be vintage Thai hand-painted, not digital.
-        - **NO EXCESSIVE PLASTERING:** Strictly ban the plastering of posters on solid stucco walls, pillars, or sides of the building outside this specific obscured window area. Solid walls must remain plain and clean, except for this specific obscured window section.
+        **🎭 2. MAJOR FACADE OVERHAUL (THE WINDOW POSTERS - CRITICAL CHANGE):**
+        - **IDENTIFY GLASS/WINDOWS:** Locate the modern glass window lines and partitions on the ground and middle floors flanking the central entrance area on all three angled aspects (center, left, and right sides of the main structure).
+        - **THE COVER-UP:** Install massive, single, horizontal rectangular hand-painted movie poster panels across the *entire width of these three angled aspects*. These posters MUST completely obscure and cover the window lines and modern glass. No windows or glass should be visible on these levels. 
+        - **POSTER DETAILS (MUST INCLUDE):** The Thai title "**บางกอกทวิกาล**". Art visual: Two gentlemen back-to-back, one in a white shirt with glasses, the other without glasses. The art style must be vintage Thai hand-painted, not digital.
+        - **NO EXCESSIVE PLASTERING:** Strictly ban the plastering of posters on solid stucco walls, pillars, or sides of the building outside this specific obscured window area. Solid walls must remain plain and clean, except for this specific obscured window section.
 
-        **🏘️ 3. CLEANING & REVOLVING SURROUNDINGS (PERIOD SHOPHOUSES REFERENCE):**
-        - **MODERN REMOVAL:** Surgically DELETE all modern additions seen in Input Image 1, including modern street lamps, flags, modern awnings, modern branding signs, LED screens, and clutter.
-        - **GROUND FLOOR RIGHT CORNER:** Specifically remove the restaurant/shop area seen on the ground floor right corner of Input Image 1. Transform it into a simple, plain, aged stucco wall with a quiet, closed-off pattern, matching the quiet commercial row context of period reference images.
-        - **BACKGROUND BUILDINGS (คูหาอาคารปูน):** Replace the modern skyline/background with 2-3 story period-accurate Thai masonry commercial shophouses (คูหาอาคารปูน), referencing the provided `reference_images` for appropriate architectural style, materials, and street context. Forbid wooden houses. The side buildings must reflect authentic 1960s commercial masonry design.
+        **🔒 7. ARCHITECTURAL BASE & WALL DETAIL (HISTORICAL CORRECTION - CRITICAL FOCUS):**
+        - **RED CIRCLE AREA:** Specifically target the ground floor right corner of the building, where modern restaurant/cafe elements, umbrellas, and open storefronts exist in [IMAGE 1]. This area MUST be completely transformed to match the 1960s `reference_images`. Erase any modern depth, open spaces, and modern storefront geometry. Reconstruct it as a solid, flat, smooth masonry wall.
+        - **STRUCTURAL CONTINUITY:** This reconstructed wall must not be a detached or separate structure. It MUST be an integrated, seamless continuation of the main theatre façade and Art Deco geometry, using the same cream stucco texture and base plinth design, making the building appear whole and continuous.
+        - **HISTORICAL WINDOW REINTEGRATION:** Integrate the correct historical casement or hopper-style windows (ช่องหน้าต่างบานกระทุ้ง/บานพับโบราณ) into this reconstructed wall section, precisely as seen in the 1930s-1960s reference photos. These windows should be aligned neatly along the wall, showing their dark, multiple-paned frames against the weathered cream stucco. Do not add modern glass panels or metal frames; only use the period-accurate window style.
 
-        **🚫 4. LOGO & BRAND ERASURE (100%):**
-        - Erase *every* modern bank logo, ATM sign, telecommunication brand, or commercial branding text detected in [IMAGE 1] from walls, poles, or surrounding buildings. Complete erasure.
+        **🏘️ 3. CLEANING & SURROUNDINGS (STRICT 1960s CONTEXT):**
+        - **MODERN REMOVAL:** Surgically DELETE all modern additions seen in Input Image 1, including modern street lamps, flags, modern awnings, modern branding signs, LED screens, and clutter.
+        - **ERASE ATTACHMENTS:** Ensure all restaurant/cafe structures, chairs, tables, umbrellas, and branding are 100% removed from the right side of the main building, revealing only the clean wall and window structure defined in Section 7.
+        - **BACKGROUND BUILDINGS (คูหาอาคารปูน):** Replace the modern skyline/background with 2-3 story period-accurate Thai masonry commercial shophouses (คูหาอาคารปูน). Forbid wooden houses. The side buildings must reflect authentic 1960s commercial masonry design.
+        - **TREES & VEGETATION:** Use existing trees to partially obscure and blend the surrounding buildings, keeping the focus strictly on Sala Chalermkrung.
 
-        **🚗 5. PEOPLE & TRAFFIC BAN:**
-        - **TRAFFIC:** The wide worn asphalt road is majetically EMPTY. No cars, no buses, no motorcycles, no tuk-tuks. Reveal the clean road surface.
-        - **CROWD:** Minimize the crowd. Include only a very small, sparse group of Thai pedestrians in natural 1960s fashion near the entrance, looking realistic.
+        **🚫 4. LOGO & BRAND ERASURE (100%):**
+        - Erase *every* modern bank logo, ATM sign, telecommunication brand, or commercial branding text detected in [IMAGE 1] from walls, poles, or surrounding buildings. Complete erasure. Do not transform them into vintage logos; simply remove them.
 
-        **🎨 6. FILM STYLE:** Kodak Kodachrome film (1967), natural light, soft film grain, high historical fidelity.
+        **🚗 5. PEOPLE & TRAFFIC BAN:**
+        - **TRAFFIC:** The wide worn asphalt road is majestically EMPTY. No cars, no buses, no motorcycles, no tuk-tuks. Reveal the clean road surface.
+        - **CROWD:** Minimize the crowd. Include only a very small, sparse group of Thai pedestrians in natural 1960s fashion (men in tucked-in shirts, women in mod-dresses) near the entrance, looking realistic.
 
-        **NEGATIVE PROMPT:** modern cars, traffic, tuk-tuks, motorcycles, modern bank logos, cell phone ads, modern screens, modern lamps, flags on building, visible angled glass windows, modern metal frames flanking facade flank, dilapidated building form, crumbling walls, structural transformation of columns, excessive poster plastering, posters on solid walls, uncovered facade levels, modern surroundings, high-rise buildings in background, wooden shacks, dense crowds.
-    """,
+        **🎨 6. FILM STYLE:** Kodak Kodachrome film (1967), natural light, soft film grain, high historical fidelity.
+
+        **NEGATIVE PROMPT:** modern cars, traffic, tuk-tuks, motorcycles, modern bank logos, cell phone ads, modern screens, modern lamps, flags on building, visible angled glass windows, modern metal frames flanking facade flank, dilapidated building form, crumbling walls, structural transformation of columns, excessive poster plastering, posters on solid walls, uncovered facade levels, modern surroundings, high-rise buildings in background, wooden houses, dense crowds, restaurant storefronts on building side, cafe seating area, umbrellas, modern attached structures, modern display windows, detached walls, structural gaps.
+    """,
 
     "Giant Swing": """
 
@@ -629,56 +636,68 @@ def step2_generate(client, structure_desc, location_key, original_img_bytes, ref
         parts.append(style_instruction)
         parts.append(types.Part.from_bytes(data=ref_img_bytes, mime_type="image/jpeg"))
 
-    # Config การเรนเดอร์ (แนะนำ temperature=0.1 เพื่อให้มีความยืดหยุ่นเล็กน้อยแต่ไม่หลุดกรอบ)
+    # Config การเรนเดอร์ 
     config = types.GenerateContentConfig(
         response_modalities=["IMAGE"],
-        temperature=0.1 
+        temperature=0.0 # ลดเหลือ 0.0 เพื่อให้ทำตามโครงสร้างเดิมเป๊ะขึ้น
     )
-    # 3. เรียกโมเดลด้วยค่าความสร้างสรรค์ต่ำที่สุด (Locking the result)
-    model_name = "gemini-3-pro-image-preview" 
-    max_retries = 5
-
+    
+    # ✅ ปรับคิวโมเดลใหม่ เอาตัวที่เสถียรที่สุดขึ้นก่อน หรือใช้เป็นตัวสำรอง
+    model_list = [
+        "gemini-3-pro-image-preview", 
+        "imagen-3.0-generate-002",         # Official Stable Model ของ Google
+        "gemini-2.0-flash-exp-image-generation",
+        "nano-banana-pro-preview"
+    ]
+    
+    max_retries = 6 # เพิ่มจำนวนครั้งในการ Retry
     for attempt in range(max_retries):
+        # สลับโมเดลตามลำดับ แต่เน้น gemini-3-pro-image-preview ใน 4 รอบแรก
+        if attempt < 4:
+             model_name = model_list[0]
+        else:
+             # ถ้ายิงมา 4 รอบไม่ผ่าน ค่อยเปลี่ยนไปใช้โมเดลสำรอง
+             model_name = model_list[attempt - 3] 
+        
         try:
-            print(f"🎨 Generating Image (Attempt {attempt+1}) using {model_name}...")
+            print(f"🎨 Generating Image (Attempt {attempt+1}/{max_retries}) using {model_name}...")
             response = client.models.generate_content(
                 model=model_name, 
-                contents=parts, # ส่งแบบ List ที่แยกคำสั่งกับรูปสลับกัน
-                config=types.GenerateContentConfig(
-                    response_modalities=["IMAGE"],
-                    temperature=0.0 # ลดเหลือ 0.1 เพื่อให้ทำตามโครงสร้างเดิมเป๊ะขึ้น
-                )
+                contents=parts, 
+                config=config
             )
             for part in response.candidates[0].content.parts:
-                if part.inline_data: return part.inline_data.data
+                if part.inline_data: 
+                    print(f"✅ Success with {model_name}!")
+                    return part.inline_data.data
             
-            print(f"⚠️ Warning: Model returned no image (Attempt {attempt+1})")
+            print(f"⚠️ Warning: Model returned no image")
             
         except Exception as e:
-            if "not found" in str(e).lower() and model_name == "gemini-3-pro-image-preview":
-                print("⚠️ Switching model to gemini-3-pro-image-preview...")
-                model_name = "gemini-2.0-flash-exp-image-generation" # ถ้าไม่ได้ปรับไปตัวกากๆ(ประหยัดงบ)
-                time.sleep(1)
+            err_msg = str(e).lower()
+            print(f"❌ Gen Error ({model_name}): {e}")
+            
+            # ถ้าเจอ Server Busy ให้รอสั้นๆ แล้วยิงใหม่ทันที
+            if "503" in err_msg or "429" in err_msg:
+                wait_time = random.uniform(2.0, 4.0) # สุ่มรอแค่ 2-4 วิ
+                print(f"⚠️ Server overloaded. Retrying in {wait_time:.1f}s...")
+                time.sleep(wait_time)
                 continue
-
-            if "429" in str(e) or "503" in str(e):
-                t = (5 * (2 ** attempt)) + random.uniform(1, 5) 
-                print(f"⚠️ Server Busy ({model_name}) -> Waiting {t:.1f}s before retry...")
-                time.sleep(t)
-
-            if "503" in str(e).lower() and model_name == "gemini-3-pro-image-preview":
-                print("⚠️ Switching model to nano-banana-pro-preview...")
-                model_name = "nano-banana-pro-preview" # ถ้าไม่ได้ปรับไปตัวกากๆ(ประหยัดงบ)
+                
+            # ถ้าหาโมเดลไม่เจอ ให้เปลี่ยนโมเดลทันที
+            elif "not found" in err_msg:
+                print(f"⚠️ Model {model_name} not found. Skipping to next model...")
                 time.sleep(1)
-                continue
-
-            else:
-                print(f"❌ Critical Gen Error: {e}")
-                if model_name != "gemini-3-pro-image-preview":
-                     model_name = "gemini-3-pro-image-preview"
+                # กำหนดให้ attempt ถัดไปเปลี่ยนโมเดลเลย โดยการข้าม loop ของ Pro Preview
+                if attempt < 3: 
                      continue
+                else:
+                     continue
+            else:
+                # ถ้าพังด้วยสาเหตุอื่นที่ร้ายแรงกว่า (เช่น รูปผิดกฎ) ให้หยุดเลย
                 return None
                 
+    print("❌ Failed to generate image after maximum retries.")
     return None
 
 # ==========================================
