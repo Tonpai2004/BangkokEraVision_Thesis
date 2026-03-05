@@ -193,7 +193,7 @@ LOCATION_PROMPTS = {
         - Do not invent creative architecture. Buildings further left, right, and in the background must strictly reflect the historical context of the provided reference images and the 1960s Charoen Krung district (plain, utilitarian masonry commercial shophouses/คูหาอาคารปูน 2-3 ชั้น), with strictly closed windows on all floors.
         - Background Skyline (V.20 Update): Delete 100 percent of modern skyscrapers and glass high-rises from the furthest horizon and replace with a seamless view of period-appropriate traditional 2-3 story masonry commercial shophouses. The skyline must be traditional low-rise.
         - Sidewalks & Ground Level (V.20 Update): Reconstruct sidewalks as wide, maintained clear Aged Concrete surfaces (not new paving or tarpaulin-covered) with period-appropriate props (old newspaper stands, vendors with shoulder poles), ensuring they are completely free of modern chairs, modern awnings, and modern clutter.
-        - Modern Removal (V.20 Update): DELETE 100% of modern street lamps, bank logos, ATMs, LEDs, satellite dishes, and modern wiring. Bundle wires together and hide them behind shophouse eaves or remove completely from plain view.
+        - Modern Removal (V.20 Update): DELETE 100 percent of modern street lamps, bank logos, ATMs, LEDs, satellite dishes, and modern wiring. Bundle wires together and hide them behind shophouse eaves or remove completely from plain view.
         - People: Maintain a sparse crowd of pedestrians walking in natural 1960s Thai fashion (men in tucked-in shirts, women in mod-dresses) near the entrance sidewalks.
 
         🚗 5. EMPTY ROYAL AVENUE (V.20 Update):
@@ -265,14 +265,24 @@ LOCATION_PROMPTS = {
         - **DETECT SKYSCRAPERS:** Erase all modern high-rises/skyscrapers from the nearest to the furthest horizon. Replace with clear sky.
         
         - **CASE A: TEMPLE SIDE DETECTED** (If white walls or ornate roofs are in background):
-            - **TEMPLE ISOLATION:** Keep Wat Suthat area intact. Apply a little weathering effects. White perimeter walls (Kamphaeng Kaeo) are an ABSOLUTE BARRIER.
+            - **TEMPLE ISOLATION:** Keep Wat Suthat area intact. White perimeter walls (Kamphaeng Kaeo) are an ABSOLUTE BARRIER.
             - **OPENNESS:** Do NOT fill spaces between temple pillars with solid walls. Keep pavilions **OPEN-AIR**.
             - **TRAM:** Add weathered tram tracks ON THE ROAD directly in front of the temple.
 
         - **CASE B: CITY HALL / PLAZA SIDE DETECTED** (If modern offices or open plaza appear):
             - **ADMINISTRATIVE STYLE:** Keep the shape of **Bangkok City Hall**. Do not alter their form or add new structures. Only re-texture the surface by applying a little weathering and fading.
-            - **OPEN PLAZA:** Keep the Lan Khon Mueang area as an **OPEN CONCRETE FIELD**. No modern tiles or LED screens.
+            - **OPEN PLAZA:** Keep the Lan Khon Mueang area as an **OPEN CONCRETE FIELD** with a lawn area in front(UNPAVED RED EARTH AND PATCHY DRY GRASS) also have a basketball field in Lan Khon Mueang's area. No modern tiles or LED screens. 
+            - **ACTIVITY:** Populate the field with people in 1960s attire. Optionally, add a group of Thai youths in white tank tops playing basketball on the raw field.
             - **NO HALLUCINATION:** Strictly **PROHIBIT** adding temple structures if none exist in [IMAGE 1].
+
+        - **CASE B: CITY HALL / PLAZA SIDE DETECTED** (If modern offices or open plaza appear):
+            - **ADMINISTRATIVE STYLE:** Keep the shape of **Bangkok City Hall**. Do not alter their form or add new structures. Only re-texture the surface by applying a little weathering and fading.
+            - **THE HYBRID PLAZA (LAN KHON MUEANG):** Transform the modern plaza into a realistic 1960s multi-purpose field:
+                1. **THE BASKETBALL COURT:** Render a specific rectangular section as **weathered, rough grey concrete**. Include vintage basketball backboards on poles.
+                2. **THE RAW TERRAIN:** A vertical large lawn area and the surrounding areas must be **UNPAVED DIRT** mixed with irregular patches of **DRY, SUN-BLEACHED GRASS**.
+                3. **PHYSICAL BOUNDARY:** This plaza must be clearly separated from the Giant Swing island by a wide, clean **grey asphalt road**. Do NOT allow grass or dirt to bleed onto the asphalt.
+            - **SOCIAL ACTIVITY:** Populate the concrete court with Thai youths in 1960s white tank tops and dark shorts playing basketball.
+            - **NO HALLUCINATION:** Strictly PROHIBIT adding temple structures or ornate gates if none exist in the original [IMAGE 1] background.
 
         - **GENERAL BUILDINGS:** Transform other structures into **1960s COLONIAL STYLE** (Only 2-story masonry rows, weathered cream stucco, dark wooden folding doors, continuous hipped clay tile roofs).
 
@@ -281,6 +291,7 @@ LOCATION_PROMPTS = {
         - **DUAL-LAYER BASE:** Render accurately with **TWO DISTINCT CONCRETE LEVELS**:
             1. **The Plinths:** Concrete blocks supporting the legs.
             2. **The Island Platform:** A wide, blank, raised **curbed concrete island**.
+        - **ZERO VEGETATION RULE:** The entire island platform and the swing plinths must be **100 percent FREE of grass, weeds, moss, or soil**. It must be a sharp, man-made concrete zone with a clean curb.
         - **DECORATION BAN:** BARE CONCRETE ONLY. No flowers, no garlands, no pots.
 
         **🛣️ 4. CLEAN ROAD & ATMOSPHERE:**
@@ -630,9 +641,9 @@ def step2_generate(client, structure_desc, location_key, original_img_bytes, ref
     elif location_key == "Sala Chalermkrung":
         perspective_instr += """
     - STRUCTURAL INTEGRITY: Lock the geometry of the entire main building and columns to. Update only period-correct detailing (original doors, period casement windows if not covered by posters) within the locked concrete frame. Do not extend vertically or add extra wings to the main facade.
-    - SIGNAGE ANCHOR: The top roof sign is the anchor. Do not move or modify it. It must remain 100% pixel-perfect identical to.
-    - FACADE MASKING: Ensure exactly 3 posters cover the central facade's glass areas, strictly creating an impenetrable wall with zero visible glass trace or reflection on the covered facade levels. The posters must strictly adhere to the defined gentleman image requirements (V.19/V.20).
-    - AMBIANCE FIX: Flatten and simplify modern attachments on the left/right wings extension area. Surgically erase left side trees to fully reveal historical extend. Force all surrounding background buildings to become utilitarian 2-3 story masonry commercial shophouses (no skyscrapers). Ensure all other windows in the scene are strictly closed. Reconstruct sidewalks as clear aged concrete. Remove all modern lamps, utility poles, and wiring. Empty the road of all motorized vehicles and tuk-tuks. The entire surroundings must strictly reflect the historical Charoen Krung context and V.19/V.20 requirements. Ensure maintained dignity for weathered concrete. Ensure pixel-perfect structural overlay with.
+    - SIGNAGE ANCHOR: The top roof sign is the anchor. Do not move or modify it. It must remain 100% pixel-perfect identical to.
+    - FACADE MASKING: Ensure exactly 3 posters cover the central facade's glass areas, strictly creating an impenetrable wall with zero visible glass trace or reflection on the covered facade levels. The posters must strictly adhere to the defined gentleman image requirements (V.19/V.20).
+    - AMBIANCE FIX: Flatten and simplify modern attachments on the left/right wings extension area. Surgically erase left side trees to fully reveal historical extend. Force all surrounding background buildings to become utilitarian 2-3 story masonry commercial shophouses (no skyscrapers). Ensure all other windows in the scene are strictly closed. Reconstruct sidewalks as clear aged concrete. Remove all modern lamps, utility poles, and wiring. Empty the road of all motorized vehicles and tuk-tuks. The entire surroundings must strictly reflect the historical Charoen Krung context and V.19/V.20 requirements. Ensure maintained dignity for weathered concrete. Ensure pixel-perfect structural overlay with.
         """
 
     # 3. ประกอบ Global Style (ล็อคอารมณ์ภาพ)
@@ -675,7 +686,8 @@ def step2_generate(client, structure_desc, location_key, original_img_bytes, ref
                 contents=parts, # ส่งแบบ List ที่แยกคำสั่งกับรูปสลับกัน
                 config=types.GenerateContentConfig(
                     response_modalities=["IMAGE"],
-                    temperature=0.0 # ลดเหลือ 0.1 เพื่อให้ทำตามโครงสร้างเดิมเป๊ะขึ้น
+                    temperature=0.0, # ลดเหลือ 0.1 เพื่อให้ทำตามโครงสร้างเดิมเป๊ะขึ้น
+                    http_options={'timeout': 180000}
                 )
             )
             for part in response.candidates[0].content.parts:
@@ -686,7 +698,7 @@ def step2_generate(client, structure_desc, location_key, original_img_bytes, ref
         except Exception as e:
             if "not found" in str(e).lower() and model_name == "gemini-3-pro-image-preview":
                 print("⚠️ Switching model to gemini-3-pro-image-preview...")
-                model_name = "gemini-2.0-flash-exp-image-generation" # ถ้าไม่ได้ปรับไปตัวกากๆ(ประหยัดงบ)
+                model_name = "gemini-3.1-flash-image-preview" # ถ้าไม่ได้ปรับไปตัวกากๆ(ประหยัดงบ)
                 time.sleep(1)
                 continue
 
@@ -695,10 +707,15 @@ def step2_generate(client, structure_desc, location_key, original_img_bytes, ref
                 print(f"⚠️ Server Busy ({model_name}) -> Waiting {t:.1f}s before retry...")
                 time.sleep(t)
 
-            if "503" in str(e).lower() and model_name == "gemini-3-pro-image-preview":
-                print("⚠️ Switching model to nano-banana-pro-preview...")
-                model_name = "nano-banana-pro-preview" # ถ้าไม่ได้ปรับไปตัวกากๆ(ประหยัดงบ)
-                time.sleep(1)
+            if "503" in str(e) or "429" in str(e):
+                # 🔄 ถ้าตัว Pro ยุ่ง ให้ลองสลับไปใช้ตัว Flash รุ่นใหม่ๆ ในลิสต์ของคุณ
+                if attempt == 0:
+                    model_name = "gemini-3.1-flash-image-preview" # ลองตัว 3.1 ล่าสุด
+                elif attempt == 1:
+                    model_name = "gemini-2.5-flash-image" # ลองตัว 2.5
+                
+                wait_time = (10 * (2 ** attempt)) # เพิ่มเวลารอ
+                time.sleep(wait_time)
                 continue
 
             else:
@@ -935,7 +952,7 @@ def translate_error_with_gemini(raw_reason, lang='TH'):
         """
         
         response = client.models.generate_content(
-            model="gemini-2.0-flash-001",
+            model="gemini-2.5-flash-lite",
             contents=prompt,
             config=types.GenerateContentConfig(temperature=0.0, max_output_tokens=40)
         )
