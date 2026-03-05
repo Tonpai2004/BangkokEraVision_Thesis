@@ -167,45 +167,45 @@ LOCATION_PROMPTS = {
     """,
     
     "Sala Chalermkrung": """
-        TASK: TRANSFORM [IMAGE 1] into a maintained, dignified hyper-photorealistic color photograph of Sala Chalermkrung Theatre, circa 1967. Strictly adhere to the historical and architectural reality of the 1960s as seen in the provided reference images. NO over-creation; NO structural additions.
+TASK: TRANSFORM into a maintained, dignified, hyper-photorealistic color photograph of Sala Chalermkrung Theatre, circa 1967. Strictly adhere to the historical and architectural reality of the 1960s as seen in the provided reference images. NO over-creation; NO structural additions.
 
-        🔒 0. MAIN STRUCTURE RIGIDITY LOCK (NEW & CRITICAL - V.22 Update):
-        - The entire Art Deco concrete frame, central body, columns, and dome profile (if visible) of the main Sala Chalermkrung building must remain structurally unchanged. The input geometry is a rigid map. DO NOT alter the building's Fundamental Art Deco geometry, scale, or subject positioning.
-        - Maintained Dignity: The concrete surfaces must show weathering (Krap-fon) in a way that looks maintained but aged, with a visible aged patina reflecting its maintained royal connection, not dilapidated or crumbling.
-        - HISTORICAL DETAILING ONLY: Any updates within the main building's concrete frame must be period-accurate detailing changes, not structural changes. Doors within visible archways must be the Original 1930s/1960s Art Deco service doors, not modern glass ones.
+🔒 0. MAIN STRUCTURE RIGIDITY LOCK (NEW & CRITICAL - V.22 Update):
+- The entire Art Deco concrete frame, central body, columns, and dome profile (if visible) of the main Sala Chalermkrung building must remain structurally unchanged. The input geometry is a rigid Map. DO NOT alter the building's Fundamental Art Deco geometry, scale, or subject positioning.
+- Maintained Dignity: The concrete surfaces must show weathering (Krap-fon) in a way that looks maintained but aged, with a visible aged patina reflecting its maintained royal connection, not dilapidated or crumbling.
+- HISTORICAL DETAILING ONLY: Any updates within the main building's concrete frame must be period-accurate detailing changes, not structural changes. Doors within visible archways must be the Original 1930s/1960s Art Deco service doors, not modern glass ones. If windows are not covered by posters, they must be period-appropriate casement or multi-pane styles (ช่องหน้าต่างบานกระทุ้งโบราณ).
 
-        🔒 1. ABSOLUTE SIGNAGE NON-TRANSFORM LOCK (CRITICAL):
-        - The large "SALA CHALERMKRUNG" roof sign (Thai and English letters) is under an ABSOLUTE NON-TRANSFORM LOCK. 
-        - DO NOT alter its font, geometry, structural frame, or placement. It must remain 100% pixel-perfect identical to the modern input image.
+🔒 1. ABSOLUTE SIGNAGE NON-TRANSFORM LOCK (CRITICAL):
+- The large "SALA CHALERMKRUNG" roof sign (Thai and English letters) is under an ABSOLUTE NON-TRANSFORM LOCK. 
+- DO NOT alter its font, geometry, structural frame, or placement. It must remain 100% pixel-perfect identical to the modern input image.
 
-        🎭 2. THE IMPENETRABLE POSTER WALL (EXACTLY 3 PANELS - FACADE MASKING - CRITICAL ADDITION):
-        - Locate the modern glass window lines on the ground and middle floors of the theatre's central angled facade.
-        - Install EXACTLY THREE (3) massive, impenetrable, hand-painted movie poster panels scaled to create a flawless wall of art, ensuring zero trace of glass, glass slivers, or glass reflections is visible on the covered facade levels.
-        - Place ONE poster on the center facade, ONE on the left-angled facade, and ONE on the right-angled facade.
-        - POSTER ART (MUST ADHERE): The three posters may contain different compositions, but each must depict only the same two gentlemen set with thick hair on their surface: one in a white shirt and glasses, the other without glasses. Hand-painted vintage Thai art style (billboard style), not digital. The only text allowed is the Thai title "บางกอกทวิกาล" and period Thai text. No posters on solid walls.
+🎭 2. THE IMPENETRABLE POSTER WALL (EXACTLY 3 PANELS - FACADE MASKING - CRITICAL ADDITION):
+- Locate the modern glass window lines on the ground and middle floors of the theatre's central angled facade.
+- Install EXACTLY THREE (3) massive, impenetrable, hand-painted movie poster panels scaled to create a flawless wall of art, ensuring zero trace of glass, glass slivers, or glass reflections is visible on the covered facade levels.
+- Place ONE poster on the center facade, ONE on the left-angled facade, and ONE on the right-angled facade.
+- POSTER ART (MUST ADHERE): The three posters may contain different compositions, but each must depict only the same two gentlemen set with thick hair on their surface: one in a white shirt and glasses, the other without glasses. Hand-painted vintage Thai art style (billboard style), not digital. The only text allowed is the Thai title "บางกอกทวิกาล" and period Thai text. No posters on plain walls.
 
-        🏛️ 3. LEFT WING EXTENSION REVEAL & RIGHT SIDE RESTORATION (HISTORICAL CONTINUITY - V.22 Update):
-        - Flatten and simplify any modern attachments on the secondary building sections immediately to the left and right of the main theatre.
-        - REVEAL AND RECONSTRUCT LEFT EXTENSION (V.22 Update): Transform the building section to the immediate left of the main theatre. Surgically erase all left-side trees and modern attachments to fully reveal the building's historically extend (3-story masonry commercial extension) seamlessly matching the main building. All windows in the scene (reconstructed left extension, background shophouses) must be strictly closed period casement/multi-pane styles with visible weathered frames against cream stucco.
-        - RIGHT SIDE (Ground Floor): ERASE all modern cafes, umbrellas, and modern storefronts from the right side extension. Reconstruct as a solid, flat cream stucco wall featuring a continuous row of strictly closed vintage dark-framed hopper/casement windows (ช่องหน้าต่างบานกระทุ้งโบราณ) aligned exactly as seen in reference images, integrated into the historical wing.
+🏛️ 3. LEFT WING EXTENSION REVEAL & RIGHT SIDE RESTORATION (HISTORICAL CONTINUITY - V.22 Update):
+- Flatten and simplify any modern attachments on the secondary building sections immediately to the left and right of the main theatre.
+- REVEAL AND RECONSTRUCT LEFT EXTENSION (V.22 Update): Transform the building section to the immediate left of the main theatre. Surgically erase all left-side trees and modern attachments to fully reveal the building's historically extend (3-story masonry commercial extension) seamlessly matching the main building. All windows in the scene (reconstructed left extension, background shophouses) must be strictly closed period casement/multi-pane styles with visible weathered frames against cream stucco.
+- RIGHT SIDE (Ground Floor): ERASE all modern cafes, umbrellas, and modern storefronts from the right side extension. Reconstruct as a solid, flat cream stucco wall featuring a continuous row of strictly closed vintage dark-framed hopper/casement windows (ช่องหน้าต่างบานกระทุ้งโบราณ) aligned exactly as seen in reference images, integrated into the historical wing.
 
-        🏘️ 4. DIGNIFIED 1960s SURROUNDINGS & AMBIANCE (CRITICAL ADDITION - V.22 Update):
-        - Do not invent creative architecture. Buildings further left, right, and in the background must strictly reflect the historical context of the provided reference images and the 1960s Charoen Krung district (plain, utilitarian masonry commercial shophouses/คูหาอาคารปูน 2-3 ชั้น), with strictly closed windows on all floors.
-        - Background Skyline (V.20 Update): Delete 100 percent of modern skyscrapers and glass high-rises from the furthest horizon and replace with a seamless view of period-appropriate traditional 2-3 story masonry commercial shophouses. The skyline must be traditional low-rise.
-        - Sidewalks & Ground Level (V.20 Update): Reconstruct sidewalks as wide, maintained clear Aged Concrete surfaces (not new paving or tarpaulin-covered) with period-appropriate props (old newspaper stands, vendors with shoulder poles), ensuring they are completely free of modern chairs, modern awnings, and modern clutter.
-        - Modern Removal (V.20 Update): DELETE 100% of modern street lamps, bank logos, ATMs, LEDs, satellite dishes, and modern wiring. Bundle wires together and hide them behind shophouse eaves or remove completely from plain view.
-        - People: Maintain a sparse crowd of pedestrians walking in natural 1960s Thai fashion (men in tucked-in shirts, women in mod-dresses) near the entrance sidewalks.
+🏘️ 4. DIGNIFIED 1960s SURROUNDINGS & AMBIANCE (CRITICAL ADDITION - V.22 Update):
+- Do not invent creative architecture. Buildings further left, right, and in the background must strictly reflect the historical context of the provided reference images and the 1960s Charoen Krung district (plain, utilitarian masonry commercial shophouses/คูหาอาคารปูน 2-3 ชั้น), with strictly closed windows on all floors.
+- Background Skyline (V.20 Update): Delete 100 percent of modern skyscrapers and glass high-rises from the furthest horizon and replace with a seamless view of period-appropriate traditional 2-3 story masonry commercial shophouses. The skyline must be traditional low-rise.
+- Sidewalks & Ground Level (V.20 Update): Reconstruct sidewalks as wide, maintained clear Aged Concrete surfaces (not new paving or tarpaulin-covered) with period-appropriate props (old newspaper stands, vendors with shoulder poles), ensuring they are completely free of modern chairs, modern awnings, and modern clutter.
+- Modern Removal (V.20 Update): DELETE 100% of modern street lamps, bank logos, ATMs, LEDs, satellite dishes, and modern wiring. Bundle wires together and hide them behind shophouse eaves or remove completely from plain view.
+- People: Maintain a sparse crowd of pedestrians walking in natural 1960s Thai fashion (men in tucked-in shirts, women in mod-dresses) near the entrance sidewalks.
 
-        🚗 5. EMPTY ROYAL AVENUE (V.20 Update):
-        - The wide worn asphalt road is majestic and completely EMPTY. Reveal the clean road surface. NO motorized vehicles: no modern cars, no buses, no motorcycles, no tuk-tuks, no taxis. Clear asphalt. Only sparse crowd on sidewalks.
+🚗 5. EMPTY ROYAL AVENUE (V.20 Update):
+- The wide worn asphalt road is majestic and completely EMPTY. Reveal the clean road surface. NO motorized vehicles: no modern cars, no buses, no motorcycles, no tuk-tuks, no taxis. Clear asphalt. Only sparse crowd on sidewalks.
 
-        🎨 6. FILM STYLE: Kodak Kodachrome film (1967), characteristic Kodachrome shift, natural light, soft film grain, high historical fidelity.Maintained dignified atmosphere. Natural afternoon light.
+🎨 6. FILM STYLE: Kodak Kodachrome film (1967), characteristic Kodachrome shift, natural light, soft film grain, high historical fidelity.Maintained dignified atmosphere. Natural afternoon light.
 
-        🔒 7. PERSPECTIVE INTEGRITY LOCK (NEW & CRITICAL - V.20):
-        - The final image must retain the exact camera angle, subject positioning, and depth of field of [IMAGE 1]. Structural alignment between and the final result must be pixel-perfect. Ensure no camera rotation or shift. Every architectural vector is locked to.
+🔒 7. PERSPECTIVE INTEGRITY LOCK (NEW & CRITICAL - V.20):
+- The final image must retain the exact camera angle, subject positioning, and depth of field of [IMAGE 1]. Structural alignment between and final result must be pixel-perfect. Ensure no camera rotation or shift. Every architectural vector is locked to.
 
-        NEGATIVE PROMPT: modern cars, traffic, tuk-tuks, altered roof sign, missing sign, 1 poster, 2 posters, 4 posters, visible facade glass, glass reflection on posters, modern display windows, modern attached structures, modern canopies, modern awnings, modern screens, modern lamps, modern utility poles, modern wiring, open windows on any building, new construction look, dilapidated building form, crumbling walls, structural transformation of columns, excessive poster plastering.
-    """,
+NEGATIVE PROMPT: modern cars, traffic, tuk-tuks, altered roof sign, missing sign, 1 poster, 2 posters, 4 posters, visible facade glass, glass reflection on posters, modern display windows, modern attached structures, modern canopies, modern awnings, modern screens, modern lamps, modern utility poles, modern wiring, open windows on any building, new construction look, dilapidated building form, crumbling walls, structural transformation of columns, excessive poster plastering.
+""",
 
     # "Giant Swing": """
 
@@ -265,14 +265,24 @@ LOCATION_PROMPTS = {
         - **DETECT SKYSCRAPERS:** Erase all modern high-rises/skyscrapers from the nearest to the furthest horizon. Replace with clear sky.
         
         - **CASE A: TEMPLE SIDE DETECTED** (If white walls or ornate roofs are in background):
-            - **TEMPLE ISOLATION:** Keep Wat Suthat area intact. Apply a little weathering effects. White perimeter walls (Kamphaeng Kaeo) are an ABSOLUTE BARRIER.
+            - **TEMPLE ISOLATION:** Keep Wat Suthat area intact. White perimeter walls (Kamphaeng Kaeo) are an ABSOLUTE BARRIER.
             - **OPENNESS:** Do NOT fill spaces between temple pillars with solid walls. Keep pavilions **OPEN-AIR**.
             - **TRAM:** Add weathered tram tracks ON THE ROAD directly in front of the temple.
 
         - **CASE B: CITY HALL / PLAZA SIDE DETECTED** (If modern offices or open plaza appear):
             - **ADMINISTRATIVE STYLE:** Keep the shape of **Bangkok City Hall**. Do not alter their form or add new structures. Only re-texture the surface by applying a little weathering and fading.
-            - **OPEN PLAZA:** Keep the Lan Khon Mueang area as an **OPEN CONCRETE FIELD**. No modern tiles or LED screens.
+            - **OPEN PLAZA:** Keep the Lan Khon Mueang area as an **OPEN CONCRETE FIELD** with a lawn area in front(UNPAVED RED EARTH AND PATCHY DRY GRASS) also have a basketball field in Lan Khon Mueang's area. No modern tiles or LED screens. 
+            - **ACTIVITY:** Populate the field with people in 1960s attire. Optionally, add a group of Thai youths in white tank tops playing basketball on the raw field.
             - **NO HALLUCINATION:** Strictly **PROHIBIT** adding temple structures if none exist in [IMAGE 1].
+
+        - **CASE B: CITY HALL / PLAZA SIDE DETECTED** (If modern offices or open plaza appear):
+            - **ADMINISTRATIVE STYLE:** Keep the shape of **Bangkok City Hall**. Do not alter their form or add new structures. Only re-texture the surface by applying a little weathering and fading.
+            - **THE HYBRID PLAZA (LAN KHON MUEANG):** Transform the modern plaza into a realistic 1960s multi-purpose field:
+                1. **THE BASKETBALL COURT:** Render a specific rectangular section as **weathered, rough grey concrete**. Include vintage basketball backboards on poles.
+                2. **THE RAW TERRAIN:** A vertical large lawn area and the surrounding areas must be **UNPAVED DIRT** mixed with irregular patches of **DRY, SUN-BLEACHED GRASS**.
+                3. **PHYSICAL BOUNDARY:** This plaza must be clearly separated from the Giant Swing island by a wide, clean **grey asphalt road**. Do NOT allow grass or dirt to bleed onto the asphalt.
+            - **SOCIAL ACTIVITY:** Populate the concrete court with Thai youths in 1960s white tank tops and dark shorts playing basketball.
+            - **NO HALLUCINATION:** Strictly PROHIBIT adding temple structures or ornate gates if none exist in the original [IMAGE 1] background.
 
         - **GENERAL BUILDINGS:** Transform other structures into **1960s COLONIAL STYLE** (Only 2-story masonry rows, weathered cream stucco, dark wooden folding doors, continuous hipped clay tile roofs).
 
@@ -281,6 +291,7 @@ LOCATION_PROMPTS = {
         - **DUAL-LAYER BASE:** Render accurately with **TWO DISTINCT CONCRETE LEVELS**:
             1. **The Plinths:** Concrete blocks supporting the legs.
             2. **The Island Platform:** A wide, blank, raised **curbed concrete island**.
+        - **ZERO VEGETATION RULE:** The entire island platform and the swing plinths must be **100 percent FREE of grass, weeds, moss, or soil**. It must be a sharp, man-made concrete zone with a clean curb.
         - **DECORATION BAN:** BARE CONCRETE ONLY. No flowers, no garlands, no pots.
 
         **🛣️ 4. CLEAN ROAD & ATMOSPHERE:**
@@ -630,10 +641,10 @@ def step2_generate(client, structure_desc, location_key, original_img_bytes, ref
     elif location_key == "Sala Chalermkrung":
         perspective_instr += """
     - STRUCTURAL INTEGRITY: Lock the geometry of the entire main building and columns to. Update only period-correct detailing (original doors, period casement windows if not covered by posters) within the locked concrete frame. Do not extend vertically or add extra wings to the main facade.
-    - SIGNAGE ANCHOR: The top roof sign is the anchor. Do not move or modify it. It must remain 100% pixel-perfect identical to.
-    - FACADE MASKING: Ensure exactly 3 posters cover the central facade's glass areas, strictly creating an impenetrable wall with zero visible glass trace or reflection on the covered facade levels. The posters must strictly adhere to the defined gentleman image requirements (V.19/V.20).
-    - AMBIANCE FIX: Flatten and simplify modern attachments on the left/right wings extension area. Surgically erase left side trees to fully reveal historical extend. Force all surrounding background buildings to become utilitarian 2-3 story masonry commercial shophouses (no skyscrapers). Ensure all other windows in the scene are strictly closed. Reconstruct sidewalks as clear aged concrete. Remove all modern lamps, utility poles, and wiring. Empty the road of all motorized vehicles and tuk-tuks. The entire surroundings must strictly reflect the historical Charoen Krung context and V.19/V.20 requirements. Ensure maintained dignity for weathered concrete. Ensure pixel-perfect structural overlay with.
-        """
+    - SIGNAGE ANCHOR: The top roof sign is the anchor. Do not move or modify it. It must remain 100% pixel-perfect identical to.
+    - FACADE MASKING: Ensure exactly 3 posters cover the central facade's glass areas, strictly creating an impenetrable wall with zero visible glass trace or reflection on the covered facade levels. The posters must strictly adhere to the defined gentleman image requirements (V.19/V.20).
+    - AMBIANCE FIX: Flatten and simplify modern attachments on the left/right wings extension area. Surgically erase left side trees to fully reveal historical extend. Force all surrounding background buildings to become utilitarian 2-3 story masonry commercial shophouses (no skyscrapers). Ensure all other windows in the scene are strictly closed. Reconstruct sidewalks as clear aged concrete. Remove all modern lamps, utility poles, and wiring. Empty the road of all motorized vehicles and tuk-tuks. The entire surroundings must strictly reflect the historical Charoen Krung context and V.19/V.20 requirements. Ensure maintained dignity for weathered concrete. Ensure pixel-perfect structural overlay with.
+    """
 
     # 3. ประกอบ Global Style (ล็อคอารมณ์ภาพ)
     global_style = f"""
@@ -665,7 +676,7 @@ def step2_generate(client, structure_desc, location_key, original_img_bytes, ref
     )
     # 3. เรียกโมเดลด้วยค่าความสร้างสรรค์ต่ำที่สุด (Locking the result)
     model_name = "gemini-3-pro-image-preview" 
-    max_retries = 5
+    max_retries = 3
 
     for attempt in range(max_retries):
         try:
@@ -675,7 +686,8 @@ def step2_generate(client, structure_desc, location_key, original_img_bytes, ref
                 contents=parts, # ส่งแบบ List ที่แยกคำสั่งกับรูปสลับกัน
                 config=types.GenerateContentConfig(
                     response_modalities=["IMAGE"],
-                    temperature=0.0 # ลดเหลือ 0.1 เพื่อให้ทำตามโครงสร้างเดิมเป๊ะขึ้น
+                    temperature=0.0, # ลดเหลือ 0.1 เพื่อให้ทำตามโครงสร้างเดิมเป๊ะขึ้น
+                    http_options={'timeout': 180000}
                 )
             )
             for part in response.candidates[0].content.parts:
@@ -686,7 +698,7 @@ def step2_generate(client, structure_desc, location_key, original_img_bytes, ref
         except Exception as e:
             if "not found" in str(e).lower() and model_name == "gemini-3-pro-image-preview":
                 print("⚠️ Switching model to gemini-3-pro-image-preview...")
-                model_name = "gemini-2.0-flash-exp-image-generation" # ถ้าไม่ได้ปรับไปตัวกากๆ(ประหยัดงบ)
+                model_name = "gemini-3.1-flash-image-preview" # ถ้าไม่ได้ปรับไปตัวกากๆ(ประหยัดงบ)
                 time.sleep(1)
                 continue
 
@@ -695,10 +707,15 @@ def step2_generate(client, structure_desc, location_key, original_img_bytes, ref
                 print(f"⚠️ Server Busy ({model_name}) -> Waiting {t:.1f}s before retry...")
                 time.sleep(t)
 
-            if "503" in str(e).lower() and model_name == "gemini-3-pro-image-preview":
-                print("⚠️ Switching model to nano-banana-pro-preview...")
-                model_name = "nano-banana-pro-preview" # ถ้าไม่ได้ปรับไปตัวกากๆ(ประหยัดงบ)
-                time.sleep(1)
+            if "503" in str(e) or "429" in str(e):
+                # 🔄 ถ้าตัว Pro ยุ่ง ให้ลองสลับไปใช้ตัว Flash รุ่นใหม่ๆ ในลิสต์ของคุณ
+                if attempt == 0:
+                    model_name = "gemini-3.1-flash-image-preview" # ลองตัว 3.1 ล่าสุด
+                elif attempt == 1:
+                    model_name = "gemini-2.5-flash-image" # ลองตัว 2.5
+                
+                wait_time = (10 * (2 ** attempt)) # เพิ่มเวลารอ
+                time.sleep(wait_time)
                 continue
 
             else:
@@ -935,7 +952,7 @@ def translate_error_with_gemini(raw_reason, lang='TH'):
         """
         
         response = client.models.generate_content(
-            model="gemini-2.0-flash-001",
+            model="gemini-2.5-flash-lite",
             contents=prompt,
             config=types.GenerateContentConfig(temperature=0.0, max_output_tokens=40)
         )
