@@ -278,42 +278,72 @@ LOCATION_PROMPTS = {
 
     # """,
 
-    "Giant Swing": """
-        **TASK:** RE-TEXTURE [IMAGE 1] into a 1960s scene. 
-        **URGENT:** ACT AS A SURFACE-ONLY REPLACEMENT ENGINE. DO NOT RE-COMPOSE.
+    # "Giant Swing": """
+    #     **TASK:** RE-TEXTURE [IMAGE 1] into a 1960s scene. 
+    #     **URGENT:** ACT AS A SURFACE-ONLY REPLACEMENT ENGINE. DO NOT RE-COMPOSE.
 
-        **🔒 1. FIXED COORDINATE SYSTEM (PIXEL-PERFECT):**
-        - **RIGID BLUEPRINT:** Every edge and line in [IMAGE 1] is a FIXED VECTOR. 
-        - **NO CAMERA LIBERTY:** Strictly PROHIBITED from zooming out, changing focal length, or shifting the subject. 
-        - **1:1 ALIGNMENT:** The Giant Swing pillars in your result MUST align bit-for-bit with the pillars in [IMAGE 1]. If they are large and cut off at the top in [IMAGE 1], they MUST stay large and cut off at the top in your output.
+    #     **🔒 1. FIXED COORDINATE SYSTEM (PIXEL-PERFECT):**
+    #     - **RIGID BLUEPRINT:** Every edge and line in [IMAGE 1] is a FIXED VECTOR. 
+    #     - **NO CAMERA LIBERTY:** Strictly PROHIBITED from zooming out, changing focal length, or shifting the subject. 
+    #     - **1:1 ALIGNMENT:** The Giant Swing pillars in your result MUST align bit-for-bit with the pillars in [IMAGE 1]. If they are large and cut off at the top in [IMAGE 1], they MUST stay large and cut off at the top in your output.
 
-        **🔄 2. CONTEXTUAL ARCHITECTURAL RE-SKINNING:**
-        - **DETECT SKYSCRAPERS:** Erase all modern high-rises/skyscrapers from the nearest to the furthest horizon. Replace with clear sky.
+    #     **🔄 2. CONTEXTUAL ARCHITECTURAL RE-SKINNING:**
+    #     - **DETECT SKYSCRAPERS:** Erase all modern high-rises/skyscrapers from the nearest to the furthest horizon. Replace with clear sky.
         
-        - **CASE A: TEMPLE SIDE DETECTED** (If white walls or ornate roofs are in background):
-            - **TEMPLE ISOLATION:** Keep Wat Suthat area intact. Apply a little weathering effects. White perimeter walls (Kamphaeng Kaeo) are an ABSOLUTE BARRIER.
-            - **OPENNESS:** Do NOT fill spaces between temple pillars with solid walls. Keep pavilions **OPEN-AIR**.
-            - **TRAM:** Add weathered tram tracks ON THE ROAD directly in front of the temple.
+    #     - **CASE A: TEMPLE SIDE DETECTED** (If white walls or ornate roofs are in background):
+    #         - **TEMPLE ISOLATION:** Keep Wat Suthat area intact. Apply a little weathering effects. White perimeter walls (Kamphaeng Kaeo) are an ABSOLUTE BARRIER.
+    #         - **OPENNESS:** Do NOT fill spaces between temple pillars with solid walls. Keep pavilions **OPEN-AIR**.
+    #         - **TRAM:** Add weathered tram tracks ON THE ROAD directly in front of the temple.
 
-        - **CASE B: CITY HALL / PLAZA SIDE DETECTED** (If modern offices or open plaza appear):
-            - **ADMINISTRATIVE STYLE:** Keep the shape of **Bangkok City Hall**. Do not alter their form or add new structures. Only re-texture the surface by applying a little weathering and fading.
-            - **OPEN PLAZA:** Keep the Lan Khon Mueang area as an **OPEN CONCRETE FIELD**. No modern tiles or LED screens.
-            - **NO HALLUCINATION:** Strictly **PROHIBIT** adding temple structures if none exist in [IMAGE 1].
+    #     - **CASE B: CITY HALL / PLAZA SIDE DETECTED** (If modern offices or open plaza appear):
+    #         - **ADMINISTRATIVE STYLE:** Keep the shape of **Bangkok City Hall**. Do not alter their form or add new structures. Only re-texture the surface by applying a little weathering and fading.
+    #         - **OPEN PLAZA:** Keep the Lan Khon Mueang area as an **OPEN CONCRETE FIELD**. No modern tiles or LED screens.
+    #         - **NO HALLUCINATION:** Strictly **PROHIBIT** adding temple structures if none exist in [IMAGE 1].
 
-        - **GENERAL BUILDINGS:** Transform other structures into **1960s COLONIAL STYLE** (Only 2-story masonry rows, weathered cream stucco, dark wooden folding doors, continuous hipped clay tile roofs).
+    #     - **GENERAL BUILDINGS:** Transform other structures into **1960s COLONIAL STYLE** (Only 2-story masonry rows, weathered cream stucco, dark wooden folding doors, continuous hipped clay tile roofs).
 
-        **⛩️ 3. THE GIANT SWING (HISTORICAL TWO-TIER BASE):**
-        - **PILLARS:** Massive Aged Red Teak.
-        - **DUAL-LAYER BASE:** Render accurately with **TWO DISTINCT CONCRETE LEVELS**:
-            1. **The Plinths:** Concrete blocks supporting the legs.
-            2. **The Island Platform:** A wide, blank, raised **curbed concrete island**.
-        - **DECORATION BAN:** BARE CONCRETE ONLY. No flowers, no garlands, no pots.
+    #     **⛩️ 3. THE GIANT SWING (HISTORICAL TWO-TIER BASE):**
+    #     - **PILLARS:** Massive Aged Red Teak.
+    #     - **DUAL-LAYER BASE:** Render accurately with **TWO DISTINCT CONCRETE LEVELS**:
+    #         1. **The Plinths:** Concrete blocks supporting the legs.
+    #         2. **The Island Platform:** A wide, blank, raised **curbed concrete island**.
+    #     - **DECORATION BAN:** BARE CONCRETE ONLY. No flowers, no garlands, no pots.
 
-        **🛣️ 4. CLEAN ROAD & ATMOSPHERE:**
-        - **ROAD:** Reveal weathered grey asphalt. **REMOVE ALL TRAFFIC** (cars, buses, tuk-tuks). 
-        - **CROWD:** Sparse pedestrians in 1960s attire on sidewalks or the island platform. No one on the road.
+    #     **🛣️ 4. CLEAN ROAD & ATMOSPHERE:**
+    #     - **ROAD:** Reveal weathered grey asphalt. **REMOVE ALL TRAFFIC** (cars, buses, tuk-tuks). 
+    #     - **CROWD:** Sparse pedestrians in 1960s attire on sidewalks or the island platform. No one on the road.
 
-        **⛔ NEGATIVE PROMPT:** modern architectural silhouettes, background blocks, modern cars, traffic, people in middle of road, flowers on base, garlands, air conditioners, adding temple to City Hall side, hallucinating Wat Suthat when facing Plaza.
+    #     **⛔ NEGATIVE PROMPT:** modern architectural silhouettes, background blocks, modern cars, traffic, people in middle of road, flowers on base, garlands, air conditioners, adding temple to City Hall side, hallucinating Wat Suthat when facing Plaza.
+    # """,
+
+    "Giant Swing": """
+        **TASK:** TRANSFORM [IMAGE 1] into an authentic 1960s Phra Nakhon photograph.
+        **CORE GUIDELINE:** Use the historical textures and atmosphere from the provided dataset (red earth, open pavilions, and raw terrain).
+
+        **🔒 1. RIGID GEOMETRY LOCK (THE STENCIL):**
+        - **1:1 ALIGNMENT:** Use [IMAGE 1] as an unchangeable map. Every pillar, building edge, and horizon line must align bit-for-bit. 
+        - **NO CAMERA LIBERTY:** Strictly prohibit zooming, rotating, or shifting.
+
+        **🔄 2. CONTEXTUAL RE-SKINNING (DATASET ENHANCED):**
+        
+        - **CASE A: TEMPLE SIDE (WAT SUTHAT):** - **PAVILION OPENNESS (โปร่ง):** Reconstruct the Sala Rai (cloisters) along the temple wall to be **OPEN-AIR**. You must see through the white pillars to the courtyard inside. [Ref: image_4e0e45.jpg, image_93c4ba.jpg]
+            - **WEATHERED RED ROOFS:** Use dark, sun-faded reddish-brown clay tiles for all temple roofs.
+            - **TRAM TRACKS:** Add two weathered metal tram tracks embedded in the grey asphalt road directly in front of the temple gate.
+
+        - **CASE B: PLAZA SIDE (LAN KHON MUEANG):** - **TERRAIN TRANSFORMATION:** Replace the modern paved plaza with **UNPAVED RED EARTH AND PATCHY DRY GRASS**. The ground should look raw, dusty, and natural, not a flat concrete floor. [Ref: image_93c4b3.jpg]
+            - **CITY HALL:** Maintain the geometric shape of the BMA building but re-texture it into a **1960s Art Deco Administrative style** with weathered white/cream stucco and vertical fins.
+            - **ACTIVITY:** Populate the field with people in 1960s attire. Optionally, add a group of Thai youths in white tank tops playing basketball on the raw field. [Ref: image_93c4b6.jpg]
+
+        **⛩️ 3. THE GIANT SWING & BASE:**
+        - **PILLARS:** Massive aged red teak with visible wood grain and sun-bleached cracks.
+        - **BASE:** Flatten all modern flower beds into **BARE, WEATHERED GREY CONCRETE**. Must show two levels: 1. Individual leg plinths. 2. A wide, blank, raised traffic island platform.
+
+        **🛣️ 4. ATMOSPHERE & ENVIRONMENT:**
+        - **SKYLINE:** Surgically erase all skyscrapers. The horizon must be open blue sky with soft, hazy 1960s light.
+        - **VEHICLES:** Add 1-2 period-accurate black sedans or light-colored vintage vans (e.g., Mercedes W110 or Opel) driving around the island. [Ref: image_93c4b3.jpg]
+        - **STREET PROPS:** Add one vintage red post box (Thai Post) near the plaza edge. [Ref: image_93c4b3.jpg]
+
+        **⛔ NEGATIVE PROMPT:** modern concrete plaza tiles, flower beds, colorful garlands, modern skyscrapers, glass towers, cars from after 1970, zebra crossings, digital signs, zooming out, warping the swing.
     """,
 
     "Yaowarat": """
@@ -683,7 +713,7 @@ def step2_generate(client, structure_desc, location_key, original_img_bytes, ref
     )
     # 3. เรียกโมเดลด้วยค่าความสร้างสรรค์ต่ำที่สุด (Locking the result)
     model_name = "gemini-3-pro-image-preview" 
-    max_retries = 5
+    max_retries = 3
 
     for attempt in range(max_retries):
         try:
