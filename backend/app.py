@@ -293,30 +293,38 @@ LOCATION_PROMPTS = {
         - **ASPHALT SCALE:** The road surface must occupy the same pixel percentage as the original. Maintain a wide, expansive asphalt view to prevent the scene from looking cramped.
         - **FROZEN TRIPOD:** No shifting, rotating, or zooming. The perspective must perfectly overlay [IMAGE 1].
 
-        **🏘️ 2. ARCHITECTURAL FACADES:**
-        - **REPLACE ALL MODERN BUILDINGS:** 2-4 story Chinese-Colonial shophouses.
-        - **TEXTURE:** Weathered off-white/faded grey stucco with heavy soot and rain stains (Krap-fon).
-        - **GROUND FLOOR:** Dark **Wooden Folding Doors (Ban-Fiam)**. Ensure the "sidewalk" area is clear and distinct from the road.
+        - **STRICT 4-STORY CEILING:** Every building in the scene, from the foreground to the furthest horizon, MUST NOT exceed 4 stories in height.
+        - **SURGICAL SKYLINE PURGE:** Identify any structure in [IMAGE 1] taller than 4 stories. **ERASE** them completely and replace with clear blue sky or soft hazy clouds. No ghost silhouettes of skyscrapers allowed.
+
+        **🏙️ 2. ARCHITECTURAL DIVERSITY (HYBRID ZONING - CRITICAL):**
+        - **ZONE A (TRADITIONAL CORE):** Clusters of 2-3 story Chinese-Colonial shophouses with dark wooden folding doors (Ban-Fiam) and weathered off-white/grey stucco.
+        - **ZONE B (MID-CENTURY MODERN):** Integrate 3-4 story concrete commercial buildings featuring **Angular Geometries**, horizontal sunshades, and **Vertical Concrete Fins**.
+        - **ACCENT STRUCTURES:** Include at least one prominent building with a grid-like balcony structure.
+        - **TEXTURE:** Apply heavy soot, rain stains (Krap-fon), and aged patina to all surfaces. No "new" or clean-looking buildings.
 
         **🔤 3. SIGNAGE HIERARCHY & TYPOGRAPHY (FIXING FONT BALANCE):**
         - **TIER 1 (OVERSIZED VERTICAL SIGNS):** Populate the scene with **Large, Massive Vertical Signs** that hang perpendicular to the buildings. These signs should span 1-2 stories in height.
         - **FONT WEIGHT:** Use **Extra Bold, Thick Strokes** for all Thai and Chinese characters. No thin or delicate fonts.
         - **LEGIBILITY:** Foreground signs like "**ห้างทอง**", "**ร้านยา**", "**โรงแรม**", "**ร้านทอง**", "**ภัตตาคาร**" must be large and prominent.
-        - **TIER 2 (STOREFRONT BANNERS):** Horizontal signs above the ground floor doors should be bold and use high-contrast colors (Red/Gold, Yellow/Black).
         - **PATINA:** Signs must look hand-painted with visible aging and weathering. Avoid "perfect" digital-looking text.
 
-        **🚋 4. TRAM & ROAD PHYSICS:**
-        - **SINGLE TRACK:** A single weathered tram track on the right side.
-        - **YELLOW/RED TRAM:** A wooden open-sided tram that is scaled correctly to the street width.
-        - **Trash & Debris:** Add small bits of scattered litter (paper scraps, leaves) and dust along the curb edges and road for realism.
-        - **SURFACE:** Used, worn asphalt with realistic debris and dust near the curbs.
 
-        **🚦 5. ATMOSPHERE & CROWD:**
-        - **VEHICLE:** NO cars or tuk-tuks. Only **Pedal Samlors** (Rickshaws).
-        - **URBAN DENSITY:** A thick, lively crowd in 1960s Thai-Chinese fashion. Pedestrians should be concentrated on the sidewalks and road edges, keeping the center of the road mostly clear to emphasize its width.
-        - **STREET LIFE:** Mobile hawkers (Mae-Ka-Hab-Ray) weaving through the crowd.
+        **🚋 4. TRAM & PERIOD VEHICLES (BANGKOK 1960s STYLE):**
+        - **TRAM SYSTEM:** Render a **Traditional Open-Sided Wooden Tram** on the right side of the road.
+        - **TRAM FRONT (CRITICAL):** The front of the tram must consist ONLY of a **Solid Yellow Lower Panel** with a large round central headlight. 
+        - **UPPER FRONT VOID:** Above the yellow panel, the front must be **COMPLETELY OPEN AND HOLLOW (VOID)** with NO metal bars, NO iron frames, and NO glass windows. 
+        - **STRUCTURE:** Only thin, vertical corner pillars supporting the roof should be visible at the far left and right edges of the front section.
+        - **TRAM DETAIL:** Vibrant Yellow body with a Green or Red stripe. Include a small number '5' on the front panel.
+        - **VINTAGE TRAFFIC:** Replace all modern cars with 1960s vehicles: Vintage taxis (Fiat/Mercedes), light trucks, and **Pedal Samlors**. No vehicles at the tram track area other than the tram.
+        - **ROAD SURFACE:** Used, worn asphalt with realistic dust and grime near the curbs.
 
-        **⛔ NEGATIVE PROMPT:** **narrow street**, **cramped perspective**, **tiny signs**, thin fonts, floating text, modern skyscrapers, glass facades, cars, motorized vehicles, LED signs, neon glow, plastic banners, air conditioners, changing lens, zooming.
+        **⛔ NEGATIVE PROMPT:** **metal bars on tram front**, **iron cages on tram**, **front glass on tram**, safety railings on tram face, enclosed buses, modern cars, LED signs, clean buildings.
+
+        **🚦 5. URBAN DENSITY & ATMOSPHERE:**
+        - **CROWD:** Thick, lively crowd in late 1960s Thai-Chinese attire (men in tucked-in shirts, women in shifts). 
+        - **STREET VENDORS:** Include mobile hawkers (Mae-Ka-Hab-Ray) with shoulder poles along the sidewalk edges.
+
+        **⛔ NEGATIVE PROMPT:** narrow street, modern skyscrapers, glass facades, modern cars (post-1970), LED signs, neon glow, clean pristine buildings, plastic banners, air conditioners, zooming.
     """,
 
     "Khaosan Road": """
