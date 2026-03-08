@@ -423,7 +423,8 @@ LOCATION_PROMPTS = {
         - **MOBILE VENDORS:** Include **Mobile Hawkers (Mae-Ka-Hab-Ray)** with shoulder poles walking in the foreground to add life without blocking the view.
 
         **🏜️ 4. TERRAIN & LIGHTING:**
-        - **SURFACE:** Dry dirt and fine dust with green-to-yellow grass. Absolutely **NO ASPHALT, NO CONCRETE, and NO ROADS**.
+        - **SURFACE:** A little dirt and fine dust with green-to-yellow grass. Absolutely **NO ASPHALT, NO CONCRETE, and NO ROADS**.
+        - **TEXTURE:** The ground must look organic and healthy. **MINIMIZE** exposed yellow dirt or fine dust. Focus on a soft, carpet-like natural grass texture that looks alive, not scorched.
         - **DYNAMIC LIGHTING:** Strictly follow the lighting and time of day (Day/Night) from [IMAGE 1].
 
         **⛔ NEGATIVE PROMPT:** stalls in foreground, umbrellas near camera, market structures at the bottom of the image, empty field, ghost town, asphalt, roads, **many kites**, **large kites**.
