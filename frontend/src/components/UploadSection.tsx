@@ -30,7 +30,7 @@ const getFriendlyErrorMessage = (rawError: string, lang: 'TH' | 'ENG'): string =
 
   // --- 2. AI Model Errors (Gemini / Runway) ---
   if (err.includes("503") || err.includes("overloaded") || err.includes("busy") || err.includes("capacity")) {
-    return "ขณะนี้ AI กำลังทำงานหนักมาก (Server Busy)\nกรุณารอสักครู่ แล้วกด 'ลองใหม่อีกครั้ง'";
+    return "ขณะนี้ Server ของทาง AI กำลังทำงานหนักมาก \nกรุณารอสักครู่ แล้วกด 'ลองใหม่อีกครั้ง'";
   }
   if (err.includes("429") || err.includes("quota") || err.includes("resource exhausted")) {
     return "โควต้าการใช้งาน AI เต็มชั่วคราว\nกรุณารอประมาณ 1-2 นาที แล้วลองใหม่";

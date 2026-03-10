@@ -195,46 +195,6 @@ LOCATION_PROMPTS = {
     NEGATIVE PROMPT: modern cars, traffic, tuk-tuks, altered roof sign, missing sign, 1 poster, 2 posters, 4 posters, visible facade glass, glass reflection on posters, modern display windows, modern attached structures, modern canopies, modern awnings, modern screens, modern lamps, modern utility poles, modern wiring, open windows on any building, new construction look, dilapidated building form, crumbling walls, structural transformation of columns, excessive poster plastering.
     """,
 
-    # "Giant Swing": """
-
-    #     **TASK:** TRANSFORM [IMAGE 1] into a **1960s Phra Nakhon Era** scene using strict structural preservation. **Apply these rules with equal strictness from the immediate foreground to the furthest visible pixel on the horizon.**
-
-    #     **🔒 1. ABSOLUTE GEOMETRY & SPATIAL LOCK (THE "STENCIL" RULE):**
-    #     - **FIXED LAYOUT:** The input image is a rigid map. **DO NOT CHANGE THE SPACING** between buildings.
-    #     - **PRESERVE GAPS:** If there is empty sky or space between buildings in the source, **KEEP IT EMPTY**. Do not fill gaps with new shophouses.
-    #     - **CAMERA FREEZE:** **DO NOT ROTATE. DO NOT ZOOM. DO NOT PAN. OR ENLARGE THE IMAGE** The perspective must perfectly overlay the original image.
-
-    #     **🔄 2. ARCHITECTURAL RE-SKINNING (NO NEW BUILDINGS):**
-    #     - **DETECT SKYSCRAPERS:** Identify all modern builiding, skyscrapers/tall buildings in the image, from the nearest to the **farthest point on the horizon**. **Do NOT retain the modern silhouette of distant buildings.** **Surgically DELETE** them and replace with **clear blue sky or soft clouds**. No structure should be taller than 2-story building.
-    #     - **STRICT TRANSFORMATION:** Detect ALL buildings present. Transform their **surfaces** to match the **1960s COLONIAL STYLE** (SINGLE MASSING of 2-story masonry structures with **rectangle Windows** and **Weathered Cream Stucco**, **Dark Wooden Folding Doors (Ban-Fiam)**, Dark brown **CLOSED HIPPED ROOF** with Clay Tiles. **The roof structure must be a continuous lid with closed triangular ends.**). 
-    #     - **HORIZON OVERRIDE:** You MUST **reconstruct the silhouette** of distant buildings; do not simply re-texture them. If a building at the horizon is taller than 2 stories, **You MUST overwrite these pixels with the sky and clouds.**.
-    #     - **NO GHOST SILHOUETTES: Do not attempt to re-texture distant tall buildings. If it is not a 2-story shophouse or the Giant Swing, it MUST NOT EXIST. Paint the sky over it completely.
-    #     - **VANISHING POINT CLEANUP: At the furthest point of the street, ensure there are NO vertical lines or box shapes peeking out. The sky must meet the shophouse roofline directly.
-
-        
-    #     **📍 THE SEMANTIC BOUNDARY RULE:
-    #     -TEMPLE ISOLATION: Identify the white masonry perimeter walls (Kamphaeng Kaeo) and the ornate gate structures. These white walls are an ABSOLUTE BARRIER.
-    #     -NO OVERLAP: Shophouses and wooden textures MUST NOT touch, cross, or overlap with any white temple walls or religious structures.
-    #     - **NO SOLID ENCLOSURE:** Do not render temple side-buildings as closed concrete rooms. They must maintain their "Open Pavilion" identity.
-        
-    #     **⛩️ 3. THE GIANT SWING (HISTORICAL TWO-TIER BASE):**
-    #     - **DUAL-LAYER BASE (CRITICAL):** Render the base structure accurately with **TWO DISTINCT CONCRETE LEVELS**:
-    #         1. **The Plinths:** Concrete blocks directly supporting the red teak legs.
-    #         2. **The Island Platform:** A **Blank** wide, raised **curbed concrete island (Traffic Island)** that the whole structure sits upon.
-    #     - **DECORATION BAN:** The base must be **BARE**, **BLANK**, CLEAN WHITE/GREY CONCRETE**. Absolutely **NO FLOWERS**, no garlands, no fabric wrappings, no pot, and no ornate carvings.
-
-    #     **🛣️ 4. CLEAN ROAD (ZERO VEHICLES):**
-    #     - **REMOVE TRAFFIC:** The road must be **MAJESTICALLY EMPTY**. Remove all cars, tuk-tuks, and buses.
-    #     - **SURFACE:** Reveal the road surface underneath. Render it as **Clean, Weathered Grey Asphalt**.
-    #     - **TRAM TRACKS:** Create a weathered tram tracks that locate **in front of WAT SUTHAT temple** only.
-
-    #     ** 5. LIGHTING & ATMOSPHERE:**
-    #     - **Crowd:** Add a few pedestrians in 1960s attire walking on the sidewalk or in front of the temple some standing on the island of giant swing. No one should be on the road.
-
-    #     **⛔ NEGATIVE PROMPT:** modern architectural silhouettes, background blocks, distant urban noise, modern cars, traffic, vehicles, people in middle of road, **added buildings**, **filling gaps**, **crowded skyline**, **flowers on base**, garlands, fantasy decorations, changing angle, **modern windows in distance, air conditioners in background.**
-
-    # """,
-
     "Giant Swing": """
         **TASK:** RE-TEXTURE [IMAGE 1] into a 1960s scene. 
         **URGENT:** ACT AS A SURFACE-ONLY REPLACEMENT ENGINE. DO NOT RE-COMPOSE.
@@ -254,19 +214,13 @@ LOCATION_PROMPTS = {
 
         - **CASE B: CITY HALL / PLAZA SIDE DETECTED** (If modern offices or open plaza appear):
             - **ADMINISTRATIVE STYLE:** Keep the shape of **Bangkok City Hall**. Do not alter their form or add new structures. Only re-texture the surface by applying a little weathering and fading.
-            - **OPEN PLAZA:** Keep the Lan Khon Mueang area as an **OPEN CONCRETE FIELD** with a lawn area in front(UNPAVED RED EARTH AND PATCHY DRY GRASS) also have a basketball field in Lan Khon Mueang's area. No modern tiles or LED screens. 
-            - **ACTIVITY:** Populate the field with people in 1960s attire. Optionally, add a group of Thai youths in white tank tops playing basketball on the raw field.
-            - **NO HALLUCINATION:** Strictly **PROHIBIT** adding temple structures if none exist in [IMAGE 1].
-
-        - **CASE B: CITY HALL / PLAZA SIDE DETECTED** (If modern offices or open plaza appear):
-            - **ADMINISTRATIVE STYLE:** Keep the shape of **Bangkok City Hall**. Do not alter their form or add new structures. Only re-texture the surface by applying a little weathering and fading.
             - **THE HYBRID PLAZA (LAN KHON MUEANG):** Transform the modern plaza into a realistic 1960s multi-purpose field:
                 1. **THE BASKETBALL COURT:** Render a specific rectangular section as **weathered, rough grey concrete**. Include vintage basketball backboards on poles.
                 2. **THE RAW TERRAIN:** A vertical large lawn area and the surrounding areas must be **UNPAVED DIRT** mixed with irregular patches of **DRY, SUN-BLEACHED GRASS**.
                 3. **PHYSICAL BOUNDARY:** This plaza must be clearly separated from the Giant Swing island by a wide, clean **grey asphalt road**. Do NOT allow grass or dirt to bleed onto the asphalt.
             - **SOCIAL ACTIVITY:** Populate the concrete court with Thai youths in 1960s white tank tops and dark shorts playing basketball.
             - **NO HALLUCINATION:** Strictly PROHIBIT adding temple structures or ornate gates if none exist in the original [IMAGE 1] background.
-
+            
         - **GENERAL BUILDINGS:** Transform other structures into **1960s COLONIAL STYLE** (Only 2-story masonry rows, weathered cream stucco, dark wooden folding doors, continuous hipped clay tile roofs).
 
         **⛩️ 3. THE GIANT SWING (HISTORICAL TWO-TIER BASE):**
@@ -296,11 +250,17 @@ LOCATION_PROMPTS = {
         - **STRICT 4-STORY CEILING:** Every building in the scene, from the foreground to the furthest horizon, MUST NOT exceed 4 stories in height.
         - **SURGICAL SKYLINE PURGE:** Identify any structure in [IMAGE 1] taller than 4 stories. **ERASE** them completely and replace with clear blue sky or soft hazy clouds. No ghost silhouettes of skyscrapers allowed.
 
-        **🏙️ 2. ARCHITECTURAL DIVERSITY (HYBRID ZONING - CRITICAL):**
-        - **ZONE A (TRADITIONAL CORE):** Clusters of 2-3 story Chinese-Colonial shophouses with dark wooden folding doors (Ban-Fiam) and weathered off-white/grey stucco.
-        - **ZONE B (MID-CENTURY MODERN):** Integrate 3-4 story concrete commercial buildings featuring **Angular Geometries**, horizontal sunshades, and **Vertical Concrete Fins**.
-        - **ACCENT STRUCTURES:** Include at least one prominent building with a grid-like balcony structure.
-        - **TEXTURE:** Apply heavy soot, rain stains (Krap-fon), and aged patina to all surfaces. No "new" or clean-looking buildings.
+        **🏙️ 2. ARCHITECTURAL DIVERSITY (DISTINCT BUSINESS ZONING - CRITICAL):**
+        - **ZONE A: GOLD SHOPS (ห้างทอง - PRESTIGIOUS RED):** - **FACADE:** Distinguish these by **Vibrant Cinnabar-Red Masonry Facades** or deep red painted storefronts.
+            - **STRUCTURE:** Feature prominent **Grid-like Balconies** and red lacquered pillars. The interiors must look brightly lit, revealing high-contrast red/gold decor and polished wooden counters.
+        - **ZONE B: PHARMACIES & GENERAL SHOPS (ห้างยา/ร้านค้า):** - **FACADE:** Traditional 2-3 story shophouses in **well-maintained off-white or pale cream stucco**. 
+            - **DETAIL:** Simple, utilitarian architectural lines. Distinct from the luxury of gold shops.
+        - **ZONE C: (House):** Clusters of 2-3 story Chinese-Colonial shophouses with dark wooden folding doors (Ban-Fiam).
+        - **ZONE D: MODERN 60s HUB:** 3-4 story concrete commercial buildings with sharp **Vertical Concrete Fins** and horizontal sunshades in pale green or teal.
+        
+        **🏘️ ADDED HISTORICAL DETAILS (NEW):**
+        - **SUN AWNINGS (ผ้าใบกันแดด):** Add vintage-style retractable canvas awnings or fixed metal/wooden sunshades above ground-floor storefronts and some balconies. Colors should be faded reds, muted greens, or neutral canvas tones that appear sun-worn and aged.
+        - **TEXTURE (HISTORICAL AGING):** Apply **Visible Weathering**, **Faded Paint Stains**, and a **Natural Aged Patina** to all surfaces. Incorporate subtle tropical rain stains (Krap-fon) and soot accumulation around architectural corners to create a realistic 1960s atmosphere. Buildings should look lived-in and established.
 
         **🔤 3. SIGNAGE HIERARCHY & TYPOGRAPHY (FIXING FONT BALANCE):**
         - **TIER 1 (OVERSIZED VERTICAL SIGNS):** Populate the scene with **Large, Massive Vertical Signs** that hang perpendicular to the buildings. These signs should span 1-2 stories in height.
@@ -308,17 +268,16 @@ LOCATION_PROMPTS = {
         - **LEGIBILITY:** Foreground signs like "**ห้างทอง**", "**ร้านยา**", "**โรงแรม**", "**ร้านทอง**", "**ภัตตาคาร**" must be large and prominent.
         - **PATINA:** Signs must look hand-painted with visible aging and weathering. Avoid "perfect" digital-looking text.
 
-
         **🚋 4. TRAM & PERIOD VEHICLES (BANGKOK 1960s STYLE):**
         - **TRAM SYSTEM:** Render a **Traditional Open-Sided Wooden Tram** on the right side of the road.
         - **TRAM FRONT (CRITICAL):** The front of the tram must consist ONLY of a **Solid Yellow Lower Panel** with a large round central headlight. 
         - **UPPER FRONT VOID:** Above the yellow panel, the front must be **COMPLETELY OPEN AND HOLLOW (VOID)** with NO metal bars, NO iron frames, and NO glass windows. 
         - **STRUCTURE:** Only thin, vertical corner pillars supporting the roof should be visible at the far left and right edges of the front section.
         - **TRAM DETAIL:** Vibrant Yellow body with a Green or Red stripe. Include a small number '5' on the front panel.
-        - **VINTAGE TRAFFIC:** Replace all modern cars with 1960s vehicles: Vintage taxis (Fiat/Mercedes), light trucks, and **Pedal Samlors**. No vehicles at the tram track area other than the tram.
+        - **VINTAGE TRAFFIC:** Replace all modern cars with 1960s vehicles: Vintage cars (Fiat/Mercedes), light trucks, and **Pedal Samlors**. No vehicles at the tram track area other than the tram.
         - **ROAD SURFACE:** Used, worn asphalt with realistic dust and grime near the curbs.
 
-        **⛔ NEGATIVE PROMPT:** **metal bars on tram front**, **iron cages on tram**, **front glass on tram**, safety railings on tram face, enclosed buses, modern cars, LED signs, clean buildings.
+        **⛔ NEGATIVE PROMPT:** **metal bars on tram front**, **iron cages on tram**, **front glass on tram**, safety railings on tram face, enclosed buses, modern cars, LED signs, shiny new buildings.
 
         **🚦 5. URBAN DENSITY & ATMOSPHERE:**
         - **CROWD:** Thick, lively crowd in late 1960s Thai-Chinese attire (men in tucked-in shirts, women in shifts). 
@@ -333,31 +292,29 @@ LOCATION_PROMPTS = {
         **🔒 PERSPECTIVE LOCK (CRITICAL):**
         - **Blueprint:** Use the Uploaded Image as the **LAYOUT REFERENCE** for street path and alignment.
 
-        **🏘️ HYBRID URBAN DENSITY (BALANCING ROWS & GAPS):**
-        - **2-STORY LIMIT:** All structures are 1-2 stories max.
-        - **INTERMITTENT ROWS:** Instead of one infinite row, create **CLUSTERS of 3-4 connected wooden shophouses** that share common walls.
-        - **URBAN GAPS:** Between these clusters, insert **narrow gaps (1-2 meters)** or small wooden alleyway entrances. Do NOT make them wide open yards.
-        - **STANDALONE INTEGRATION:** Occasionally place a single standalone masonry or wooden house between the clusters to break the repetition.
-        - **VARYING FACADES:** Even within a cluster, each unit must have slightly different window styles or paint weathering (e.g., one unit has louvered shutters, the next has open frames).
-        - **STREET PROXIMITY:** Ensure buildings sit relatively close to the road to maintain an **"Urban Residential"** feel. Avoid large front yards or long fences that look rural.
+        **🏘️ 2. RESIDENTIAL & COMMUNITY TRANSFORMATION:**
+        - **2-STORY LIMIT:** All structures must be 1-2 stories max.
+        - **MIXED USAGE (STENCIL MATCH):** Map the shophouse shapes from [IMAGE 1] into:
+            1. **Grocery Stores (ร้านขายของชำ):** Filled with glass jars of snacks and household goods.
+            2. **Religious Offering Shops (ร้านสังฆภัณฑ์):** Displaying and incense near the entrance.
+            3. **Private Residences:** Wooden houses with folding doors (Ban-Fiam).
+        - **STREET PROXIMITY:** Maintain the intimate "Neighborhood" feel by keeping buildings close to the road edges as seen in [IMAGE 1].
 
-        **🚫 STRICT 1960s TIME-CAPSULE RULE:**
-        - **NO MODERN ELEMENTS:** Absolutely NO air conditioners, NO satellite dishes, NO 7-Eleven signs, NO plastic chairs.
-        - **AUTHENTIC HISTORY:** A quiet but established residential rice-trading community.
+        **🚫 3. AUTHENTIC 1960s TIME-CAPSULE:**
+        - **PURGE MODERNITY:** Erase all air conditioners, satellite dishes, plastic chairs, and digital signs.
+        - **PATINA:** Apply a soft sun-faded patina to wooden facades. Everything must look established and lived-in.
 
-        **🚶 PEOPLE & TRAFFIC (QUIET COMMUNITY):**
-        - **ZERO VEHICLES:** The narrow street is empty of cars.
-        - **Locals Only:** Authentic Thai residents in 1960s attire some may look casual and some may look more relaxed than others.
-        - **Activity:** Neighbors gathered near house entrances or sitting on porch steps.
+        **🚶 4. COMMUNITY LIFE (STRICTLY LOCALS):**
+        - **ZERO VEHICLES:** Keep the narrow street empty of all motorized traffic.
+        - **LOCALS:** Sparse pedestrians in natural 1960s Thai attire (tucked-in shirts, simple dresses).
+        - **NEIGHBORHOOD ACTIVITY:** Show neighbors chatting, sitting on porch steps or buying groceries within the existing structural bounds of [IMAGE 1].
 
-        **🍚 PROPS:**
-        - **RICE TRADING HUB:** Increase the density of rice sacks and wooden crates. They should look like they are part of the daily commerce, stacked near the "connected shophouse" sections.
-        - ** Grain of rice on the ground, small bits of straw, and dust to enhance the realism of the trading environment.**
-        - ** Other than rice sacks there can be some small market props like wooden carts, baskets, and simple hand tools for handling rice.**
+        **📦 5. ENVIRONMENT & SURFACE:**
+        - **PROPS:** Replace bulk sacks with small grocery crates and baskets of produce.
+        - **RESIDENTIAL TOUCHES:** Add bird cages and potted plants near the coordinates of original doorways.
+        - **SURFACE:** Worn grey asphalt with fine dust and a few organic debris near the curbs exactly where they appear in [IMAGE 1].
 
-        ** Road surface: Worn asphalt with scattered debris and dust near the curbs. **
-
-        **⛔ NEGATIVE PROMPT:** **rural village look**, **wide open yards**, **distant isolated houses**, **suburban fences**, skyscrapers, modern hotels, cars, backpackers, tourists, uniform row houses, identical buildings.
+        **⛔ NEGATIVE PROMPT:** **camera movement**, **zoom out**, **shifting buildings**, changing street angle, wide open yards, backpackers, tourists, cars, modern hotels, skyscrapers, rice trading hub dominance.
     """,
 
     "Phra Sumen Fort": """
@@ -679,7 +636,7 @@ def step2_generate(client, structure_desc, location_key, original_img_bytes, ref
                 config=types.GenerateContentConfig(
                     response_modalities=["IMAGE"],
                     temperature=0.0, # ลดเหลือ 0.1 เพื่อให้ทำตามโครงสร้างเดิมเป๊ะขึ้น
-                    http_options={'timeout': 180000}
+                    http_options={'timeout': 60000}
                 )
             )
             for part in response.candidates[0].content.parts:
@@ -688,26 +645,28 @@ def step2_generate(client, structure_desc, location_key, original_img_bytes, ref
             print(f"⚠️ Warning: Model returned no image (Attempt {attempt+1})")
             
         except Exception as e:
-            if "not found" in str(e).lower() and model_name == "gemini-3-pro-image-preview":
-                print("⚠️ Switching model to gemini-3-pro-image-preview...")
-                model_name = "gemini-3.1-flash-image-preview" # ถ้าไม่ได้ปรับไปตัวกากๆ(ประหยัดงบ)
-                time.sleep(1)
-                continue
-
-            if "429" in str(e) or "503" in str(e):
-                t = (5 * (2 ** attempt)) + random.uniform(1, 5) 
-                print(f"⚠️ Server Busy ({model_name}) -> Waiting {t:.1f}s before retry...")
-                time.sleep(t)
-
-            if "503" in str(e) or "429" in str(e):
-                # 🔄 ถ้าตัว Pro ยุ่ง ให้ลองสลับไปใช้ตัว Flash รุ่นใหม่ๆ ในลิสต์ของคุณ
+            err_str = str(e)
+            
+            # ✅ 1. เพิ่ม 504 ลงในเงื่อนไขการ Retry
+            if "429" in err_str or "503" in err_str or "504" in err_str:
                 if attempt == 0:
-                    model_name = "gemini-3.1-flash-image-preview" # ลองตัว 3.1 ล่าสุด
-                elif attempt == 1:
-                    model_name = "gemini-2.5-flash-image" # ลองตัว 2.5
+                    print("🔄 Attempt 1 Timeout/Busy. Switching to Flash immediately...")
+                    model_name = "gemini-3.1-flash-image-preview" 
+                    # ✅ เมื่อสลับมา Flash แล้ว ไม่ต้องรอนาน ให้รอแค่ 2-3 วินาทีแล้วลุยต่อเลย
+                    time.sleep(2) 
+                    continue
                 
-                wait_time = (10 * (2 ** attempt)) # เพิ่มเวลารอ
-                time.sleep(wait_time)
+                # สำหรับ Attempt ถัดๆ ไปค่อยใช้สูตรหน่วงเวลาที่สั้นลง
+                # ✅ ปรับจาก base 10 เหลือ 3
+                t = (3 * (2 ** attempt)) + random.uniform(1, 3) 
+                print(f"⚠️ Retry Wait: {t:.1f}s...")
+                time.sleep(t)
+                continue
+            
+            # ✅ 2. ปรับปรุงการสลับโมเดลกรณีโมเดลหาไม่พบ
+            if "not found" in err_str.lower() and model_name == "gemini-3-pro-image-preview":
+                print("⚠️ Pro model not found, switching to 3.1 Flash...")
+                model_name = "gemini-3.1-flash-image-preview"
                 continue
 
             else:
