@@ -153,7 +153,8 @@ LOCATION_PROMPTS = {
 
         3. ARCHITECTURAL TRANSFORMATION (RATCHADAMNOEN PERIMETER):
         - SKYLINE PURGE: Erase ALL modern skyscrapers and glass towers from the background. 
-        - SHOPHOUSES: Replace buildings BEHIND the monument with 1960s 2-4 story Thai Art Deco buildings that perfectly follow the outer ring of the roundabout..
+        - **SURGICAL DELETION (SCHOOL):** If **Satriwittaya School** or its modern extensions are detected in the background, **ERASE** them completely.
+        - SHOPHOUSES: Replace buildings BEHIND the monument with **1960s 4 story Thai Art Deco buildings** in sun-faded terracotta/brick orange.
         - LOCATION FIX: Shophouses MUST stay along the street perimeter, NOT inside the monument base area.
         - ART DECO STYLE: Rounded corners, vertical concrete fins, recessed balconies, and terracotta/brick orange faded paint.
 
@@ -167,34 +168,6 @@ LOCATION_PROMPTS = {
     """,
     
     "Sala Chalermkrung": """
-<<<<<<< HEAD
-    TASK: TRANSFORM into a maintained, dignified, hyper-photorealistic color photograph of Sala Chalermkrung Theatre, circa 1967. Strictly adhere to the historical and architectural reality of the 1960s as seen in the provided reference images. NO over-creation; NO structural additions.
-
-    🔒 0. MAIN STRUCTURE RIGIDITY LOCK (NEW & CRITICAL - V.22 Update):
-    The entire Art Deco concrete frame, central body, columns, and dome profile (if visible) of the main Sala Chalermkrung building must remain structurally unchanged. The input geometry is a rigid Map. DO NOT alter the building's Fundamental Art Deco geometry, scale, or subject positioning. Maintained Dignity: The concrete surfaces must show weathering (Krap-fon) in a way that looks maintained but aged, with a visible aged patina reflecting its maintained royal connection, not dilapidated or crumbling. HISTORICAL DETAILING ONLY: Any updates within the main building's concrete frame must be period-accurate detailing changes, not structural changes. Doors within visible archways must be the Original 1930s/1960s Art Deco service doors, not modern glass ones. If windows are not covered by posters, they must be period-appropriate casement or multi-pane styles (ช่องหน้าต่างบานกระทุ้งโบราณ).
-
-    🔒 1. ABSOLUTE SIGNAGE NON-TRANSFORM LOCK (CRITICAL):
-    The large "SALA CHALERMKRUNG" roof sign (Thai and English letters) is under an ABSOLUTE NON-TRANSFORM LOCK. DO NOT alter its font, geometry, structural frame, or placement. It must remain 100% pixel-perfect identical to the modern input image.
-
-    🎭 2. THE IMPENETRABLE POSTER WALL (EXACTLY 3 PANELS - FACADE MASKING - CRITICAL ADDITION):
-    Locate the modern glass window lines on the ground and middle floors of the theatre's central angled facade. Install EXACTLY THREE (3) massive, impenetrable, hand-painted movie poster panels scaled to create a flawless wall of art, ensuring zero trace of glass, glass slivers, or glass reflections is visible on the covered facade levels. Place ONE poster on the center facade, ONE on the left-angled facade, and ONE on the right-angled facade. POSTER ART (MUST ADHERE): The three posters may contain different compositions, but each must depict only the same two gentlemen set with thick hair on their surface: one in a white shirt and glasses, the other without glasses. Hand-painted vintage Thai art style (billboard style), not digital. The only text allowed is the Thai title "บางกอกทวิกาล" and period Thai text. No posters on plain walls.
-
-    🏛️ 3. LEFT WING EXTENSION REVEAL & RIGHT SIDE RESTORATION (HISTORICAL CONTINUITY - V.24 Update):
-    Flatten and simplify any modern attachments on the secondary building sections immediately to the left and right of the main theatre. REVEAL AND RECONSTRUCT LEFT EXTENSION (V.23 Update): Transform the building section to the immediate left of the main theatre. Surgically erase all left-side trees and modern attachments to fully reveal the building's historically extend. Reconstruct this area as a massive, elongated 3-story Art Deco masonry block seamlessly matching the main building. CRITICAL ARCHITECTURAL DETAILS FOR LEFT WING: It MUST feature a continuous, flat concrete awning (กันสาดคอนกรีตแบนเรียบแนวยาว) running horizontally to separate the ground floor from the upper levels. The upper floors must feature recessed vertical panels or tall vertical slit windows (ร่องเว้าหรือช่องหน้าต่างแนวตั้งลึก) containing rows of strictly closed period multi-pane casement windows with dark weathered frames. The ground floor beneath the awning must consist of repetitive vintage wooden folding doors or metal shutter doors (บานเฟี้ยมหรือประตูเหล็กยืดโบราณ) acting as theatre exits. The wall texture must be weathered cream stucco matching the main tower perfectly. RIGHT SIDE (Ground Floor - V.24 Update): ERASE all modern cafes, umbrellas, and modern storefronts from the right side extension. Reconstruct as a solid, perfectly flat cream stucco wall. CRITICAL ARCHITECTURAL DETAILS FOR RIGHT WING: It MUST feature a continuous, orderly horizontal row of strictly closed vintage dark-framed multi-pane hopper/casement windows (ช่องหน้าต่างบานกระทุ้งกระจกแบ่งช่องลูกฟักแบบโบราณ). These windows must be set flush or slightly recessed into the wall without any protruding modern frames or decorations. Above this row of windows, maintain a simple, subtle concrete eyebrow canopy (กันสาดคอนกรีตแผ่นเรียบเล็กๆ) separating the ground floor from the upper level. Absolutely DO NOT add any creative architectural elements, new signs, or modern structures to this right wing; it must remain a historically accurate, plain utilitarian Art Deco extension flawlessly integrated into the historical wing.
-
-    🏘️ 4. DIGNIFIED 1960s SURROUNDINGS & AMBIANCE (CRITICAL ADDITION - V.22 Update):
-    Do not invent creative architecture. Buildings further left, right, and in the background must strictly reflect the historical context of the provided reference images and the 1960s Charoen Krung district (plain, utilitarian masonry commercial shophouses/คูหาอาคารปูน 2-3 ชั้น), with strictly closed windows on all floors. Background Skyline (V.20 Update): Delete 100 percent of modern skyscrapers and glass high-rises from the furthest horizon and replace with a seamless view of period-appropriate traditional 2-3 story masonry commercial shophouses. The skyline must be traditional low-rise. Sidewalks & Ground Level (V.20 Update): Reconstruct sidewalks as wide, maintained clear Aged Concrete surfaces (not new paving or tarpaulin-covered) with period-appropriate props (old newspaper stands, vendors with shoulder poles), ensuring they are completely free of modern chairs, modern awnings, and modern clutter. Modern Removal (V.20 Update): DELETE 100% of modern street lamps, bank logos, ATMs, LEDs, satellite dishes, and modern wiring. Bundle wires together and hide them behind shophouse eaves or remove completely from plain view. People: Maintain a sparse crowd of pedestrians walking in natural 1960s Thai fashion (men in tucked-in shirts, women in mod-dresses) near the entrance sidewalks.
-
-    🚗 5. EMPTY ROYAL AVENUE (V.20 Update):
-    The wide worn asphalt road is majestic and completely EMPTY. Reveal the clean road surface. NO motorized vehicles: no modern cars, no buses, no motorcycles, no tuk-tuks, no taxis. Clear asphalt. Only sparse crowd on sidewalks.
-
-    🎨 6. FILM STYLE: Kodak Kodachrome film (1967), characteristic Kodachrome shift, natural light, soft film grain, high historical fidelity.Maintained dignified atmosphere. Natural afternoon light.
-
-    🔒 7. PERSPECTIVE INTEGRITY LOCK (NEW & CRITICAL - V.20):
-    The final image must retain the exact camera angle, subject positioning, and depth of field of [IMAGE 1]. Structural alignment between and final result must be pixel-perfect. Ensure no camera rotation or shift. Every architectural vector is locked to.
-
-    NEGATIVE PROMPT: modern cars, traffic, tuk-tuks, altered roof sign, missing sign, 1 poster, 2 posters, 4 posters, visible facade glass, glass reflection on posters, modern display windows, modern attached structures, modern canopies, modern awnings, modern screens, modern lamps, modern utility poles, modern wiring, open windows on any building, new construction look, dilapidated building form, crumbling walls, structural transformation of columns, excessive poster plastering.
-=======
         **TASK:** TRANSFORM [IMAGE 1] into a hyper-photorealistic color photograph of Sala Chalermkrung Theatre, circa 1960s. Strictly match the provided reference images, especially the architectural side wings. Do not over-create; stick to historical reality.
 
         **🔒 1. ABSOLUTE SIGNAGE NON-TRANSFORM LOCK (CRITICAL):**
@@ -229,7 +202,6 @@ LOCATION_PROMPTS = {
         **🎨 6. FILM STYLE:** Kodak Kodachrome film (1967), natural light, soft film grain, high historical fidelity.
 
         **NEGATIVE PROMPT:** modern cars, traffic, moving vehicles, tuk-tuks, buildings on opposite street, tall neighboring buildings, prominent adjacent buildings, altered roof sign, missing sign, 1 poster, 2 posters, 4 posters, visible glass windows on main facade, modern cafe, umbrellas, open storefronts on right wing, modern canopies on left wing, creative architecture, dense crowds, modern bank logos, LED screens, modern street lights, plastic trash, clean new concrete sidewalks.
->>>>>>> 231d077a80ff52ffe64015b2502a9a7a5b2e6782
     """,
 
     "Giant Swing": """
@@ -402,10 +374,12 @@ LOCATION_PROMPTS = {
         - **HAPHAZARD CLUSTERING:** Market stalls and umbrellas must be **disorganized and unevenly scattered**. Some should overlap, some should be tilted at odd angles, and they should **NOT** follow a straight line.
         - **MAKESHIFT MATERIALS:** Use weathered materials: **stained canvas tents, worn-out wooden poles, aged bamboo sticks, and faded, multi-colored umbrellas** with visible patches or tears.
         
-        **🏃 3. POPULATION & ACTIVITY (MINIMAL KITES):**
-        - **VIBRANT CENTER:** Fill the foreground and middle ground with **DOZENS of people scattered throughout**. Focus on activities like riding **vintage bicycles**, sitting in groups on mats, strolling, playing kites, selling things, and socializing.
-        - **KITE RESTRICTION:** **VERY FEW TO ZERO KITES.** If any are present, they must be small and distant in the background sky, not dominating the scene.
-        - **MOBILE VENDORS:** Include **Mobile Hawkers (Mae-Ka-Hab-Ray)** with shoulder poles walking in the foreground to add life without blocking the view.
+        **🏃 3. POPULATION & VIBRANT ACTIVITIES (NEW & ENHANCED):**
+        - **VIBRANT CENTER:** Fill the foreground and middle ground with **DOZENS of people scattered throughout**. 
+        - **STREET PERFORMANCES:** Include small, tight circles of people gathered around **Street Performers or Magic Shows (มายากล)** in the middle ground.
+        - **BICYCLE RENTAL HUBS:** Add small clusters of **Parked/Empty Vintage Bicycles** grouped together near the field's edge, indicating a rental service.
+        - **DIVERSE LIFE:** Focus on activities like groups sitting on mats, people strolling, mobile hawkers (Mae-Ka-Hab-Ray), and various vendors selling small goods and snacks.
+        - **KITE RESTRICTION:** Keep kites minimal and distant in the background.
 
         **🏜️ 4. TERRAIN & LIGHTING:**
         - **SURFACE:** A little dirt and fine dust with green-to-yellow grass. Absolutely **NO ASPHALT, NO CONCRETE, and NO ROADS**.
