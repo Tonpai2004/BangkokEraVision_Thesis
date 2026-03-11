@@ -380,7 +380,8 @@ LOCATION_PROMPTS = {
     
     
     "National Museum": """
-        **TASK:** Create a **VINTAGE 1960s** view of the National Museum Bangkok.
+        **TASK:** Create a **VINTAGE 1960s** photorealistic view of the National Museum Bangkok.
+        **MANDATORY:** ACT AS A SURFACE-ONLY REPLACEMENT ENGINE. 100% PERSPECTIVE LOCK.
 
         **🧱 1. LINEAR FENCE GEOMETRY (THE SINGLE PLANE RULE - CRITICAL):**
         - **SINGLE STRAIGHT LINE:** The entire fence line MUST exist on a **SINGLE FLAT GEOMETRIC PLANE** (180 degrees).
@@ -389,21 +390,28 @@ LOCATION_PROMPTS = {
         - **VISIBLE MASONRY BASE:** The iron fence must sit on a **SOLID WHITE MASONRY BASE** (Knee-high). Do NOT render it as a flat line.
         - **SURGICAL DELETION:** Erase the side-door structures and the green signage beam from [IMAGE 1] entirely.
 
-        **🚪 2. DOUBLE-SWING GATE & PILLARS:**
-        - **DESIGN:** A **DOUBLE-SWING weathered IRON GATE** with vertical bars and a visible center-split line. the structure is same like a fence.
-        - **THE GAP:** Create a clear **VOID OF AIR** between the standalone gate pillars. No horizontal connections allowed.
-        - **PILLAR STYLE:** All pillars must be rectangular blocks with **COMPLETELY FLAT SQUARE TOPS**.
-        - **LOW PROFILE:** Keep the structure **SHORT (Waist-high)** to reveal the museum architecture behind.
+        **🔤 2. VINTAGE EXTERIOR SIGNAGE (NEW - CRITICAL):**
+        - **LEFT SIGN (THAI):** On the white masonry base or the pillar to the **LEFT** of the main gate, add a horizontal white hand-painted green wooden sign.
+            - **TEXT:** "พิพิธภัณฑสถานแห่งชาติ พระนคร" in a traditional, bold Thai font.
+        - **RIGHT SIGN (ENGLISH):** On the white masonry base or the pillar to the **RIGHT** of the main gate, add a matching horizontal white hand-painted green wooden sign.
+            - **TEXT:** "NATIONAL MUSEUM BANGKOK" in a clean, sans-serif vintage English font.
+        - **PATINA:** Signs must look slightly weathered with matte paint. No plastic, no backlighting, and no shiny metal.
 
-        **🚧 3. ROAD & ENVIRONMENT:**
-        - **SURFACE:** Asphalt road. No traffic markings. Zebra crossings or painted lines.
+        **🚪 3. DOUBLE-SWING GATE & PILLARS:**
+        - **DESIGN:** A **DOUBLE-SWING weathered IRON GATE** with vertical bars.
+        - **THE GAP:** Create a clear **VOID OF AIR** between standalone gate pillars.
+        - **PILLAR STYLE:** Rectangular blocks with **COMPLETELY FLAT SQUARE TOPS**.
+        - **LOW PROFILE:** Structure must be **SHORT (Waist-high)** to reveal the museum architecture behind.
+
+        **🚧 4. ROAD & ENVIRONMENT:**
+        - **SURFACE:** Clean, worn asphalt road. No traffic markings or zebra crossings.
         - **CLEANUP:** Remove all flags, flagpoles, modern signs, and traffic markings.
         
-        ** 4. People & Atmosphere:**
-        - **MINIMAL CROWD:** A few people walking on the curb that meets the masonry base directly and also walk in the museum in 1960s attire.
-        - **NO VEHICLES:** The road and inside the museum is completely clear of cars and traffic.
+        **🚶 5. PEOPLE & ATMOSPHERE:**
+        - **MINIMAL CROWD:** A few people in 1960s attire (tucked-in shirts, simple dresses) walking on the area meeting the masonry base.
+        - **NO VEHICLES:** The road and museum grounds must be clear of all cars and traffic.
 
-        **⛔ NEGATIVE PROMPT:** thin fence base, missing intermediate pillars, side gates, merged pillars, curved entrance, recessed gate, concrete sidewalk, raised curb, pointed pillars, flags.
+        **⛔ NEGATIVE PROMPT:** **plastic signs**, **neon**, **LED**, backlit signage, thin fence base, side gates, merged pillars, curved entrance, recessed gate, concrete sidewalk, raised curb, pointed pillars, flags.
     """,
 }
 
