@@ -167,6 +167,7 @@ LOCATION_PROMPTS = {
     """,
     
     "Sala Chalermkrung": """
+<<<<<<< HEAD
     TASK: TRANSFORM into a maintained, dignified, hyper-photorealistic color photograph of Sala Chalermkrung Theatre, circa 1967. Strictly adhere to the historical and architectural reality of the 1960s as seen in the provided reference images. NO over-creation; NO structural additions.
 
     🔒 0. MAIN STRUCTURE RIGIDITY LOCK (NEW & CRITICAL - V.22 Update):
@@ -193,6 +194,42 @@ LOCATION_PROMPTS = {
     The final image must retain the exact camera angle, subject positioning, and depth of field of [IMAGE 1]. Structural alignment between and final result must be pixel-perfect. Ensure no camera rotation or shift. Every architectural vector is locked to.
 
     NEGATIVE PROMPT: modern cars, traffic, tuk-tuks, altered roof sign, missing sign, 1 poster, 2 posters, 4 posters, visible facade glass, glass reflection on posters, modern display windows, modern attached structures, modern canopies, modern awnings, modern screens, modern lamps, modern utility poles, modern wiring, open windows on any building, new construction look, dilapidated building form, crumbling walls, structural transformation of columns, excessive poster plastering.
+=======
+        **TASK:** TRANSFORM [IMAGE 1] into a hyper-photorealistic color photograph of Sala Chalermkrung Theatre, circa 1960s. Strictly match the provided reference images, especially the architectural side wings. Do not over-create; stick to historical reality.
+
+        **🔒 1. ABSOLUTE SIGNAGE NON-TRANSFORM LOCK (CRITICAL):**
+        - The large "SALA CHALERMKRUNG" roof sign (Thai and English letters) is under an **ABSOLUTE NON-TRANSFORM LOCK**. 
+        - DO NOT alter its font, geometry, structural frame, or placement. It must remain 100% pixel-perfect identical to the modern input image.
+
+        **🎭 2. THE THREE POSTERS (EXACTLY 3 PANELS - CRITICAL CHANGE):**
+        - Locate the modern glass window lines on the ground and middle floors of the theatre's main facade.
+        - Install **EXACTLY THREE (3)** massive, hand-painted movie poster panels.
+        - Place ONE poster on the center facade, ONE on the left-angled facade, and ONE on the right-angled facade. 
+        - These 3 posters MUST completely obscure all modern glass windows behind them.
+        - POSTER ART: Thai title "บางกอกทวิกาล". Vintage hand-painted billboard style (two gentlemen back-to-back). No posters on plain walls.
+
+        **🏛️ 3. LEFT & RIGHT WINGS (RED-CIRCLE REFERENCE COMPLIANCE):**
+        - **LEFT WING:** Transform the building section attached to the left of the main theatre. It MUST be a 3-story solid masonry structure. Reconstruct the historical rectangular multi-pane windows. Remove any modern walkways, canopies, or modern signs.
+        - **RIGHT WING (Ground Floor):** ERASE all modern cafes, umbrellas, glass doors, and open storefronts from the right side. Reconstruct a solid, flat cream stucco wall featuring a continuous row of **vintage dark-framed hopper/casement windows** (ช่องหน้าต่างบานกระทุ้งโบราณ).
+        - These side wings must be seamless historical extensions of the main Art Deco building as seen in the 1930s-1960s.
+
+        **🏘️ 4. ENHANCED HISTORICAL SURROUNDINGS (LOW-PROFILE & AUTHENTIC CONTEXT):**
+        - **NO OPPOSITE STREET CONTEXT:** Keep the visual focus entirely on the theatre and its immediate adjacent side buildings. DO NOT render or show any buildings, sidewalks, or context on the opposite side of the street. 
+        - **NEIGHBORING BUILDINGS:** The adjacent background buildings must strictly be low-profile, period-accurate 1960s Thai masonry and wood-front commercial shophouses (อาคารพาณิชย์ครึ่งตึกครึ่งไม้ 2 ชั้น). They MUST be strictly 2 stories high, significantly shorter than the main theatre, and visually subdued so they do not compete with or overshadow Sala Chalermkrung.
+        - **URBAN INFRASTRUCTURE:** Integrate period-correct elements such as wooden utility poles with a realistic but tidy tangle of black electrical and telephone wires (สายไฟแบบโบราณ). A few simple, non-modern overhead street lamps are permitted.
+        - **STREET LEVEL:** The sidewalks are made of aged concrete slabs. Install a few simple, dark-painted vintage steel barrier posts. A single, weathered wooden bench is placed near an adjacent building.
+        - **CRITICAL VEGETATION:** Strategically place 2-3 mature, dusty-leaved tropical street trees (e.g., small Banyan or Tamarind trees) further down the street to the sides. Use these trees to naturally frame the scene and gently obscure the low-profile adjacent shophouses, ensuring the main theatre stands out gracefully.
+        - **CLEANUP:** ABSOLUTELY DELETE all modern street lamps, modern bank logos, ATM signs, LED screens, and all modern street clutter.
+
+        **🚗 5. EMPTY STREET & ATMOSPHERE:**
+        - The wide asphalt road is majestically EMPTY of vehicles, revealing the clean, dusty road surface. No cars, buses, motorcycles, or tuk-tuks. 
+        - Only a sparse crowd of pedestrians wearing authentic 1960s Thai fashion (men in slacks and shirts, women in simple cotton dresses) on the sidewalks near the entrance.
+        - A vintage tricycle taxi (samlor) is parked subtly on the far sidewalk, integrated as a stationary element.
+
+        **🎨 6. FILM STYLE:** Kodak Kodachrome film (1967), natural light, soft film grain, high historical fidelity.
+
+        **NEGATIVE PROMPT:** modern cars, traffic, moving vehicles, tuk-tuks, buildings on opposite street, tall neighboring buildings, prominent adjacent buildings, altered roof sign, missing sign, 1 poster, 2 posters, 4 posters, visible glass windows on main facade, modern cafe, umbrellas, open storefronts on right wing, modern canopies on left wing, creative architecture, dense crowds, modern bank logos, LED screens, modern street lights, plastic trash, clean new concrete sidewalks.
+>>>>>>> 231d077a80ff52ffe64015b2502a9a7a5b2e6782
     """,
 
     "Giant Swing": """
@@ -597,10 +634,10 @@ def step2_generate(client, structure_desc, location_key, original_img_bytes, ref
 
     elif location_key == "Sala Chalermkrung":
         perspective_instr += """
-    - STRUCTURAL INTEGRITY: Lock the geometry of the entire main building and columns to. Update only period-correct detailing (original doors, period casement windows if not covered by posters) within the locked concrete frame. Do not extend vertically or add extra wings to the main facade.
-    - SIGNAGE ANCHOR: The top roof sign is the anchor. Do not move or modify it. It must remain 100% pixel-perfect identical to.
-    - FACADE MASKING: Ensure exactly 3 posters cover the central facade's glass areas, strictly creating an impenetrable wall with zero visible glass trace or reflection on the covered facade levels. The posters must strictly adhere to the defined gentleman image requirements (V.19/V.20).
-    - AMBIANCE FIX: Flatten and simplify modern attachments on the left/right wings extension area. Surgically erase left side trees to fully reveal historical extend. Enforce the long horizontal concrete awning and repetitive vertical window panels on the left wing. Enforce a perfectly flat cream wall with an orderly row of dark-framed multi-pane casement windows and a subtle eyebrow canopy on the right wing, strictly prohibiting any modern storefronts or creative additions. Force all surrounding background buildings to become utilitarian 2-3 story masonry commercial shophouses (no skyscrapers). Ensure all other windows in the scene are strictly closed. Reconstruct sidewalks as clear aged concrete. Remove all modern lamps, utility poles, and wiring. Empty the road of all motorized vehicles and tuk-tuks. The entire surroundings must strictly reflect the historical Charoen Krung context and V.19/V.20 requirements. Ensure maintained dignity for weathered concrete. Ensure pixel-perfect structural overlay with.
+    - **STRUCTURAL INTEGRITY:** Lock the geometry of the main building's Art Deco concrete box. Do not extend it vertically or add new rooms to the main facade.
+    - **SIGNAGE ANCHOR:** The top roof sign is the anchor. Do not move or modify it.
+    - **FACADE MASKING:** Ensure exactly 3 posters cover the central facade's glass areas.
+    - **AMBIANCE FIX & INTEGRATION:** Flatten modern storefronts on the left/right wings. Force all adjacent buildings to become strictly 2-story, low-profile, period-accurate shophouses that do not overshadow the theatre. Strictly exclude any visual context from the opposite side of the street. Ensure vintage utility poles and street trees frame the scene naturally without obscuring the main facade. Remove all modern clutter.
         """
 
     # 3. ประกอบ Global Style (ล็อคอารมณ์ภาพ)
