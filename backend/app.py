@@ -153,7 +153,8 @@ LOCATION_PROMPTS = {
 
         3. ARCHITECTURAL TRANSFORMATION (RATCHADAMNOEN PERIMETER):
         - SKYLINE PURGE: Erase ALL modern skyscrapers and glass towers from the background. 
-        - SHOPHOUSES: Replace buildings BEHIND the monument with 1960s 2-4 story Thai Art Deco buildings that perfectly follow the outer ring of the roundabout..
+        - **SURGICAL DELETION (SCHOOL):** If **Satriwittaya School** or its modern extensions are detected in the background, **ERASE** them completely.
+        - SHOPHOUSES: Replace buildings BEHIND the monument with **1960s 4 story Thai Art Deco buildings** in sun-faded terracotta/brick orange.
         - LOCATION FIX: Shophouses MUST stay along the street perimeter, NOT inside the monument base area.
         - ART DECO STYLE: Rounded corners, vertical concrete fins, recessed balconies, and terracotta/brick orange faded paint.
 
@@ -180,8 +181,8 @@ LOCATION_PROMPTS = {
         - These 3 posters MUST completely obscure all modern glass windows behind them.
         - POSTER ART: Thai title "บางกอกทวิกาล". Vintage hand-painted billboard style (two gentlemen back-to-back). No posters on plain walls.
 
-        **🏛️ 3. LEFT & RIGHT WINGS (RED-CIRCLE REFERENCE COMPLIANCE):**
-        - **LEFT WING:** Transform the building section attached to the left of the main theatre. It MUST be a 3-story solid masonry structure. Reconstruct the historical rectangular multi-pane windows. Remove any modern walkways, canopies, or modern signs.
+        **🏛️ 3. LEFT & RIGHT WINGS (STRICT ORIGINAL OCCLUSION & REFERENCE COMPLIANCE):**
+        - **LEFT WING & NATURAL TREE OCCLUSION:** Maintain the original large trees on the left side exactly as they appear in [IMAGE 1]. Let these trees naturally block and obscure the left wing extension just like in the original photo. DO NOT erase the trees to reveal the building. For any small portions of the left wing visible through or around the foliage, render them as a 1960s solid masonry structure with period-accurate rectangular multi-pane windows. Remove only modern canopies, modern walkways, or modern signs.
         - **RIGHT WING (Ground Floor):** ERASE all modern cafes, umbrellas, glass doors, and open storefronts from the right side. Reconstruct a solid, flat cream stucco wall featuring a continuous row of **vintage dark-framed hopper/casement windows** (ช่องหน้าต่างบานกระทุ้งโบราณ).
         - These side wings must be seamless historical extensions of the main Art Deco building as seen in the 1930s-1960s.
 
@@ -190,7 +191,7 @@ LOCATION_PROMPTS = {
         - **NEIGHBORING BUILDINGS:** The adjacent background buildings must strictly be low-profile, period-accurate 1960s Thai masonry and wood-front commercial shophouses (อาคารพาณิชย์ครึ่งตึกครึ่งไม้ 2 ชั้น). They MUST be strictly 2 stories high, significantly shorter than the main theatre, and visually subdued so they do not compete with or overshadow Sala Chalermkrung.
         - **URBAN INFRASTRUCTURE:** Integrate period-correct elements such as wooden utility poles with a realistic but tidy tangle of black electrical and telephone wires (สายไฟแบบโบราณ). A few simple, non-modern overhead street lamps are permitted.
         - **STREET LEVEL:** The sidewalks are made of aged concrete slabs. Install a few simple, dark-painted vintage steel barrier posts. A single, weathered wooden bench is placed near an adjacent building.
-        - **CRITICAL VEGETATION:** Strategically place 2-3 mature, dusty-leaved tropical street trees (e.g., small Banyan or Tamarind trees) further down the street to the sides. Use these trees to naturally frame the scene and gently obscure the low-profile adjacent shophouses, ensuring the main theatre stands out gracefully.
+        - **CRITICAL VEGETATION:** Maintain the original trees framing the left side. You may strategically place 1-2 additional dusty-leaved tropical street trees further down the street to the right. Use these trees to naturally frame the scene and gently obscure the low-profile adjacent shophouses, ensuring the main theatre stands out gracefully.
         - **CLEANUP:** ABSOLUTELY DELETE all modern street lamps, modern bank logos, ATM signs, LED screens, and all modern street clutter.
 
         **🚗 5. EMPTY STREET & ATMOSPHERE:**
@@ -373,10 +374,12 @@ LOCATION_PROMPTS = {
         - **HAPHAZARD CLUSTERING:** Market stalls and umbrellas must be **disorganized and unevenly scattered**. Some should overlap, some should be tilted at odd angles, and they should **NOT** follow a straight line.
         - **MAKESHIFT MATERIALS:** Use weathered materials: **stained canvas tents, worn-out wooden poles, aged bamboo sticks, and faded, multi-colored umbrellas** with visible patches or tears.
         
-        **🏃 3. POPULATION & ACTIVITY (MINIMAL KITES):**
-        - **VIBRANT CENTER:** Fill the foreground and middle ground with **DOZENS of people scattered throughout**. Focus on activities like riding **vintage bicycles**, sitting in groups on mats, strolling, playing kites, selling things, and socializing.
-        - **KITE RESTRICTION:** **VERY FEW TO ZERO KITES.** If any are present, they must be small and distant in the background sky, not dominating the scene.
-        - **MOBILE VENDORS:** Include **Mobile Hawkers (Mae-Ka-Hab-Ray)** with shoulder poles walking in the foreground to add life without blocking the view.
+        **🏃 3. POPULATION & VIBRANT ACTIVITIES (NEW & ENHANCED):**
+        - **VIBRANT CENTER:** Fill the foreground and middle ground with **DOZENS of people scattered throughout**. 
+        - **STREET PERFORMANCES:** Include small, tight circles of people gathered around **Street Performers or Magic Shows (มายากล)** in the middle ground.
+        - **BICYCLE RENTAL HUBS:** Add small clusters of **Parked/Empty Vintage Bicycles** grouped together near the field's edge, indicating a rental service.
+        - **DIVERSE LIFE:** Focus on activities like groups sitting on mats, people strolling, mobile hawkers (Mae-Ka-Hab-Ray), and various vendors selling small goods and snacks.
+        - **KITE RESTRICTION:** Keep kites minimal and distant in the background.
 
         **🏜️ 4. TERRAIN & LIGHTING:**
         - **SURFACE:** A little dirt and fine dust with green-to-yellow grass. Absolutely **NO ASPHALT, NO CONCRETE, and NO ROADS**.
@@ -388,7 +391,8 @@ LOCATION_PROMPTS = {
     
     
     "National Museum": """
-        **TASK:** Create a **VINTAGE 1960s** view of the National Museum Bangkok.
+        **TASK:** Create a **VINTAGE 1960s** photorealistic view of the National Museum Bangkok.
+        **MANDATORY:** ACT AS A SURFACE-ONLY REPLACEMENT ENGINE. 100% PERSPECTIVE LOCK.
 
         **🧱 1. LINEAR FENCE GEOMETRY (THE SINGLE PLANE RULE - CRITICAL):**
         - **SINGLE STRAIGHT LINE:** The entire fence line MUST exist on a **SINGLE FLAT GEOMETRIC PLANE** (180 degrees).
@@ -397,21 +401,28 @@ LOCATION_PROMPTS = {
         - **VISIBLE MASONRY BASE:** The iron fence must sit on a **SOLID WHITE MASONRY BASE** (Knee-high). Do NOT render it as a flat line.
         - **SURGICAL DELETION:** Erase the side-door structures and the green signage beam from [IMAGE 1] entirely.
 
-        **🚪 2. DOUBLE-SWING GATE & PILLARS:**
-        - **DESIGN:** A **DOUBLE-SWING weathered IRON GATE** with vertical bars and a visible center-split line. the structure is same like a fence.
-        - **THE GAP:** Create a clear **VOID OF AIR** between the standalone gate pillars. No horizontal connections allowed.
-        - **PILLAR STYLE:** All pillars must be rectangular blocks with **COMPLETELY FLAT SQUARE TOPS**.
-        - **LOW PROFILE:** Keep the structure **SHORT (Waist-high)** to reveal the museum architecture behind.
+        **🔤 2. VINTAGE EXTERIOR SIGNAGE (NEW - CRITICAL):**
+        - **LEFT SIGN (THAI):** On the white masonry base or the pillar to the **LEFT** of the main gate, add a horizontal white hand-painted green wooden sign.
+            - **TEXT:** "พิพิธภัณฑสถานแห่งชาติ พระนคร" in a traditional, bold Thai font.
+        - **RIGHT SIGN (ENGLISH):** On the white masonry base or the pillar to the **RIGHT** of the main gate, add a matching horizontal white hand-painted green wooden sign.
+            - **TEXT:** "NATIONAL MUSEUM BANGKOK" in a clean, sans-serif vintage English font.
+        - **PATINA:** Signs must look slightly weathered with matte paint. No plastic, no backlighting, and no shiny metal.
 
-        **🚧 3. ROAD & ENVIRONMENT:**
-        - **SURFACE:** Asphalt road. No traffic markings. Zebra crossings or painted lines.
+        **🚪 3. DOUBLE-SWING GATE & PILLARS:**
+        - **DESIGN:** A **DOUBLE-SWING weathered IRON GATE** with vertical bars.
+        - **THE GAP:** Create a clear **VOID OF AIR** between standalone gate pillars.
+        - **PILLAR STYLE:** Rectangular blocks with **COMPLETELY FLAT SQUARE TOPS**.
+        - **LOW PROFILE:** Structure must be **SHORT (Waist-high)** to reveal the museum architecture behind.
+
+        **🚧 4. ROAD & ENVIRONMENT:**
+        - **SURFACE:** Clean, worn asphalt road. No traffic markings or zebra crossings.
         - **CLEANUP:** Remove all flags, flagpoles, modern signs, and traffic markings.
         
-        ** 4. People & Atmosphere:**
-        - **MINIMAL CROWD:** A few people walking on the curb that meets the masonry base directly and also walk in the museum in 1960s attire.
-        - **NO VEHICLES:** The road and inside the museum is completely clear of cars and traffic.
+        **🚶 5. PEOPLE & ATMOSPHERE:**
+        - **MINIMAL CROWD:** A few people in 1960s attire (tucked-in shirts, simple dresses) walking on the area meeting the masonry base.
+        - **NO VEHICLES:** The road and museum grounds must be clear of all cars and traffic.
 
-        **⛔ NEGATIVE PROMPT:** thin fence base, missing intermediate pillars, side gates, merged pillars, curved entrance, recessed gate, concrete sidewalk, raised curb, pointed pillars, flags.
+        **⛔ NEGATIVE PROMPT:** **plastic signs**, **neon**, **LED**, backlit signage, thin fence base, side gates, merged pillars, curved entrance, recessed gate, concrete sidewalk, raised curb, pointed pillars, flags.
     """,
 }
 
@@ -600,7 +611,7 @@ def step2_generate(client, structure_desc, location_key, original_img_bytes, ref
     - **STRUCTURAL INTEGRITY:** Lock the geometry of the main building's Art Deco concrete box. Do not extend it vertically or add new rooms to the main facade.
     - **SIGNAGE ANCHOR:** The top roof sign is the anchor. Do not move or modify it.
     - **FACADE MASKING:** Ensure exactly 3 posters cover the central facade's glass areas.
-    - **AMBIANCE FIX & INTEGRATION:** Flatten modern storefronts on the left/right wings. Force all adjacent buildings to become strictly 2-story, low-profile, period-accurate shophouses that do not overshadow the theatre. Strictly exclude any visual context from the opposite side of the street. Ensure vintage utility poles and street trees frame the scene naturally without obscuring the main facade. Remove all modern clutter.
+    - **TREE OCCLUSION & AMBIANCE FIX:** DO NOT erase the large trees on the left side of the input image; let them naturally block the left wing. Flatten modern storefronts on the right wing. Force all surrounding background buildings to become subdued 2-story masonry shophouses. Remove modern lamps and wiring.
         """
 
     # 3. ประกอบ Global Style (ล็อคอารมณ์ภาพ)
