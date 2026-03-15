@@ -181,8 +181,8 @@ LOCATION_PROMPTS = {
         - These 3 posters MUST completely obscure all modern glass windows behind them.
         - POSTER ART: Thai title "บางกอกทวิกาล". Vintage hand-painted billboard style (two gentlemen back-to-back). No posters on plain walls.
 
-        **🏛️ 3. LEFT & RIGHT WINGS (RED-CIRCLE REFERENCE COMPLIANCE):**
-        - **LEFT WING:** Transform the building section attached to the left of the main theatre. It MUST be a 3-story solid masonry structure. Reconstruct the historical rectangular multi-pane windows. Remove any modern walkways, canopies, or modern signs.
+        **🏛️ 3. LEFT & RIGHT WINGS (STRICT ORIGINAL OCCLUSION & REFERENCE COMPLIANCE):**
+        - **LEFT WING & NATURAL TREE OCCLUSION:** Maintain the original large trees on the left side exactly as they appear in [IMAGE 1]. Let these trees naturally block and obscure the left wing extension just like in the original photo. DO NOT erase the trees to reveal the building. For any small portions of the left wing visible through or around the foliage, render them as a 1960s solid masonry structure with period-accurate rectangular multi-pane windows. Remove only modern canopies, modern walkways, or modern signs.
         - **RIGHT WING (Ground Floor):** ERASE all modern cafes, umbrellas, glass doors, and open storefronts from the right side. Reconstruct a solid, flat cream stucco wall featuring a continuous row of **vintage dark-framed hopper/casement windows** (ช่องหน้าต่างบานกระทุ้งโบราณ).
         - These side wings must be seamless historical extensions of the main Art Deco building as seen in the 1930s-1960s.
 
@@ -191,7 +191,7 @@ LOCATION_PROMPTS = {
         - **NEIGHBORING BUILDINGS:** The adjacent background buildings must strictly be low-profile, period-accurate 1960s Thai masonry and wood-front commercial shophouses (อาคารพาณิชย์ครึ่งตึกครึ่งไม้ 2 ชั้น). They MUST be strictly 2 stories high, significantly shorter than the main theatre, and visually subdued so they do not compete with or overshadow Sala Chalermkrung.
         - **URBAN INFRASTRUCTURE:** Integrate period-correct elements such as wooden utility poles with a realistic but tidy tangle of black electrical and telephone wires (สายไฟแบบโบราณ). A few simple, non-modern overhead street lamps are permitted.
         - **STREET LEVEL:** The sidewalks are made of aged concrete slabs. Install a few simple, dark-painted vintage steel barrier posts. A single, weathered wooden bench is placed near an adjacent building.
-        - **CRITICAL VEGETATION:** Strategically place 2-3 mature, dusty-leaved tropical street trees (e.g., small Banyan or Tamarind trees) further down the street to the sides. Use these trees to naturally frame the scene and gently obscure the low-profile adjacent shophouses, ensuring the main theatre stands out gracefully.
+        - **CRITICAL VEGETATION:** Maintain the original trees framing the left side. You may strategically place 1-2 additional dusty-leaved tropical street trees further down the street to the right. Use these trees to naturally frame the scene and gently obscure the low-profile adjacent shophouses, ensuring the main theatre stands out gracefully.
         - **CLEANUP:** ABSOLUTELY DELETE all modern street lamps, modern bank logos, ATM signs, LED screens, and all modern street clutter.
 
         **🚗 5. EMPTY STREET & ATMOSPHERE:**
@@ -615,7 +615,7 @@ def step2_generate(client, structure_desc, location_key, original_img_bytes, ref
     - **STRUCTURAL INTEGRITY:** Lock the geometry of the main building's Art Deco concrete box. Do not extend it vertically or add new rooms to the main facade.
     - **SIGNAGE ANCHOR:** The top roof sign is the anchor. Do not move or modify it.
     - **FACADE MASKING:** Ensure exactly 3 posters cover the central facade's glass areas.
-    - **AMBIANCE FIX & INTEGRATION:** Flatten modern storefronts on the left/right wings. Force all adjacent buildings to become strictly 2-story, low-profile, period-accurate shophouses that do not overshadow the theatre. Strictly exclude any visual context from the opposite side of the street. Ensure vintage utility poles and street trees frame the scene naturally without obscuring the main facade. Remove all modern clutter.
+    - **TREE OCCLUSION & AMBIANCE FIX:** DO NOT erase the large trees on the left side of the input image; let them naturally block the left wing. Flatten modern storefronts on the right wing. Force all surrounding background buildings to become subdued 2-story masonry shophouses. Remove modern lamps and wiring.
         """
 
     # 3. ประกอบ Global Style (ล็อคอารมณ์ภาพ)
