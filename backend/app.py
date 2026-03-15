@@ -229,6 +229,9 @@ LOCATION_PROMPTS = {
                 3. **PHYSICAL BOUNDARY:** This plaza must be clearly separated from the Giant Swing island by a wide, clean **grey asphalt road**. Do NOT allow grass or dirt to bleed onto the asphalt.
             - **SOCIAL ACTIVITY:** Populate the concrete court with Thai youths in 1960s white tank tops and dark shorts playing basketball.
             - **NO HALLUCINATION:** Strictly PROHIBIT adding temple structures or ornate gates if none exist in the original [IMAGE 1] background.
+            - **ASPHALT BUFFER (NO ENCROACHMENT):** This plaza area MUST be strictly contained within its own geometric boundary. 
+            - **THE MOAT:** A wide, continuous **clean grey asphalt road** must act as a physical barrier between the plaza and the Giant Swing. 
+            - **NO BLEEDING:** Strictly PROHIBIT grass, dirt, or pedestrians from the plaza from leaking/bleeding onto the asphalt or near the Giant Swing base.
             
         - **GENERAL BUILDINGS:** Transform other structures into **1960s COLONIAL STYLE** (Only 2-story masonry rows, weathered cream stucco, dark wooden folding doors, continuous hipped clay tile roofs).
 
@@ -405,12 +408,13 @@ LOCATION_PROMPTS = {
         - **VISIBLE MASONRY BASE:** The iron fence must sit on a **SOLID WHITE MASONRY BASE** (Knee-high). Do NOT render it as a flat line.
         - **SURGICAL DELETION:** Erase the side-door structures and the green signage beam from [IMAGE 1] entirely.
 
-        **🔤 2. VINTAGE EXTERIOR SIGNAGE (NEW - CRITICAL):**
-        - **LEFT SIGN (THAI):** On the white masonry base or the pillar to the **LEFT** of the main gate, add a matching horizontal green wooden sign with white hand-painted text.
-            - **TEXT:** "พิพิธภัณฑสถานแห่งชาติ พระนคร" in a traditional, bold Thai font.
-        - **RIGHT SIGN (ENGLISH):** On the white masonry base or the pillar to the **RIGHT** of the main gate, add a matching horizontal green wooden sign with white hand-painted text.
-            - **TEXT:** "NATIONAL MUSEUM BANGKOK" in a clean, sans-serif vintage English font.
-        - **PATINA:** Signs must look slightly weathered with matte paint. No plastic, no backlighting, and no shiny metal.
+        **🔤 2. VINTAGE EXTERIOR SIGNAGE (MOUNTED ON FENCE - CRITICAL):**
+        - **LEFT SIGN (THAI):** Mounted directly at the **iron bars of the fence section** to the **LEFT** of the main gate, add a horizontal green wooden sign with white hand-painted text.
+            - **TEXT:** Must render as "พิพิธภัณฑสถานแห่งชาติ พระนคร" in a traditional, bold Thai font.
+        - **RIGHT SIGN (ENGLISH):** Mounted directly at the **iron bars of the fence section** to the **RIGHT** of the main gate, add a matching horizontal green wooden sign with white hand-painted text.
+            - **TEXT:** Must render as "NATIONAL MUSEUM BANGKOK" in a clean, sans-serif vintage English font.
+        - **PLACEMENT:** The signs should be centered vertically on the iron bar section between two pillars.
+        - **PATINA:** Signs must look slightly weathered with matte paint. No plastic, no backlighting.
 
         **🚪 3. DOUBLE-SWING GATE & PILLARS:**
         - **DESIGN:** A **DOUBLE-SWING weathered IRON GATE** with vertical bars.
@@ -783,13 +787,13 @@ def generate_video_runway(image_bytes, location_key):
         """
 
         location_prompts = {
-            "Democracy Monument": "Static tripod shot, No Zoom out, filmed in HIGH-FRAMERATE SLOW MOTION (smooth, dreamy, absolutely NO timelapse). **CRITICAL: The Democracy Monument is an IMMOVABLE CONCRETE OBJECT. It must remain STONE-STILL and RIGID.** Zero warping. **ABSOLUTE PROHIBITION ON ADDITIONS:** It is STRICTLY FORBIDDEN to spawn, generate, or add cars, buses, people, or debris. The road must remain completely DESERTED. **NO VEHICLES ALLOWED.** **PRESERVE BLACK BORDERS/BARS:** If the input has black space, KEEP IT EXACTLY AS IS. Do not fill, inpaint, or crop. Motion is limited strictly to lazy, slow-drifting clouds and heat haze only.",
+            "Democracy Monument": "Calm atmosphere. Vehicles only drive from right to left.",
             "Sala Chalermkrung": "Calm and still atmosphere. No vehicles.",
-            "Giant Swing": "Static tripod shot. Red pillars and all surrounding buildings MUST REMAIN PERFECTLY RIGID and STILL. DO NOT ADD any vehicles or new objects. People walk slowly and naturally, realistically. Gentle leaf rustle and atmospheric haze. No strange deformations or glitches.",
+            "Giant Swing": "Calm atmosphere. DO NOT ADD any vehicles or new objects. People walk slowly and naturally. Gentle leaf rustle and atmospheric haze.",
             "Yaowarat": "Realistic 1960s Yaowarat atmosphere and street flow. Subtle heat haze on asphalt and lively crowd movement.",
             "Khaosan Road": "Calm and still residential atmosphere.",
             "Phra Sumen Fort": "Abandon area atmosphere. People standing still and talking.",
-            "Sanam Luang": "Nothing moving in the video except a very gentle breeze rustling the leaves of distant trees. Subtle shifting of sunlight and shadows on the dry grass field. A crowd of people moving slowly but no walking or vehicles.",
+            "Sanam Luang": "Busy market atmosphere. Subtle dust movement and natural lighting changes.",
             "National Museum": "A very calm, Zen-like atmosphere. Dappled sunlight and shadows shifting slowly on the white walls and gravel ground."
         }
 
