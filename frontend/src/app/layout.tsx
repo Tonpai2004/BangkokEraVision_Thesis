@@ -1,23 +1,4 @@
 import type { Metadata } from "next";
-<<<<<<< HEAD
-// Import Google Fonts
-import { Courier_Prime, Playfair_Display } from "next/font/google";
-// *** บรรทัดนี้สำคัญที่สุด! ห้ามลืม ***
-import "./globals.css"; 
-
-// Setup Fonts
-const courier = Courier_Prime({ 
-  weight: ['400', '700'], 
-  subsets: ["latin"],
-  variable: '--font-courier',
-  display: 'swap',
-});
-
-const playfair = Playfair_Display({ 
-  weight: ['400', '700', '900'], // เพิ่มน้ำหนัก 900 สำหรับหัวข้อหนาๆ
-  subsets: ["latin"],
-  variable: '--font-playfair',
-=======
 // 1. Import จาก Google
 import { Merriweather, Krub } from "next/font/google";
 // 2. Import สำหรับฟอนต์ในเครื่อง (Local)
@@ -52,7 +33,6 @@ const prachachon = localFont({
 const pimdeed = localFont({
   src: '../../public/fonts/PSPimpdeedIINew.ttf', // แก้ชื่อไฟล์ให้ตรงกับที่มี
   variable: '--font-pimdeed',
->>>>>>> adf2ac546a3170a7b21d2bd37160ceb0367a368b
   display: 'swap',
 });
 
@@ -67,13 +47,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-<<<<<<< HEAD
-    <html lang="en" className={`${courier.variable} ${playfair.variable}`}>
-      <body className="min-h-screen flex flex-col items-center antialiased overflow-x-hidden">
-        {/* Container หลักเพื่อคุมความกว้างให้เหมือน Design */}
-        <div className="w-full max-w-[800px] flex flex-col items-center">
-          {children}
-=======
     <html lang="en">
       {/* 3. ใส่ Variable ทั้งหมดลงใน body */}
       <body className={`
@@ -93,7 +66,6 @@ export default function RootLayout({
           <LanguageProvider>
             {children}
           </LanguageProvider>
->>>>>>> adf2ac546a3170a7b21d2bd37160ceb0367a368b
         </div>
       </body>
     </html>

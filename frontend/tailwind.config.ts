@@ -2,19 +2,6 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-<<<<<<< HEAD
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-    extend: {
-      colors: {
-        background: "#F0EAD6", // สีครีมกระดาษ
-        dark: "#2C2C2C",       // สีดำเทา
-        accent: "#D84335",     // สีแดงปุ่ม Generate
-        gold: "#E3C565",       // สีเหลืองทองกล่องรูป
-=======
     // แบบมี src (เผื่อคุณใช้)
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -57,16 +44,10 @@ const config: Config = {
           '0%': { opacity: '0', transform: 'translateY(30px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
->>>>>>> adf2ac546a3170a7b21d2bd37160ceb0367a368b
       },
     },
   },
   plugins: [],
-<<<<<<< HEAD
-};
-export default config;
-=======
   
 };
 export default config;
->>>>>>> adf2ac546a3170a7b21d2bd37160ceb0367a368b
