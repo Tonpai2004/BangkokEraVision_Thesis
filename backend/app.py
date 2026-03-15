@@ -346,8 +346,12 @@ LOCATION_PROMPTS = {
         **🎨 2. SMART DETAIL ADAPTATION (REALISM INJECTION):**
         - **TEXTURE PROJECTION:** Take the *mold, soot, and peeling plaster details* from [IMAGE 2] and **PROJECT** them onto the specific surfaces of [IMAGE 1], respecting the input's lighting and depth.
         - **CONTEXTUAL ELEMENTS:** Look for small details in [IMAGE 2] (fences, ground texture, wall stains). Add these elements to [IMAGE 1] to increase realism, but **PLACE THEM** according to [IMAGE 1]'s perspective grid.
+        
+        **🚶 3. POPULATION & 1960s THAI ATTIRE:**
+        - **PEDESTRIANS:** Amount of 4-6 Thai people with Thai 1960s attire walking along the road and near the base of the fort.
+        - **NATURAL INTEGRATION:** Ensure people are scaled correctly to the fort's massive size and integrated into the lighting of the scene.
 
-        **🛣️ 3. ROAD CONDITION (CLEAN ASPHALT EXCEPTION):**
+        **🛣️ 4. ROAD CONDITION (CLEAN ASPHALT EXCEPTION):**
         - **SURFACE:** While the surroundings follow the reference, the **ROADWAY** itself must remain **SMOOTH, CLEAN ASPHALT**.
         - **NO MESS:** The road is functional. **NO RUBBLE. NO MUD.**
 
@@ -780,12 +784,13 @@ def generate_video_runway(image_bytes, location_key):
 
         location_prompts = {
             "Democracy Monument": "Static tripod shot, No Zoom out, filmed in HIGH-FRAMERATE SLOW MOTION (smooth, dreamy, absolutely NO timelapse). **CRITICAL: The Democracy Monument is an IMMOVABLE CONCRETE OBJECT. It must remain STONE-STILL and RIGID.** Zero warping. **ABSOLUTE PROHIBITION ON ADDITIONS:** It is STRICTLY FORBIDDEN to spawn, generate, or add cars, buses, people, or debris. The road must remain completely DESERTED. **NO VEHICLES ALLOWED.** **PRESERVE BLACK BORDERS/BARS:** If the input has black space, KEEP IT EXACTLY AS IS. Do not fill, inpaint, or crop. Motion is limited strictly to lazy, slow-drifting clouds and heat haze only.",
+            "Sala Chalermkrung": "Calm and still atmosphere. No vehicles. No strange deformations or glitches.",
             "Giant Swing": "Static tripod shot. Red pillars and all surrounding buildings MUST REMAIN PERFECTLY RIGID and STILL. DO NOT ADD any vehicles or new objects. People walk slowly and naturally, realistically. Gentle leaf rustle and atmospheric haze. No strange deformations or glitches.",
-            "Yaowarat": "Heat haze shimmering slightly above the asphalt. Subtle flickering of sunlight reflecting off aged glass windows. No movement of vehicles or people at all.",
+            "Yaowarat": "Realistic 1960s Yaowarat atmosphere and street flow. Subtle heat haze on asphalt and lively crowd movement.",
             "Khaosan Road": "Calm and still residential atmosphere.",
-            "Phra Sumen Fort": "Sunlight filtering through trees, creating moving dappled shadows on the white stone ruins. Overgrown grass on top of the ruin swaying slightly. No reconstruction of the fort.",
+            "Phra Sumen Fort": "Abandon area atmosphere. Gentle swaying of trees and subtle shifting of sunlight on the fort's surface.",
             "Sanam Luang": "Nothing moving in the video except a very gentle breeze rustling the leaves of distant trees. Subtle shifting of sunlight and shadows on the dry grass field. A crowd of people moving slowly but no walking or vehicles.",
-            "National Museum": "A very calm, Zen-like atmosphere. Dappled sunlight and shadows shifting slowly on the white walls and gravel ground. Tree are swaying gently and slowly."
+            "National Museum": "A very calm, Zen-like atmosphere. Dappled sunlight and shadows shifting slowly on the white walls and gravel ground."
         }
 
         specific_action = location_prompts.get(location_key, "Natural lighting changes, realistic texture rendering.")
