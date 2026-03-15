@@ -348,7 +348,7 @@ LOCATION_PROMPTS = {
         - **CONTEXTUAL ELEMENTS:** Look for small details in [IMAGE 2] (fences, ground texture, wall stains). Add these elements to [IMAGE 1] to increase realism, but **PLACE THEM** according to [IMAGE 1]'s perspective grid.
         
         **🚶 3. POPULATION & 1960s THAI ATTIRE:**
-        - **PEDESTRIANS:** Amount of 4-6 Thai people with Thai 1960s attire walking along the road and near the base of the fort.
+        - **PEDESTRIANS:** Amount of 4-6 Thai people with Thai 1960s attire standing still and talking along the road and near the base of the fort.
         - **NATURAL INTEGRATION:** Ensure people are scaled correctly to the fort's massive size and integrated into the lighting of the scene.
 
         **🛣️ 4. ROAD CONDITION (CLEAN ASPHALT EXCEPTION):**
@@ -406,9 +406,9 @@ LOCATION_PROMPTS = {
         - **SURGICAL DELETION:** Erase the side-door structures and the green signage beam from [IMAGE 1] entirely.
 
         **🔤 2. VINTAGE EXTERIOR SIGNAGE (NEW - CRITICAL):**
-        - **LEFT SIGN (THAI):** On the white masonry base or the pillar to the **LEFT** of the main gate, add a horizontal white hand-painted green wooden sign.
+        - **LEFT SIGN (THAI):** On the white masonry base or the pillar to the **LEFT** of the main gate, add a matching horizontal green wooden sign with white hand-painted text.
             - **TEXT:** "พิพิธภัณฑสถานแห่งชาติ พระนคร" in a traditional, bold Thai font.
-        - **RIGHT SIGN (ENGLISH):** On the white masonry base or the pillar to the **RIGHT** of the main gate, add a matching horizontal white hand-painted green wooden sign.
+        - **RIGHT SIGN (ENGLISH):** On the white masonry base or the pillar to the **RIGHT** of the main gate, add a matching horizontal green wooden sign with white hand-painted text.
             - **TEXT:** "NATIONAL MUSEUM BANGKOK" in a clean, sans-serif vintage English font.
         - **PATINA:** Signs must look slightly weathered with matte paint. No plastic, no backlighting, and no shiny metal.
 
@@ -423,7 +423,7 @@ LOCATION_PROMPTS = {
         - **CLEANUP:** Remove all flags, flagpoles, modern signs, and traffic markings.
         
         **🚶 5. PEOPLE & ATMOSPHERE:**
-        - **MINIMAL CROWD:** A few people in 1960s attire (tucked-in shirts, simple dresses) walking on the area meeting the masonry base.
+        - **MINIMAL CROWD:** A few people in 1960s attire (tucked-in shirts, simple dresses) talking on the area meeting the masonry base.
         - **NO VEHICLES:** The road and museum grounds must be clear of all cars and traffic.
 
         **⛔ NEGATIVE PROMPT:** **plastic signs**, **neon**, **LED**, backlit signage, thin fence base, side gates, merged pillars, curved entrance, recessed gate, concrete sidewalk, raised curb, pointed pillars, flags.
@@ -784,11 +784,11 @@ def generate_video_runway(image_bytes, location_key):
 
         location_prompts = {
             "Democracy Monument": "Static tripod shot, No Zoom out, filmed in HIGH-FRAMERATE SLOW MOTION (smooth, dreamy, absolutely NO timelapse). **CRITICAL: The Democracy Monument is an IMMOVABLE CONCRETE OBJECT. It must remain STONE-STILL and RIGID.** Zero warping. **ABSOLUTE PROHIBITION ON ADDITIONS:** It is STRICTLY FORBIDDEN to spawn, generate, or add cars, buses, people, or debris. The road must remain completely DESERTED. **NO VEHICLES ALLOWED.** **PRESERVE BLACK BORDERS/BARS:** If the input has black space, KEEP IT EXACTLY AS IS. Do not fill, inpaint, or crop. Motion is limited strictly to lazy, slow-drifting clouds and heat haze only.",
-            "Sala Chalermkrung": "Calm and still atmosphere. No vehicles. No strange deformations or glitches.",
+            "Sala Chalermkrung": "Calm and still atmosphere. No vehicles.",
             "Giant Swing": "Static tripod shot. Red pillars and all surrounding buildings MUST REMAIN PERFECTLY RIGID and STILL. DO NOT ADD any vehicles or new objects. People walk slowly and naturally, realistically. Gentle leaf rustle and atmospheric haze. No strange deformations or glitches.",
             "Yaowarat": "Realistic 1960s Yaowarat atmosphere and street flow. Subtle heat haze on asphalt and lively crowd movement.",
             "Khaosan Road": "Calm and still residential atmosphere.",
-            "Phra Sumen Fort": "Abandon area atmosphere. Gentle swaying of trees and subtle shifting of sunlight on the fort's surface.",
+            "Phra Sumen Fort": "Abandon area atmosphere. People standing still and talking.",
             "Sanam Luang": "Nothing moving in the video except a very gentle breeze rustling the leaves of distant trees. Subtle shifting of sunlight and shadows on the dry grass field. A crowd of people moving slowly but no walking or vehicles.",
             "National Museum": "A very calm, Zen-like atmosphere. Dappled sunlight and shadows shifting slowly on the white walls and gravel ground."
         }
