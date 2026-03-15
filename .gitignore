@@ -4,3 +4,6 @@ node_modules/
 __pycache__/
 .DS_Store
 venv/
+credentials.json
+generated_history
+generated_videos

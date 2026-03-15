@@ -72,6 +72,33 @@ h1, h2, h3, .serif-font {
   font-family: var(--font-playfair), serif;
 }
 
+<<<<<<< HEAD
+=======
+.whatis{
+  font-size: 3rem !important;
+  color: white !important;;
+}
+
+/* เพิ่มแอนิเมชันพื้นฐาน */
+@layer utilities {
+  @keyframes fadePushUp {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* สร้าง class สำหรับเรียกใช้งานแบบกำหนดเอง */
+  .animate-fade-push-up {
+    animation: fadePushUp 0.8s ease-out forwards;
+  }
+}
+
+>>>>>>> adf2ac546a3170a7b21d2bd37160ceb0367a368b
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg-cream); }
 ::-webkit-scrollbar-thumb { background: var(--text-dark); }
