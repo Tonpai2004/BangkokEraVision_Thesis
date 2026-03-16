@@ -15,9 +15,11 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# โหลด Model ของ SentenceTransformer เก็บไว้ใน Image เลยเพื่อป้องกัน Cold Start ช้า
+RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('clip-ViT-B-32')"
+
 # Copy โค้ดทั้งหมดเข้า Container
 COPY . .
 
-# แก้ไข Warning: JSON arguments recommended สำหรับ CMD
-# ใช้รูปแบบ ["executable", "param1", "param2"]
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 app:app
+# รัน Gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "1", "--threads", "8", "--timeout", "300", "app:app"]
