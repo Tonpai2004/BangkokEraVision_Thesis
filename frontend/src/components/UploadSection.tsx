@@ -14,6 +14,7 @@ const LOCATIONS_DATA = [
   { id: "พิพิธภัณฑสถานแห่งชาติ", api_match: "National Museum Bangkok", th: "พิพิธภัณฑสถานแห่งชาติ", en: "Bangkok National Museum" }
 ];
 
+
 // ฟังก์ชันแปลง Error ภาษาต่างดาว ให้เป็นภาษาคน (ไทย/อังกฤษ)
 const getFriendlyErrorMessage = (rawError: string, lang: 'TH' | 'ENG'): string => {
   if (lang === 'ENG') return rawError; // ถ้าโหมดอังกฤษ ให้ส่งค่าเดิมกลับไป
@@ -74,8 +75,8 @@ const UI_TEXT = {
     status_reconstructing: "เตรียมหวนสู่ความวิจิตร ในวันวานแห่ง 1960s",
     sub_reconstructing: "กำลังสร้างภาพจำลอง (AI)...",
     
-    status_animating: "กำลังทำให้ภาพ\nดูมีชีวิตชีวา",
-    sub_animating: "กำลังสร้างภาพเคลื่อนไหว...",
+    status_animating: "กำลังทำภาพ\nให้ดูมีชีวิตชีวา",
+    sub_animating: "กำลังแต่งเสริมเติมภาพให้สมจริง...",
     
     error_desc_prefix: "ระบบขัดข้อง: ",
     warning_title: "ข้อมูลไม่ครบถ้วน",
@@ -117,6 +118,12 @@ interface UploadSectionProps {
   currentLang: 'TH' | 'ENG';
 }
 
+interface Particle {
+  id: number;
+  x: number;
+  y: number;
+}
+
 export default function UploadSection({ currentLang }: UploadSectionProps) {
   // ✅ กำหนด URL ของ API: ถ้ามี ENV (บน Vercel) ให้ใช้ ENV ถ้าไม่มี (ในเครื่อง) ให้ใช้ localhost
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:5000';
@@ -148,6 +155,33 @@ export default function UploadSection({ currentLang }: UploadSectionProps) {
         setShowAssessment(true);
         setHasShownAssessment(true);
     }
+  };
+  
+  const [particles, setParticles] = useState<Particle[]>([]); // สำหรับ Interactive Effect
+
+  // 1. ระบบ Lock Scroll เมื่อ Overlay ปรากฏ
+  useEffect(() => {
+    const isOverlayOpen = status !== 'idle' && status !== 'finished';
+    if (isOverlayOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => { document.body.style.overflow = 'auto'; };
+  }, [status]);
+
+  // 2. ฟังก์ชันสร้าง Interactive Effect เมื่อคลิก
+  const handleOverlayClick = (e: React.MouseEvent | React.TouchEvent) => {
+    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
+    
+    const newParticle = { id: Date.now(), x: clientX, y: clientY };
+    setParticles(prev => [...prev, newParticle]);
+
+    // ลบ Particle ออกหลังจากแอนิเมชันจบ (1 วินาที)
+    setTimeout(() => {
+      setParticles(prev => prev.filter(p => p.id !== newParticle.id));
+    }, 1000);
   };
 
   useEffect(() => {
@@ -414,11 +448,34 @@ const handleGenerate = async (e: React.FormEvent) => {
 
       {/* --- PROCESS STATUS MODALS --- */}
       {status !== 'idle' && status !== 'finished' && (
-        <div className={`fixed inset-0 bg-black/95 z-50 flex flex-col justify-center items-center text-white px-4 text-center ${fontClass}`}>
+        <div 
+          className={`fixed inset-0 bg-black/95 z-50 flex flex-col justify-center items-center text-white px-4 text-center ${fontClass} overflow-hidden touch-none`}
+          onClick={handleOverlayClick}
+        >
+
+            {/* 🌊 Interactive Particles (Ripples) */}
+            {particles.map(p => (
+              <div 
+                key={p.id}
+                className="absolute border border-gold/40 rounded-full pointer-events-none animate-retro-ripple"
+                style={{ left: p.x, top: p.y, width: '10px', height: '10px', marginLeft: '-5px', marginTop: '-5px' }}
+              />
+            ))}
             
+            {/* 📺 Retro Scanline Effect */}
+            <div className="absolute inset-0 pointer-events-none opacity-20 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%]"></div>
+
+            {(status === 'verifying' || status === 'generating' || status === 'animating') && (
+                <div className="relative w-24 h-24 mb-10">
+                    <div className="absolute inset-0 border-4 border-gold/20 rounded-full"></div>
+                    <div className="absolute inset-0 border-4 border-gold rounded-full border-t-transparent animate-spin"></div>
+                    <div className="absolute inset-0 flex items-center justify-center text-gold text-xs font-mono">1960s</div>
+                </div>
+            )}
+
             {status === 'verifying' && (
                 <>
-                    <div className="text-4xl md:text-6xl font-bold mb-6 animate-pulse serif-font tracking-widest text-gold">{text.status_analyzing}</div>
+                    <div className="text-4xl md:text-5xl font-bold mb-6 animate-pulse serif-font tracking-widest text-gold">{text.status_analyzing}</div>
                     <p className=" text-sm md:text-base opacity-70 tracking-wider">{text.sub_analyzing}</p>
                 </>
             )}
