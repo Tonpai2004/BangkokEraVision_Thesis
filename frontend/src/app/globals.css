@@ -96,6 +96,21 @@ h1, h2, h3, .serif-font {
   }
 }
 
+@keyframes retro-ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(20);
+    opacity: 0;
+  }
+}
+
+.animate-retro-ripple {
+  animation: retro-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) forwards;
+}
+
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg-cream); }
 ::-webkit-scrollbar-thumb { background: var(--text-dark); }

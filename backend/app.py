@@ -27,11 +27,12 @@ CORS(app)
 # ==========================================
 # 💾 AUTO-SAVE SYSTEM
 # ==========================================
-HISTORY_FOLDER = os.path.join(os.path.dirname(__file__), 'generated_history')
-VIDEO_FOLDER = os.path.join(os.path.dirname(__file__), 'generated_videos')
 
-if not os.path.exists(HISTORY_FOLDER): os.makedirs(HISTORY_FOLDER)
-if not os.path.exists(VIDEO_FOLDER): os.makedirs(VIDEO_FOLDER)
+# HISTORY_FOLDER = os.path.join(os.path.dirname(__file__), 'generated_history')
+# VIDEO_FOLDER = os.path.join(os.path.dirname(__file__), 'generated_videos')
+
+# if not os.path.exists(HISTORY_FOLDER): os.makedirs(HISTORY_FOLDER)
+# if not os.path.exists(VIDEO_FOLDER): os.makedirs(VIDEO_FOLDER)
 
 # ==========================================
 # 🧠 AI MEMORY LOADING
@@ -383,7 +384,7 @@ LOCATION_PROMPTS = {
         
         **🏃 3. POPULATION & VIBRANT ACTIVITIES (NEW & ENHANCED):**
         - **VIBRANT CENTER:** Fill the foreground and middle ground with **DOZENS of people scattered throughout**. 
-        - **STREET PERFORMANCES:** Include small, tight circles of people gathered around **Street Performers or Magic Shows (มายากล)** in the middle ground.
+        - **STREET PERFORMANCES:** Include small, tight circles of people gathered around **Street Performers or Magic Shows (มายากล)** in the side ground.
         - **BICYCLE RENTAL HUBS:** Add small clusters of **Parked/Empty Vintage Bicycles** grouped together near the field's edge, indicating a rental service.
         - **DIVERSE LIFE:** Focus on activities like groups sitting on mats, people strolling, mobile hawkers (Mae-Ka-Hab-Ray), and various vendors selling small goods and snacks.
         - **KITE RESTRICTION:** Keep kites minimal and distant in the background.
@@ -1003,7 +1004,7 @@ def generate_image_route():
         result_bytes = step2_generate(client, structure, prompt_key, img_bytes, ref_bytes)
         
         if result_bytes:
-            save_generated_image(result_bytes, location_th)
+            # save_generated_image(result_bytes, location_th)
             result_b64 = base64.b64encode(result_bytes).decode('utf-8')
             desc = LOCATION_INFO.get(location_th, {}).get('desc_60s', "")
             
