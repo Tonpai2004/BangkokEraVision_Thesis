@@ -28,7 +28,7 @@ export default function AssessmentModal({ isOpen, onClose, currentLang }: Assess
 
   const text = content[currentLang];
   // ใส่ลิงก์ Google Form
-  const GOOGLE_FORM_URL = "https://forms.gle/heekuytad"; 
+  const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfHAld9igEVuEGM1wR_seeyxRJcvxxW5nGNy0I-4CQYUTII_g/viewform"; 
 
   return (
     <>
