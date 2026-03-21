@@ -39,9 +39,9 @@ export default function AboutPage() {
     <main className="w-full px-6 pb-20 mx-auto">
       {/* --- Background Texture Layer --- */}
       <div 
-        className="fixed inset-0 -z-10 pointer-events-none opacity-[0.2]"
+        className="fixed inset-0 -z-10 pointer-events-none opacity-[0.45]"
         style={{ 
-          backgroundImage: "url('/images/grunge-paper-background3.png')", 
+          backgroundImage: "url('/images/grunge-paper-background3.jpg')", 
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center'

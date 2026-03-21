@@ -7,7 +7,7 @@ import { useLanguage } from '@/context/LanguageContext';
 
 const NAV_TEXT = {
   TH: { home: "หน้าหลัก", map: "แผนที่", about: "เกี่ยวกับเรา" },
-  ENG: { home: "Home", map: "Map", about: "About Us" }
+  ENG: { home: "Home", map: "Map", about: "About Us", }
 };
 
 export default function Navbar() {
