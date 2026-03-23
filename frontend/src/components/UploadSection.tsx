@@ -72,7 +72,7 @@ const UI_TEXT = {
     status_verify_fail: "การตรวจสอบไม่ผ่าน",
     status_tech_error: "เกิดข้อผิดพลาดทางเทคนิค",
     
-    status_reconstructing: "เตรียมหวนสู่\nวันวานในช่วงปี 2503",
+    status_reconstructing: "เตรียมหวน\nสู่วันวาน",
     sub_reconstructing: "กำลังสร้างภาพจำลอง (AI)...",
     
     status_animating: "กำลังทำภาพ\nให้ดูมีชีวิตชีวา",
@@ -529,7 +529,7 @@ const handleGenerate = async (e: React.FormEvent) => {
 
             {status === 'generating' && (
                 <>
-                    <div className="text-4xl md:text-6xl font-bold mb-6 animate-pulse serif-font tracking-widest text-gold max-w-[90vw] mx-auto break-keep">{text.status_reconstructing}</div>
+                    <div className="text-4xl md:text-6xl font-bold mb-6 animate-pulse serif-font tracking-widest text-gold max-w-[90vw] mx-auto break-keep whitespace-pre-line leading-relaxed">{text.status_reconstructing}</div>
                     <p className=" text-sm md:text-base opacity-70 tracking-wider">{text.sub_reconstructing}</p>
                 </>
             )}
