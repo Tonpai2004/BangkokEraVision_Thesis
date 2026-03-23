@@ -1045,7 +1045,8 @@ def animate_video_route():
                     vid_b64 = base64.b64encode(f.read()).decode('utf-8')
                     final_video_src = f"data:video/mp4;base64,{vid_b64}"
 
-            return jsonify({'status': 'success', 'video': final_video_src})
+            # return jsonify({'status': 'success', 'video': final_video_src})
+            return jsonify({'status': 'success', 'video_url': video_url})
         else:
             # ✅ แปล Error จาก Runway ให้ดูเป็นมิตร
             err_msg = translate_error_with_gemini("Video generation failed", lang)
