@@ -72,7 +72,7 @@ const UI_TEXT = {
     status_verify_fail: "การตรวจสอบไม่ผ่าน",
     status_tech_error: "เกิดข้อผิดพลาดทางเทคนิค",
     
-    status_reconstructing: "เตรียมหวนสู่ความวิจิตร ในวันวานแห่ง 1960s",
+    status_reconstructing: "เตรียมหวนสู่\nวันวานในช่วง 1960s",
     sub_reconstructing: "กำลังสร้างภาพจำลอง (AI)...",
     
     status_animating: "กำลังทำภาพ\nให้ดูมีชีวิตชีวา",
@@ -374,7 +374,7 @@ const handleGenerate = async (e: React.FormEvent) => {
     <>
       <form id="upload-section-start" onSubmit={handleGenerate} className="w-full mx-auto mt-8">
         
-        <div className="dashed-box-container">
+        <div className="border-4 border-dark border-dashed">
             {/* Location Select */}
             <div ref={dropdownRef} 
                 className={`flex flex-row md:flex-row md:justify-between md:items-end 
