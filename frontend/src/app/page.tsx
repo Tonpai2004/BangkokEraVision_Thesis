@@ -6,7 +6,8 @@ import UploadSection from "@/components/UploadSection";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 
-// คงเนื้อหา Marketing/คำสวยหรู ของ Processing ไว้ตามคำขอ
+import MaintenanceOverlay from "@/components/MaintenanceOverlay";
+
 const PAGE_TEXT = {
   TH: {
     brand_name: "บางกอกทวิกาล",
@@ -31,7 +32,7 @@ const PAGE_TEXT = {
   }
 };
 
-// 1. เปลี่ยนชื่อ Component หลักเป็น MainContent (เนื้อหาล่าสุดของคุณทั้งหมดอยู่ในนี้)
+
 function MainContent() {
   const { language } = useLanguage();
   const text = PAGE_TEXT[language];
@@ -98,8 +99,17 @@ function MainContent() {
   );
 }
 
-// 2. สร้าง Component ใหม่ชื่อ Home เพื่อครอบด้วย Suspense ป้องกัน Build Error บน Vercel
+
 export default function Home() {
+  const { language } = useLanguage();
+  
+  // ตัวแปรเปิด-ปิดระบบ (เปลี่ยนเป็น true เมื่อปิดปรับปรุง)
+  const isMaintenance = true; 
+
+  if (isMaintenance) {
+    return <MaintenanceOverlay lang={language} />;
+  }
+  
   return (
     <Suspense fallback={<div className="text-center p-10 font-pimdeed text-2xl">กำลังโหลด...</div>}>
       <MainContent />
