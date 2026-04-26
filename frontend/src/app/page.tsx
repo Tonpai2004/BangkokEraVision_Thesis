@@ -104,7 +104,7 @@ export default function Home() {
   const { language } = useLanguage();
   
   // ตัวแปรเปิด-ปิดระบบ (เปลี่ยนเป็น true เมื่อปิดปรับปรุง)
-  const isMaintenance = true; 
+  const isMaintenance = false; 
 
   if (isMaintenance) {
     return <MaintenanceOverlay lang={language} />;
