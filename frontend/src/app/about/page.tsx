@@ -84,7 +84,7 @@ export default function AboutPage() {
             {/* Creator 1 */}
             <div className={`flex flex-col items-center group w-full sm:w-[45%] md:w-[300px] ${fontClass}`}>
               <img
-                src="/images/member1.png"
+                src="/images/2642.png"
                 alt="Nattapat Chalee"
                 className="w-full max-w-[280px] aspect-square mb-4 object-cover border-[3px] border-dark shadow-[inset_0_0_0_4px_#FEF9C3,6px_6px_0px_#2C2C2C] group-hover:translate-y-[-5px] transition-transform"
               />
@@ -95,7 +95,7 @@ export default function AboutPage() {
             {/* Creator 2 */}
             <div className={`flex flex-col items-center group w-full sm:w-[45%] md:w-[300px] ${fontClass}`}>
               <img
-                src="/images/member2.png"
+                src="/images/2752.png"
                 alt="Madampong Prueksa"
                 className="w-full max-w-[280px] aspect-square mb-4 object-cover border-[3px] border-dark shadow-[inset_0_0_0_4px_#FEF9C3,6px_6px_0px_#2C2C2C] group-hover:translate-y-[-5px] transition-transform"
               />

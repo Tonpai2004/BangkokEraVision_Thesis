@@ -593,11 +593,11 @@ const handleGenerate = async (e: React.FormEvent) => {
             </div>
         </div>
       )}
-    <AssessmentModal 
+    {/* <AssessmentModal 
         isOpen={showAssessment} 
         onClose={() => setShowAssessment(false)} 
         currentLang={currentLang} 
-      />
+      /> */}
     </>
   );
 }
